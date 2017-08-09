@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "7Fb-hd-5B0"; */
+"7Fb-hd-5B0.normalTitle" = "取消";
+
+/* Class = "UITextView"; text = "写写心情吧"; ObjectID = "PGM-Xx-cmo"; */
+"PGM-Xx-cmo.text" = "写写心情吧";
+
+/* Class = "UIButton"; normalTitle = "发布"; ObjectID = "fht-1o-mCG"; */
+"fht-1o-mCG.normalTitle" = "发布";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ng9-YD-Rx7"; */
+"ng9-YD-Rx7.text" = "Label";

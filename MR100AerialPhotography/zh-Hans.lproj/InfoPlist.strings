@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  MR100AerialPhotography
+
+  Created by 赵文华 on 16/9/14.
+  Copyright © 2016年 AllWinner. All rights reserved.
+*/
+
+CFBundleDisplayName = "C-me Camera";
+NSContactsUsageDescription = "";
+NSLocationAlwaysUsageDescription = "我们需要获取您的地理位置从而进行定位操作";
+NSLocationWhenInUseUsageDescription = "我们需要获取您的地理位置从而进行定位操作";
+NSPhotoLibraryUsageDescription = "我们需要得到授权为您保存图片";

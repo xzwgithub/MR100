@@ -1,0 +1,22 @@
+PODS:
+  - Fabric (1.6.11)
+  - google-plus-ios-sdk (1.7.1)
+  - TwitterCore (2.6.1):
+    - Fabric
+  - TwitterKit (2.6.1):
+    - TwitterCore (= 2.6.1)
+
+DEPENDENCIES:
+  - Fabric
+  - google-plus-ios-sdk (~> 1.7.1)
+  - TwitterKit
+
+SPEC CHECKSUMS:
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  google-plus-ios-sdk: 47adbe03ea904bdb7aa1c0eca282a23c4686e1bc
+  TwitterCore: a8aea8bdaf2abd6572c8f264707a4ea4dc2d0eab
+  TwitterKit: d38c08d31dfd4ba604f95deca6cf8e174b5cbd96
+
+PODFILE CHECKSUM: 2c86e4dbb568d38230e0b6b6106841f319caf4d5
+
+COCOAPODS: 1.2.1

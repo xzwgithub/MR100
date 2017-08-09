@@ -1,0 +1,125 @@
+//
+//  PrefixHeader.pch
+//  Drone
+//
+//  Created by 赵文华 on 16/8/24.
+//  Copyright © 2016年 yitianfu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/**
+ *  公共头文件
+ */
+#import "Singleton.h"
+#import "Config.h"
+
+/**
+ *  调试环境下打印
+ */
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#define NSlog_Thread NSLog(@"%@",[NSThread currentThread]);
+
+/**
+ *  全局宏定义----------iPhone尺寸相关
+ */
+#define kIsIphone [[UIDevice currentDevice].model containsString:@"iPhone"]
+#define kBounds [UIScreen mainScreen].bounds
+#define kWidth (([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)?([UIScreen mainScreen].bounds.size.width):([UIScreen mainScreen].bounds.size.height))
+#define kHeight (([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)?([UIScreen mainScreen].bounds.size.height):([UIScreen mainScreen].bounds.size.width))
+#define kSettingCellHeight (kHeight - 50) / 6
+#define kMainTopBtnWidth (kWidth - 148) / 6
+#define kMainBottomBtnWidth (kWidth - 150) / 6
+#define kGalleryTopBtnGap (kWidth/6 - 62)
+
+/**
+ *  全局宏定义----------iPad尺寸相关
+ */
+#define kIsIpad [[UIDevice currentDevice].model containsString:@"iPad"]
+#define kZoomValue  ((([UIScreen mainScreen].bounds.size.height < [UIScreen mainScreen].bounds.size.width ) ? [UIScreen mainScreen].bounds.size.height : [UIScreen mainScreen].bounds.size.width) / 768)//基于9.7寸ipad的放大系数
+#define kIpadCellHeight 75
+#define kIpadMainTopBtnWidth (kWidth - 229) / 6
+#define kIpadMainBottomBtnWidth (kWidth - 233) / 6
+
+
+/**
+ *  全局宏定义----------颜色相关
+ */
+#define kRGBAColorFloat(r,g,b,a) [UIColor colorWithRed:r green:g blue:b alpha:a];   //
+#define kRGBColorInteger(r,g,b)     [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0f]
+#define kBlackColor     [UIColor blackColor]      // 0.0 white
+#define kDarkGrayColor  [UIColor darkGrayColor]   // 0.333 white
+#define kLightGrayColor [UIColor lightGrayColor]  // 0.667 white
+#define kWhiteColor     [UIColor whiteColor]      // 1.0 white
+#define kGrayColor      [UIColor grayColor]       // 0.5 white
+#define kRedColor       [UIColor redColor]        // 1.0, 0.0, 0.0 RGB
+#define kGreenColor     [UIColor greenColor]      // 0.0, 1.0, 0.0 RGB
+#define kBlueColor      [UIColor blueColor]       // 0.0, 0.0, 1.0 RGB
+#define hCyanColor      [UIColor cyanColor]       // 0.0, 1.0, 1.0 RGB
+#define hYellowColor    [UIColor yellowColor]     // 1.0, 1.0, 0.0 RGB
+#define hMagentaColor   [UIColor magentaColor]    // 1.0, 0.0, 1.0 RGB
+#define kOrangeColor    [UIColor orangeColor]     // 1.0, 0.5, 0.0 RGB
+#define kPurpleColor    [UIColor purpleColor]     // 0.5, 0.0, 0.5 RGB
+#define hBrownColor     [UIColor brownColor]      // 0.6, 0.4, 0.2 RGB
+#define kClearColor     [UIColor clearColor]      // 0.0 white, 0.0 alpha
+
+/**
+ *  全局宏定义---------标记
+ */
+#define kVolume 0.0625 //音量每次减少的固定值
+#define kAngle 180 //触摸屏的角度180度
+
+
+/// 常用宏定义
+
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+#define kApplication        [UIApplication sharedApplication]
+#define kAppDelegate        (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#define kFileManager        [NSFileManager defaultManager]
+#define kBundle             [NSBundle mainBundle]
+#define kDevice             [UIDevice currentDevice]
+#define kWindow             [[UIApplication sharedApplication] keyWindow]
+#define kBundleVersion      [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+#define kDocumentPath       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define kBundleLoadNibName(name) [[[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil] lastObject]
+
+#define ImageNamed(_name)     [UIImage imageNamed:_name]
+#define URLWithString(str)    [NSURL URLWithString:str]
+#define FontSize(_size)       [UIFont systemFontOfSize:_size]
+#define HeiTiFont(_size)      [UIFont fontWithName:@"HelveticaNeue" size:_size]
+#define kHeiTiFontJudged(_size)      [UIFont fontSizeWithOriginSize:_size fontName:@"HelveticaNeue"]
+
+/**
+ *  全局宏定义----------UserDefault相关
+ */
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
+
+//设置项
+#define kShare1Platform @"share1platform"//share1设置的平台
+#define kShare2Platform @"share2platform"//share2设置的平台
+#define kShareCaption @"ShareCaption"//输入的文字
+
+#define kClearScreen @"clearScreen"//保存一个bool值，用以决定是否需要全屏显示
+
+typedef enum {
+    
+    ZWHShareCaptionModeNever = 1 << 0,
+    ZWHShareCaptionModeAfter = 1 << 1,
+    ZWHShareCaptionModeBefore = 1 << 2,
+    
+    ZWHSharePlatformFacebook = 1 << 4,
+    ZWHSharePlatformTwitter = 1 << 5,
+    ZWHSharePlatformGoolePlus = 1 << 6,
+    ZWHSharePlatformYoutube = 1 << 7,
+    
+}ZWHSharePlatformAndCaptionModeOption;
+
+/** 固件在bundle中的地址 */
+#define kFirmwarePath [[NSBundle mainBundle] pathForResource:@"0.8.16" ofType:@"zip"]
+#endif /* PrefixHeader_pch */
