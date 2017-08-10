@@ -39,7 +39,7 @@ static void didFinishedDecompress( void *decompressionOutputRefCon, void *source
 
 - (void)resetH264Decoder
 {
-    if(_decoderSession && _decoderSession != nil) {
+    if(_decoderSession) {
         VTDecompressionSessionInvalidate(_decoderSession);
         CFRelease(_decoderSession);
         _decoderSession = NULL;
@@ -216,13 +216,11 @@ static void didFinishedDecompress( void *decompressionOutputRefCon, void *source
             break;
         }
             
-            
     }
     
     if(pixelBuffer) {
         dispatch_sync(dispatch_get_main_queue(), ^{
-            _showLayer.pixelBuffer = pixelBuffer;
-            
+             _showLayer.pixelBuffer = pixelBuffer;
             dispatch_source_set_event_handler(self.timer, ^{
                 if (_takePhotosNum > 0) {
                     cache = CVPixelBufferRetain(pixelBuffer);

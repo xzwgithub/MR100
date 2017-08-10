@@ -11,6 +11,8 @@
 typedef void(^ResponseBlock)(NSData *responseData);
 @interface TcpManager : NSObject
 
++(TcpManager *)defaultManager;
+
 @property(nonatomic,weak)id delegate;  //需要处理上报消息
 -(void)tcpConnect;
 -(void)disConnectTcp;

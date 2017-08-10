@@ -27,6 +27,9 @@ singleton_interface(RtspConnection)
 -(void)start_rtsp_session:(BOOL)online;
 //关闭rtsp通道
 -(void)close_rtsp_client;
+
++(RtspConnection *)shareStore;
+
 //判断rtsp连接状态
 -(BOOL)isConnecting;
 

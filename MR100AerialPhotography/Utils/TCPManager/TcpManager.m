@@ -33,9 +33,19 @@
 
 #pragma mark - TCP About
 
+
++(TcpManager *)defaultManager
+{
+    static TcpManager *manager = nil;
+    if (!manager) {
+        manager = [[TcpManager alloc] init];
+    }
+    return manager;
+}
+
 -(BOOL)tcpConnected
 {
-    if (asyncTcp&&[asyncTcp isConnected]) {
+    if (asyncTcp && [asyncTcp isConnected]) {
         return YES;
     }
     else return NO;

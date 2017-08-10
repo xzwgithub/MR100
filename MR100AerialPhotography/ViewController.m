@@ -111,8 +111,6 @@ static char kAlertKey;
 
 @property(nonatomic,strong) UIView *bigCircle;
 
-
-
 @end
 
 @implementation ViewController
@@ -698,15 +696,24 @@ singleton_implementation(ViewController)
 
 - (void)connectRtsp {
     
-    [[RtspConnection sharedRtspConnection] start_rtsp_session:NO];
-    
-    NSLog(@"开启rtsp");
-    
-    //设置日期时间
-    [self syncSysTime];
-    
+    TcpManager *tcpMgr = [TcpManager defaultManager];
+    tcpMgr.delegate = self;
+    [tcpMgr tcpConnect];
+    SEQ_CMD cmd = CMD_REQ_VID_ENC_PREVIEW_ON;
+    NSDictionary *params = @{@"CMD":[NSNumber numberWithInt:cmd],@"PARAM":[NSNumber numberWithInt:-1]};
+    NSData *encode_data = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    [tcpMgr sendData:encode_data Response:^(NSData *data){
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        if (result && [[result objectForKey:@"RESULT"] intValue] == 1) {
+            [[RtspConnection shareStore] start_rtsp_session:NO];
+            NSLog(@"开启rtsp");
+            //设置日期时间
+            [self syncSysTime];
+        }
+    } Tag:0];
 }
 
+#pragma mark -开始录制
 -(void)startRecord {
     //录制
     if (_mp4Helper) {
@@ -724,6 +731,7 @@ singleton_implementation(ViewController)
     }
 }
 
+#pragma mark -结束录制
 -(void)closeRecord {
     
     if (self.mp4Helper && [self.mp4Helper isRecording]) {
@@ -738,7 +746,7 @@ singleton_implementation(ViewController)
     }
 }
 
-//控制所有的下拉视图消失
+#pragma mark -控制所有的下拉视图消失
 - (void)tapGesClickAction {
     
     [self liveDropViewbuttonClickAction:nil];
@@ -746,7 +754,7 @@ singleton_implementation(ViewController)
     [self removeCameraDropView];
 }
 
-//状态
+#pragma mark -关闭和开启状态
 -(void)getStates:(BOOL)state {
     self.slideView.userInteractionEnabled = state;
 //    self.mainCtrStickView.userInteractionEnabled = state;
@@ -755,7 +763,7 @@ singleton_implementation(ViewController)
     self.followBtn.userInteractionEnabled = state;
 }
 
-//获取当前的背景图片
+#pragma mark -获取当前的背景图片
 - (UIImage *)currentImage {
     
     if (self.bgImageView.contents) {
@@ -765,7 +773,7 @@ singleton_implementation(ViewController)
     return [UIImage imageNamed:@"bg"];
 }
 
-//锁住飞控
+#pragma mark -锁住飞控
 -(void)lockStatues {
     [self getStates:NO];
     self.lock.hidden = NO;//显示锁按钮
@@ -780,8 +788,7 @@ singleton_implementation(ViewController)
     
 }
 
-#pragma mark - UI响应触摸事件视图的懒加载及相应方法
-//油门手柄视图
+#pragma mark - 油门手柄视图
 - (UIImageView *)acceleratorIndicator {
     if (_acceleratorIndicator == nil) {
         UIImageView *imaView = nil;
@@ -801,7 +808,7 @@ singleton_implementation(ViewController)
     return _acceleratorIndicator;
 }
 
-//油门控制按钮
+#pragma mark -油门控制按钮
 - (void)moveAcceleratorIndicator:(UIPanGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:self.slideView];
     NSLog(@"acceleratorIndicator:%@",NSStringFromCGPoint(point));
@@ -855,7 +862,7 @@ singleton_implementation(ViewController)
     }
 }
 
-//方向手柄视图
+#pragma mark -方向手柄视图
 - (UIImageView *)directionIndicator {
     if (_directionIndicator == nil) {
         UIImageView *imaView = [[UIImageView alloc]init];
@@ -885,7 +892,8 @@ singleton_implementation(ViewController)
     }
     return _directionIndicator;
 }
-//方向控制按钮
+
+#pragma mark -方向控制按钮
 - (void)moveDirectionIndicator:(UIPanGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:self.mainCtrStickView];
     
@@ -918,7 +926,8 @@ singleton_implementation(ViewController)
     }
     
 }
-//判断点是否在圆形区域，用以限制方向盘的拖动范围
+
+#pragma mark -判断点是否在圆形区域，用以限制方向盘的拖动范围
 - (BOOL)judgeIsThePointInTheCicleRect:(CGPoint)point {
     CGFloat x = point.x;
     CGFloat y = point.y;
@@ -960,7 +969,8 @@ singleton_implementation(ViewController)
     }
     return NO;
 }
-//把圆形外部的点，转化为符合条件的内部的点
+
+#pragma mark -把圆形外部的点，转化为符合条件的内部的点
 - (CGPoint)translateOutPointToIn:(CGPoint)point {
     
     //触摸点的x,y
@@ -1017,7 +1027,8 @@ singleton_implementation(ViewController)
         return CGPointMake(centerMainCtrX - xDistance, centerMainCtrY + yDistance);
     }
 }
-//触控板
+
+#pragma mark -触控板
 - (UIView *)gesCtrView {
     if (_gesCtrView == nil) {
         UIView *view = [[UIView alloc] init];
@@ -1030,7 +1041,8 @@ singleton_implementation(ViewController)
     }
     return _gesCtrView;
 }
-//触控板左右
+
+#pragma mark -触控板左右
 -(void)moveleftOrRight:(UIPanGestureRecognizer*)sender {
     
     CGPoint temp = [sender translationInView:self.gesCtrView];
@@ -1060,7 +1072,6 @@ singleton_implementation(ViewController)
 }
 
 #pragma mark - 照相按钮的懒加载及相应方法
-
 - (UIButton *)camaraBtn {
     if (_camaraBtn == nil) {
         
@@ -1084,7 +1095,8 @@ singleton_implementation(ViewController)
     }
     return _camaraBtn;
 }
-//点击拍照
+
+#pragma mark -点击拍照
 -(void)camara:(UIButton*)btn {
     BOOL ret = NO;
     if (btn.selected) {
@@ -1112,7 +1124,8 @@ singleton_implementation(ViewController)
     [self takePhotoFlashScreenWithImage:self.currentImage];
     _h264Decoder.takePhotosNum = 1;
 }
-//拍照闪屏效果
+
+#pragma mark -拍照闪屏效果
 - (void)takePhotoFlashScreenWithImage:(UIImage *)image {
     self.camaraBtn.userInteractionEnabled = NO;
     AudioServicesPlaySystemSound(1108);
@@ -1158,6 +1171,7 @@ singleton_implementation(ViewController)
     }];
 }
 
+#pragma mark-长按拍照按钮
 -(void)camaraBtnbtnLong:(UILongPressGestureRecognizer *)gestureRecognizer {
     
     if (_liveBtn.selected || _circleBtn.selected || !_rtspState)//录像时不能拍照
@@ -1205,6 +1219,7 @@ singleton_implementation(ViewController)
     }
 }
 
+#pragma mark -倒计时按钮
 - (void)delayBtnDidClick:(UIButton *)sender {
     
     for (id obj in sender.superview.subviews) {
@@ -1259,6 +1274,7 @@ singleton_implementation(ViewController)
     
 }
 
+#pragma mark -三秒按钮
 - (void)threeSecBtnDidClick:(UIButton *)sender {
     _cameraDropView.userInteractionEnabled = NO;
     UIView *view = sender.superview;
@@ -1289,6 +1305,7 @@ singleton_implementation(ViewController)
     
 }
 
+#pragma mark -三秒倒计时器
 - (void)threeSecTimerAction:(NSTimer *)timer {
     
     UILabel *lab = timer.userInfo;
@@ -1317,6 +1334,7 @@ singleton_implementation(ViewController)
     _h264Decoder.takePhotosNum = 1;
 }
 
+#pragma mark -十秒按钮
 - (void)tenSecBtnDidClick:(UIButton *)sender {
     _cameraDropView.userInteractionEnabled = NO;
     UIView *view = sender.superview;
@@ -1346,6 +1364,7 @@ singleton_implementation(ViewController)
     
 }
 
+#pragma mark -十秒倒计时器
 - (void)tenSecTimerAction:(NSTimer *)timer {
     
     UILabel *lab = timer.userInfo;
@@ -1521,7 +1540,7 @@ singleton_implementation(ViewController)
     }
 }
 
-//移除拍照长按的下拉框
+#pragma mark -移除拍照长按的下拉框
 - (void)removeCameraDropView {
     [self.cameraDropView removeFromSuperview];
     _cameraDropView = nil;
@@ -1699,7 +1718,6 @@ singleton_implementation(ViewController)
     }
     return _circleBtn;
 }
-
 - (void)circleBtnClickAction:(UIButton *)sender {
     
      NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
@@ -1777,7 +1795,6 @@ singleton_implementation(ViewController)
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotice360 object:nil];
     }
 }
-
 - (void)circleDropViewbuttonClickAction:(UIButton *)sender {
     
     if ([self.countDownTimer isValid]) {
@@ -1793,7 +1810,6 @@ singleton_implementation(ViewController)
 }
 
 #pragma mark - 零偏校准功能按钮的懒加载及相应方法
-
 - (UIButton *)topBtn {
 
     if (_topBtn == nil) {
@@ -1815,7 +1831,6 @@ singleton_implementation(ViewController)
     }
     return _topBtn;
 }
-
 - (void)topBtnClickAction:(UIButton *)sender {
     
     if (self.flyControlManager) {
@@ -1825,7 +1840,6 @@ singleton_implementation(ViewController)
         NSLog(@"shengjianglingpian:%f",_flyControlManager.controller.shengjianglingpian);
     }
 }
-
 - (UIButton *)bottomBtn {
     
     if (_bottomBtn == nil) {
@@ -1846,7 +1860,6 @@ singleton_implementation(ViewController)
     }
     return _bottomBtn;
 }
-
 - (void)bottomBtnClickAction:(UIButton *)sender {
     
     if (self.flyControlManager) {
@@ -1856,7 +1869,6 @@ singleton_implementation(ViewController)
         NSLog(@"shengjianglingpian:%f",_flyControlManager.controller.shengjianglingpian);
     }
 }
-
 - (UIButton *)leftBtn {
     
     if (_leftBtn == nil) {
@@ -1877,7 +1889,6 @@ singleton_implementation(ViewController)
     }
     return _leftBtn;
 }
-
 - (void)leftBtnClickAction:(UIButton *)sender {
     
     if (self.flyControlManager) {
@@ -1888,7 +1899,6 @@ singleton_implementation(ViewController)
         NSLog(@"fuyilingpian:%f",_flyControlManager.controller.fuyilingpian);
     }
 }
-
 - (UIButton *)rightBtn {
     
     if (_rightBtn == nil) {
@@ -1909,7 +1919,6 @@ singleton_implementation(ViewController)
     }
     return _rightBtn;
 }
-
 - (void)rightBtnClickAction:(UIButton *)sender {
     
     if (self.flyControlManager) {
@@ -1920,7 +1929,6 @@ singleton_implementation(ViewController)
         NSLog(@"fuyilingpian:%f",_flyControlManager.controller.fuyilingpian);
     }
 }
-
 -(void)syncLocalCache:(BOOL)index
 {
     dispatch_sync(dispatch_get_global_queue(0, 0), ^{
@@ -1934,7 +1942,6 @@ singleton_implementation(ViewController)
         }
     });
 }
-
 
 #pragma mark - 其他功能按钮的懒加载及相应方法
 //紧急降落按钮
@@ -1955,7 +1962,6 @@ singleton_implementation(ViewController)
     }
     return _emergercyBtn;
 }
-
 - (void)emergercyBtnClickAction:(UIButton *)sender {
     
     //当锁上的时候移除通知
@@ -1983,7 +1989,7 @@ singleton_implementation(ViewController)
     }
 }
 
-//快捷分享1
+#pragma mark-快捷分享1
 - (UIButton *)share1Btn {
     if (_share1Btn == nil) {
         
@@ -2004,7 +2010,6 @@ singleton_implementation(ViewController)
     }
     return _share1Btn;
 }
-
 - (void)share1BtnClickAction:(UIButton *)sender {
     
     if (self.share2Btn.selected || !frameCount) {
@@ -2075,7 +2080,7 @@ singleton_implementation(ViewController)
     [_mp4Helper closeShareVideo];
 }
 
-//快捷分享2
+#pragma mark-快捷分享2
 - (UIButton *)share2Btn {
     if (_share2Btn == nil) {
         
@@ -2089,7 +2094,6 @@ singleton_implementation(ViewController)
     }
     return _share2Btn;
 }
-
 - (void)share2BtnClickAction:(UIButton *)sender {
     
     if (self.share1Btn.selected || !frameCount) {
@@ -2160,7 +2164,7 @@ singleton_implementation(ViewController)
     [_mp4Helper closeShareVideo];
 }
 
-//闪光灯按钮
+#pragma mark -闪光灯按钮
 - (ZWHFlashLedButton *)lightBtn {
     if (_lightBtn == nil) {
         ZWHFlashLedButton *btn = [[ZWHFlashLedButton alloc] init];
@@ -2209,7 +2213,7 @@ singleton_implementation(ViewController)
     return _lightBtn;
 }
 
-//follow me
+#pragma mark -follow me
 - (UIButton *)followBtn {
     
     if (_followBtn == nil) {
@@ -2230,7 +2234,6 @@ singleton_implementation(ViewController)
     }
     return _followBtn;
 }
-
 - (void)followBtnClickAction:(UIButton *)sender {
     
     if (![self.flyControlManager.response getFlyingState])//未连接图传，直接退出
@@ -2243,7 +2246,7 @@ singleton_implementation(ViewController)
     }
 }
 
-//设置按钮
+#pragma mark -设置按钮
 - (UIButton *)settingBtn {
     if (_settingBtn == nil) {
         
@@ -2263,7 +2266,7 @@ singleton_implementation(ViewController)
     return _settingBtn;
 }
 
-//参数设置
+#pragma mark -参数设置
 -(void)ParamsSet:(UIButton*)btn {
     
     ParaSetViewController *vc = [[ParaSetViewController alloc] init];
@@ -2271,7 +2274,7 @@ singleton_implementation(ViewController)
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-//相册按钮
+#pragma mark -相册按钮
 - (UIButton *)gelleryBtn {
     if (_gelleryBtn == nil) {
         
@@ -2290,14 +2293,13 @@ singleton_implementation(ViewController)
     }
     return _gelleryBtn;
 }
-
 - (void)gelleryBtnClickAction:(UIButton *)sender {
     
     ZWHGalleryViewController *vc = [[ZWHGalleryViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-//一键降落一键起飞按钮
+#pragma mark -一键降落一键起飞按钮
 - (UIButton *)takeOffOrLandingBtn {
     if (_takeOffOrLandingBtn == nil) {
         
@@ -2321,7 +2323,6 @@ singleton_implementation(ViewController)
     
     return _takeOffOrLandingBtn;
 }
-
 - (void)takeOffOrLandingBtnClickAction:(UIButton *)sender {
     
     if (![self.flyControlManager isConnected]) {
@@ -2416,7 +2417,6 @@ singleton_implementation(ViewController)
 //        }
     
 }
-
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSInteger tag = [objc_getAssociatedObject(alertView, &kAlertKey) integerValue];
@@ -2455,7 +2455,7 @@ singleton_implementation(ViewController)
     [self getStates:NO];
 }
 
-//锁定键
+#pragma mark -锁定键
 - (ZWHLockButton *)lock {
     if (_lock == nil) {
         ZWHLockButton *btn = [ZWHLockButton buttonWithType:UIButtonTypeCustom];
@@ -2477,7 +2477,6 @@ singleton_implementation(ViewController)
     }
     return _lock;
 }
-
 - (void)lockBtnLongPressAction:(UILongPressGestureRecognizer *)ges {
     
     
@@ -2517,7 +2516,6 @@ singleton_implementation(ViewController)
         });
     }
 }
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"selected"])
     {
@@ -2539,7 +2537,6 @@ singleton_implementation(ViewController)
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
    
 }
-
 - (void)volumeChanged:(NSNotification *)notification
 {
     float volume = [[AVAudioSession sharedInstance] outputVolume]+kVolume;
@@ -2562,7 +2559,7 @@ singleton_implementation(ViewController)
 -(void)connectSuccess
 {
     [self catchCameraBaseInfo];
-    [UIApplication sharedApplication].idleTimerDisabled=YES;
+    [UIApplication sharedApplication].idleTimerDisabled=YES;//禁止自动休眠
 }
 
 -(void)SDCardReport:(id)obj
@@ -2613,6 +2610,7 @@ singleton_implementation(ViewController)
     }
 }
 
+#pragma mark -获取相机基础信息
 -(void)catchCameraBaseInfo
 {
     SEQ_CMD cmd;
@@ -2767,7 +2765,7 @@ singleton_implementation(ViewController)
     return self.upgratedFirmware;
 }
 
-#pragma mark rtsp delegate
+#pragma mark rtsp delegate  解码
 
 -(void)decodeNalu:(uint8_t *)buffer Size:(int)size
 {
@@ -2874,7 +2872,7 @@ singleton_implementation(ViewController)
     return _bottomBarView;
 }
 
-//方向控制板视图
+#pragma mark -方向控制板视图
 - (UIView *)mainCtrStickView {
     if (_mainCtrStickView == nil) {
         
@@ -2903,7 +2901,7 @@ singleton_implementation(ViewController)
     return _mainCtrStickView;
 }
 
-//油门控制视图
+#pragma mark -油门控制视图
 - (UIView *)slideView {
     if (_slideView == nil) {
         UIView *view = [[UIView alloc] init];
@@ -2932,7 +2930,7 @@ singleton_implementation(ViewController)
     return _slideView;
 }
 
-//卫星视图
+#pragma mark-卫星视图
 - (ZWHSatelliteView *)sateView {
     
     if (_sateView == nil) {
@@ -2945,7 +2943,7 @@ singleton_implementation(ViewController)
     return _sateView;
 }
 
-//电源视图
+#pragma mark -电源视图
 - (ZWHBatteryView *)batteryView {
     
     if (_batteryView == nil) {
@@ -2959,7 +2957,7 @@ singleton_implementation(ViewController)
     return _batteryView;
 }
 
-//内存卡视图
+#pragma mark -内存卡视图
 - (ZWHSdView *)SDcard {
     
     if (_SDcard == nil) {
@@ -2972,7 +2970,7 @@ singleton_implementation(ViewController)
     return _SDcard;
 }
 
-//wifi
+#pragma mark -wifi图标
 - (UIImageView *)wifiImageView {
 
     if (_wifiImageView == nil) {
@@ -2991,6 +2989,7 @@ singleton_implementation(ViewController)
     return _wifiImageView;
 }
 
+#pragma mark-tcp定时器
 - (dispatch_source_t)tcpTimer {
 
     if (_tcpTimer == nil) {
@@ -2998,7 +2997,7 @@ singleton_implementation(ViewController)
         dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
         dispatch_source_set_event_handler(timer, ^{
             
-            if ([tcpManager tcpConnected])
+            if ( tcpManager && [tcpManager tcpConnected])
             {
                 if (frameCount == 0) {
                     _rtspState = NO;   //1s内没有图片帧数据，则认定rtsp失去连接/网络极差

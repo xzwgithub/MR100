@@ -111,18 +111,18 @@
 -(void)sendControlMsg:(NSTimer *)timer
 {
    
-    //获取基本信息
-    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
-    
-    //获取传感器校准状态
-    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
-
-    
-    //发送一键起飞命令
-    [self.udp sendData:[AWLinkHelper sendFlyModelCommand:[self.controller getControlMessage]] Tag:0];
-    
-    //发送遥感控制
-    [self.udp sendData:[AWLinkHelper sendRemoteControlCommand:[self getRemoteModel]] Tag:0];
+//    //获取基本信息
+//    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
+//    
+//    //获取传感器校准状态
+//    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
+//
+//    
+//    //发送一键起飞命令
+//    [self.udp sendData:[AWLinkHelper sendFlyModelCommand:[self.controller getControlMessage]] Tag:0];
+//    
+//    //发送遥感控制
+//    [self.udp sendData:[AWLinkHelper sendRemoteControlCommand:[self getRemoteModel]] Tag:0];
     
 }
 
