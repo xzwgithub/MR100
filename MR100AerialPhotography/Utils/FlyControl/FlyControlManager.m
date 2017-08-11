@@ -22,8 +22,9 @@
 
 @implementation FlyControlManager
 
-#define SendRate 100   //ms
-#define GpsRate 200   //ms
+#define SendRate 10   //ms
+#define GpsRate 10   //ms
+
 -(Controller *)controller
 {
     if (!_controller) {
