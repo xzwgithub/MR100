@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2821C7322294870B3FE0FFC89F45A9F3 /* Pods-MR100AerialPhotography-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F9A5716B9970A0EABB53507BC5CE8B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		94DB13156565F6E05F8AAD8FDE7880D9 /* Pods-MR100AerialPhotography-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		020DB03D84B89DE5C8292EF41C4D3C74 /* GTLPlusMoment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMoment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMoment.h"; sourceTree = "<group>"; };
+		0720CDB3E1F2035FBDCD051E5E9CE205 /* GTLPlusComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusComment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusComment.h"; sourceTree = "<group>"; };
+		07EEAD72A95AA22E758ED8A7A264D9FB /* Pods-MR100AerialPhotography-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MR100AerialPhotography-frameworks.sh"; sourceTree = "<group>"; };
+		08DD76C7EDE304E51B5C44AF5FE0CFEC /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		0CAD59E0ABD5C62D79FBEAB313CCA2DA /* GTLPlusPlace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPlace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPlace.h"; sourceTree = "<group>"; };
+		116CEB541D41DDCAC1288A191CA65FA3 /* OpenInChromeController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/OpenInChromeController.h"; sourceTree = "<group>"; };
+		138DCA83A57D157C06BDA91F893CCF4C /* GTMHTTPFetchHistory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetchHistory.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetchHistory.h"; sourceTree = "<group>"; };
+		19093B769FBA6FDC292FEDCF0CAE6BFF /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
+		1DFF45926B651E10EC18457E03AA77C1 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMDefines.h"; sourceTree = "<group>"; };
+		1EA89CA37EF73C3AB969F736357AAB35 /* GooglePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GooglePlus.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GooglePlus.h"; sourceTree = "<group>"; };
+		1ECB9CD2FA8690D1B014D419C9A41027 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		2CFCB43CEDA406A72C5A29556F3FED48 /* GTMHTTPFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherLogging.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherLogging.h"; sourceTree = "<group>"; };
+		3282AD141EED5C31F874D5C6CBD47B58 /* GTLPlusAcl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAcl.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAcl.h"; sourceTree = "<group>"; };
+		37EA148115563B228F2E73EF7929C7AF /* GTLJSONParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLJSONParser.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLJSONParser.h"; sourceTree = "<group>"; };
+		37F8B4BD17B8D7688B440F0FC6F71B32 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2SignIn.h"; sourceTree = "<group>"; };
+		39CBC9EA15A9745C17644FCC09CF7162 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework"; sourceTree = "<group>"; };
+		3CAEA90701E2F019BB6420F764AB54AC /* Pods-MR100AerialPhotography-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MR100AerialPhotography-resources.sh"; sourceTree = "<group>"; };
+		42DE7CB1D21D62CE6A6EFEE03E8FDDE6 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGarbageCollection.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMGarbageCollection.h"; sourceTree = "<group>"; };
+		43D0779145986572ACF9330CD575F9D1 /* GTMHTTPFetcherService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherService.h"; sourceTree = "<group>"; };
+		47F5E4027CD687B876725C4264C7C21F /* GTLPlusMomentsFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMomentsFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMomentsFeed.h"; sourceTree = "<group>"; };
+		49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MR100AerialPhotography-umbrella.h"; sourceTree = "<group>"; };
+		49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MR100AerialPhotography.release.xcconfig"; sourceTree = "<group>"; };
+		4A66117626F746594CCFA7D1257C9A7E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		4AA6134DDD2245625DB1400A43768B58 /* GPPDeepLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPDeepLink.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPDeepLink.h"; sourceTree = "<group>"; };
+		50E1128E9DBB1BDD8D6E45AD54BA189B /* GTLErrorObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLErrorObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLErrorObject.h"; sourceTree = "<group>"; };
+		526A8925CEFC36B0D43A490B857AAE9B /* GTLPlusPeopleFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPeopleFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPeopleFeed.h"; sourceTree = "<group>"; };
+		55AA7E152BE504151009D9DE2BA33821 /* GTLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDefines.h"; sourceTree = "<group>"; };
+		5621049CD08A8B10A8F6F0BAA52CF6DF /* GPPSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignIn.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignIn.h"; sourceTree = "<group>"; };
+		57280D86DED21D6BBA873791D851E2A2 /* GTLRuntimeCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLRuntimeCommon.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLRuntimeCommon.h"; sourceTree = "<group>"; };
+		57E38B4CC5BEF1AF846FC2D3B7E52FD3 /* GTLTargetNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLTargetNamespace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLTargetNamespace.h"; sourceTree = "<group>"; };
+		5A27F7AA7BA5CC8FC950B377C612D2DA /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		5DF457B8E8B7E79CD12740EC442EDDF0 /* GTLPlusAclentryResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAclentryResource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAclentryResource.h"; sourceTree = "<group>"; };
+		62AE612058C148234679AB5D9F02CB7D /* GTLPlusCommentFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusCommentFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusCommentFeed.h"; sourceTree = "<group>"; };
+		63931B12711217DAEF45C99D47E4A0F8 /* GooglePlus.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
+		63D1A320820AAFB6DE56AF52BC2701D9 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		718359566BCBF7F5774AB1EB19071C2B /* GoogleOpenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleOpenSource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GoogleOpenSource.h"; sourceTree = "<group>"; };
+		758761EFCD308B09DE06773E5125DBC5 /* GTLServicePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLServicePlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLServicePlus.h"; sourceTree = "<group>"; };
+		7715DAC533F7F511AF0DAF8C72CEAA11 /* GTMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMLogger.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMLogger.h"; sourceTree = "<group>"; };
+		7C6344F1B856C15718361B2E3A2E1A99 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcher.h"; sourceTree = "<group>"; };
+		7D553848D26F278C80A49A387DC5BB4E /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework"; sourceTree = "<group>"; };
+		7F29D5CD9525A4E3A6FAED1F0B01E29C /* Pods-MR100AerialPhotography-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MR100AerialPhotography-acknowledgements.plist"; sourceTree = "<group>"; };
+		85547249EA59D0CE156E84138A685609 /* GTLUploadParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUploadParameters.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUploadParameters.h"; sourceTree = "<group>"; };
+		884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MR100AerialPhotography.debug.xcconfig"; sourceTree = "<group>"; };
+		8D0711E8A680F45D785728262D852192 /* GTLPlusActivityFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivityFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivityFeed.h"; sourceTree = "<group>"; };
+		8E43543E4C49208FDE169ED4CA9F9A3B /* GTLBase64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBase64.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBase64.h"; sourceTree = "<group>"; };
+		8FE1C51BDC688FB76EDE6809E31F21D2 /* GTLQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQuery.h"; sourceTree = "<group>"; };
+		90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MR100AerialPhotography-dummy.m"; sourceTree = "<group>"; };
+		9267C2BF9024F2D69BD66B89BB103606 /* GTLPlusActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivity.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivity.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		949EACDF0795BE8B666B464F7AA7620E /* GTLService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLService.h"; sourceTree = "<group>"; };
+		9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MR100AerialPhotography.framework; path = "Pods-MR100AerialPhotography.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8C7E3489732804EADA76E1DAD0D0ED /* GPPShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPShare.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPShare.h"; sourceTree = "<group>"; };
+		A22050FBBBA8D5F8FC126D00AE388FFC /* GTLPlusConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusConstants.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusConstants.h"; sourceTree = "<group>"; };
+		A487C61D31796039A29614789AB783F4 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		A5B5F988D574CA92E72E8F56A373D203 /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMMethodCheck.h"; sourceTree = "<group>"; };
+		A6CE447FF31A63A59344C4099D107E5F /* GTLPlusPerson.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPerson.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPerson.h"; sourceTree = "<group>"; };
+		B4BD6D920B767E76BDEFC9B93135F4D1 /* Pods-MR100AerialPhotography-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MR100AerialPhotography-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B5408D66415F2693F2EA8E7631850FC3 /* GPPURLHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPURLHandler.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPURLHandler.h"; sourceTree = "<group>"; };
+		BE0DF23055AD669516217B047CB973F0 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		C4F2EDDD9742FB343FF79424632883C2 /* GTLPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlus.h"; sourceTree = "<group>"; };
+		CD0FF7D832697C30C91C5DF790852434 /* GTMHTTPUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPUploadFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPUploadFetcher.h"; sourceTree = "<group>"; };
+		CECB6B1D660531FAE976D1E664F55A17 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMObjC2Runtime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMObjC2Runtime.h"; sourceTree = "<group>"; };
+		CEEAB50E1EC13A9505AEACFA383DCA0F /* GTLUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUtilities.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUtilities.h"; sourceTree = "<group>"; };
+		CFB7A7FA1CA8E1BFE5BCF93178932BB5 /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2Authentication.h"; sourceTree = "<group>"; };
+		D0EF9A5F4E4ABE30FFA31E1CB3597B23 /* GTLDateTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDateTime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDateTime.h"; sourceTree = "<group>"; };
+		D5FE99C847C758E49FF1AB67B76E4E8B /* GTLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLObject.h"; sourceTree = "<group>"; };
+		D7D4B09C455557C231C569F5C9D42273 /* GTLBatchResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchResult.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchResult.h"; sourceTree = "<group>"; };
+		D89C054CF1660E317F34106CB1CE0FB1 /* GTLFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLFramework.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLFramework.h"; sourceTree = "<group>"; };
+		DCB6FEC84AC6F2D1C360FFF508B06AFA /* GPPSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignInButton.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignInButton.h"; sourceTree = "<group>"; };
+		E55CEECB0D1132D71960D41CE8ED5931 /* GTLPlusItemScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusItemScope.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusItemScope.h"; sourceTree = "<group>"; };
+		F3B22B425B1E0FAE59AD09FC1B5F7DE7 /* GTLBatchQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchQuery.h"; sourceTree = "<group>"; };
+		F47776281687CCAED48D5F0AE33536C4 /* Pods-MR100AerialPhotography.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MR100AerialPhotography.modulemap"; sourceTree = "<group>"; };
+		F8DABA26561AFA48574ED2AE90CFB36C /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2ViewControllerTouch.h"; sourceTree = "<group>"; };
+		F96051EBB266BDBC2AB0062C04027C0B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD51CFF576BB27130A1589D2253CBDF /* GTLQueryPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQueryPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQueryPlus.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5603E971FBDD8E1811721DA6B6DAD37B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F9A5716B9970A0EABB53507BC5CE8B4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		245BE1FE77BB86A4B76A4CDB33547388 /* TwitterCore */ = {
+			isa = PBXGroup;
+			children = (
+				C1A45829502C12542DB84BB155075E67 /* Frameworks */,
+			);
+			name = TwitterCore;
+			path = TwitterCore;
+			sourceTree = "<group>";
+		};
+		50897F8887FD1405E56D8B662D1FC878 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19093B769FBA6FDC292FEDCF0CAE6BFF /* TwitterKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6BBA493DE33BB9D97A0102CDE5DEDD45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A20EEAD3B0349F63D646F04C08D42AB3 /* Fabric */,
+				886598C9925F926E8220FB5529905289 /* google-plus-ios-sdk */,
+				245BE1FE77BB86A4B76A4CDB33547388 /* TwitterCore */,
+				8A1B2F695F963A47EBD22A040084E633 /* TwitterKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B0E7C998E89D97B298139B2B763D669 /* Pods-MR100AerialPhotography */ = {
+			isa = PBXGroup;
+			children = (
+				F96051EBB266BDBC2AB0062C04027C0B /* Info.plist */,
+				F47776281687CCAED48D5F0AE33536C4 /* Pods-MR100AerialPhotography.modulemap */,
+				B4BD6D920B767E76BDEFC9B93135F4D1 /* Pods-MR100AerialPhotography-acknowledgements.markdown */,
+				7F29D5CD9525A4E3A6FAED1F0B01E29C /* Pods-MR100AerialPhotography-acknowledgements.plist */,
+				90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */,
+				07EEAD72A95AA22E758ED8A7A264D9FB /* Pods-MR100AerialPhotography-frameworks.sh */,
+				3CAEA90701E2F019BB6420F764AB54AC /* Pods-MR100AerialPhotography-resources.sh */,
+				49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */,
+				884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */,
+				49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */,
+			);
+			name = "Pods-MR100AerialPhotography";
+			path = "Target Support Files/Pods-MR100AerialPhotography";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				6BBA493DE33BB9D97A0102CDE5DEDD45 /* Pods */,
+				6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */,
+				7F4B120ADECB87E7C9E9BF3A7310AC66 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7F4B120ADECB87E7C9E9BF3A7310AC66 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B0E7C998E89D97B298139B2B763D669 /* Pods-MR100AerialPhotography */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8277AC212E96B221BAA64C73E1EA7006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D553848D26F278C80A49A387DC5BB4E /* GoogleOpenSource.framework */,
+				39CBC9EA15A9745C17644FCC09CF7162 /* GooglePlus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		886598C9925F926E8220FB5529905289 /* google-plus-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				718359566BCBF7F5774AB1EB19071C2B /* GoogleOpenSource.h */,
+				1EA89CA37EF73C3AB969F736357AAB35 /* GooglePlus.h */,
+				4AA6134DDD2245625DB1400A43768B58 /* GPPDeepLink.h */,
+				9A8C7E3489732804EADA76E1DAD0D0ED /* GPPShare.h */,
+				5621049CD08A8B10A8F6F0BAA52CF6DF /* GPPSignIn.h */,
+				DCB6FEC84AC6F2D1C360FFF508B06AFA /* GPPSignInButton.h */,
+				B5408D66415F2693F2EA8E7631850FC3 /* GPPURLHandler.h */,
+				8E43543E4C49208FDE169ED4CA9F9A3B /* GTLBase64.h */,
+				F3B22B425B1E0FAE59AD09FC1B5F7DE7 /* GTLBatchQuery.h */,
+				D7D4B09C455557C231C569F5C9D42273 /* GTLBatchResult.h */,
+				D0EF9A5F4E4ABE30FFA31E1CB3597B23 /* GTLDateTime.h */,
+				55AA7E152BE504151009D9DE2BA33821 /* GTLDefines.h */,
+				50E1128E9DBB1BDD8D6E45AD54BA189B /* GTLErrorObject.h */,
+				D89C054CF1660E317F34106CB1CE0FB1 /* GTLFramework.h */,
+				37EA148115563B228F2E73EF7929C7AF /* GTLJSONParser.h */,
+				D5FE99C847C758E49FF1AB67B76E4E8B /* GTLObject.h */,
+				C4F2EDDD9742FB343FF79424632883C2 /* GTLPlus.h */,
+				3282AD141EED5C31F874D5C6CBD47B58 /* GTLPlusAcl.h */,
+				5DF457B8E8B7E79CD12740EC442EDDF0 /* GTLPlusAclentryResource.h */,
+				9267C2BF9024F2D69BD66B89BB103606 /* GTLPlusActivity.h */,
+				8D0711E8A680F45D785728262D852192 /* GTLPlusActivityFeed.h */,
+				0720CDB3E1F2035FBDCD051E5E9CE205 /* GTLPlusComment.h */,
+				62AE612058C148234679AB5D9F02CB7D /* GTLPlusCommentFeed.h */,
+				A22050FBBBA8D5F8FC126D00AE388FFC /* GTLPlusConstants.h */,
+				E55CEECB0D1132D71960D41CE8ED5931 /* GTLPlusItemScope.h */,
+				020DB03D84B89DE5C8292EF41C4D3C74 /* GTLPlusMoment.h */,
+				47F5E4027CD687B876725C4264C7C21F /* GTLPlusMomentsFeed.h */,
+				526A8925CEFC36B0D43A490B857AAE9B /* GTLPlusPeopleFeed.h */,
+				A6CE447FF31A63A59344C4099D107E5F /* GTLPlusPerson.h */,
+				0CAD59E0ABD5C62D79FBEAB313CCA2DA /* GTLPlusPlace.h */,
+				8FE1C51BDC688FB76EDE6809E31F21D2 /* GTLQuery.h */,
+				FFD51CFF576BB27130A1589D2253CBDF /* GTLQueryPlus.h */,
+				57280D86DED21D6BBA873791D851E2A2 /* GTLRuntimeCommon.h */,
+				949EACDF0795BE8B666B464F7AA7620E /* GTLService.h */,
+				758761EFCD308B09DE06773E5125DBC5 /* GTLServicePlus.h */,
+				57E38B4CC5BEF1AF846FC2D3B7E52FD3 /* GTLTargetNamespace.h */,
+				85547249EA59D0CE156E84138A685609 /* GTLUploadParameters.h */,
+				CEEAB50E1EC13A9505AEACFA383DCA0F /* GTLUtilities.h */,
+				1DFF45926B651E10EC18457E03AA77C1 /* GTMDefines.h */,
+				42DE7CB1D21D62CE6A6EFEE03E8FDDE6 /* GTMGarbageCollection.h */,
+				7C6344F1B856C15718361B2E3A2E1A99 /* GTMHTTPFetcher.h */,
+				2CFCB43CEDA406A72C5A29556F3FED48 /* GTMHTTPFetcherLogging.h */,
+				43D0779145986572ACF9330CD575F9D1 /* GTMHTTPFetcherService.h */,
+				138DCA83A57D157C06BDA91F893CCF4C /* GTMHTTPFetchHistory.h */,
+				CD0FF7D832697C30C91C5DF790852434 /* GTMHTTPUploadFetcher.h */,
+				7715DAC533F7F511AF0DAF8C72CEAA11 /* GTMLogger.h */,
+				A5B5F988D574CA92E72E8F56A373D203 /* GTMMethodCheck.h */,
+				BE0DF23055AD669516217B047CB973F0 /* GTMNSDictionary+URLArguments.h */,
+				1ECB9CD2FA8690D1B014D419C9A41027 /* GTMNSString+URLArguments.h */,
+				CFB7A7FA1CA8E1BFE5BCF93178932BB5 /* GTMOAuth2Authentication.h */,
+				37F8B4BD17B8D7688B440F0FC6F71B32 /* GTMOAuth2SignIn.h */,
+				F8DABA26561AFA48574ED2AE90CFB36C /* GTMOAuth2ViewControllerTouch.h */,
+				CECB6B1D660531FAE976D1E664F55A17 /* GTMObjC2Runtime.h */,
+				116CEB541D41DDCAC1288A191CA65FA3 /* OpenInChromeController.h */,
+				8277AC212E96B221BAA64C73E1EA7006 /* Frameworks */,
+				97E669801C96E39578DD95A718415FE8 /* Resources */,
+			);
+			name = "google-plus-ios-sdk";
+			path = "google-plus-ios-sdk";
+			sourceTree = "<group>";
+		};
+		8A1B2F695F963A47EBD22A040084E633 /* TwitterKit */ = {
+			isa = PBXGroup;
+			children = (
+				50897F8887FD1405E56D8B662D1FC878 /* Frameworks */,
+				CFA224D580DF2E67F1442BBE059BBD19 /* Resources */,
+			);
+			name = TwitterKit;
+			path = TwitterKit;
+			sourceTree = "<group>";
+		};
+		97E669801C96E39578DD95A718415FE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				63931B12711217DAEF45C99D47E4A0F8 /* GooglePlus.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A20EEAD3B0349F63D646F04C08D42AB3 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				08DD76C7EDE304E51B5C44AF5FE0CFEC /* FABAttributes.h */,
+				63D1A320820AAFB6DE56AF52BC2701D9 /* Fabric.h */,
+				EB5C15E64CAC6BFCB47C7CD8A9789C52 /* Frameworks */,
+			);
+			name = Fabric;
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1A45829502C12542DB84BB155075E67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A27F7AA7BA5CC8FC950B377C612D2DA /* TwitterCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFA224D580DF2E67F1442BBE059BBD19 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A487C61D31796039A29614789AB783F4 /* TwitterKitResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EB5C15E64CAC6BFCB47C7CD8A9789C52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A66117626F746594CCFA7D1257C9A7E /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		724436935E60519475D9748FD537592C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2821C7322294870B3FE0FFC89F45A9F3 /* Pods-MR100AerialPhotography-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5F470035FF0DEDDBBA67A67D38F3E27E /* Pods-MR100AerialPhotography */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 308714081E1D1962DBDEC98F40F35B35 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */;
+			buildPhases = (
+				7053B47405687E4FC221914509D08451 /* Sources */,
+				5603E971FBDD8E1811721DA6B6DAD37B /* Frameworks */,
+				724436935E60519475D9748FD537592C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MR100AerialPhotography";
+			productName = "Pods-MR100AerialPhotography";
+			productReference = 9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F470035FF0DEDDBBA67A67D38F3E27E /* Pods-MR100AerialPhotography */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7053B47405687E4FC221914509D08451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94DB13156565F6E05F8AAD8FDE7880D9 /* Pods-MR100AerialPhotography-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2361E2E2987ABC7538BDC604877A2B4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MR100AerialPhotography/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MR100AerialPhotography;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F08D89193EE20FEEC9A41F5ABB2867EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MR100AerialPhotography/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MR100AerialPhotography;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104F7F091290C3D1E248192F07FE689 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		308714081E1D1962DBDEC98F40F35B35 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F08D89193EE20FEEC9A41F5ABB2867EA /* Debug */,
+				2361E2E2987ABC7538BDC604877A2B4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
