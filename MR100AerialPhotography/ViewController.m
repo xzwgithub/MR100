@@ -654,6 +654,7 @@ singleton_implementation(ViewController)
         }
     }
     
+    
     if ([self.flyControlManager isConnected]) {
         
         
@@ -699,16 +700,20 @@ singleton_implementation(ViewController)
     TcpManager *tcpMgr = [TcpManager defaultManager];
     tcpMgr.delegate = self;
     [tcpMgr tcpConnect];
+    
+   
     SEQ_CMD cmd = CMD_REQ_VID_ENC_PREVIEW_ON;
     NSDictionary *params = @{@"CMD":[NSNumber numberWithInt:cmd],@"PARAM":[NSNumber numberWithInt:-1]};
     NSData *encode_data = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     [tcpMgr sendData:encode_data Response:^(NSData *data){
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        if (result && [[result objectForKey:@"RESULT"] intValue] == 1) {
+        if (result && ( [[result objectForKey:@"RESULT"] intValue] == 1 ||[[result objectForKey:@"RESULT"] intValue] == 0)) {
+            
             [[RtspConnection shareStore] start_rtsp_session:NO];
             NSLog(@"开启rtsp");
             //设置日期时间
             [self syncSysTime];
+            
         }
     } Tag:0];
 }
@@ -2646,15 +2651,18 @@ singleton_implementation(ViewController)
         }
         
         //检测固件版本
+        static int rtsp_tag = 0;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             [self checkVersion];
         });
         
         //连接图传
-        [self connectRtsp];
-
-
+        if (rtsp_tag > 0) {
+            
+            [self connectRtsp];
+        }
+        rtsp_tag++;
         
     } Tag:0];
 }
@@ -3015,9 +3023,10 @@ singleton_implementation(ViewController)
             }
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [tcpManager tcpConnect];
+                   [tcpManager tcpConnect];
                 });
-            }
+                
+             }
         });
         _tcpTimer = timer;
     }

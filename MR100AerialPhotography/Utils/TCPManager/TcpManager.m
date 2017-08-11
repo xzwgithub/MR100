@@ -135,8 +135,7 @@
 
 -(void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err
 {
-    
-    
+    NSLog(@"tcp连接失败：%@",err);
 }
 
 -(void)onSocketDidDisconnect:(AsyncSocket *)sock
