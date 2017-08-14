@@ -47,7 +47,7 @@ static NSString *const reuseIdentifier = @"cell";
         [view addSubview:btn];
         
         UILabel *lb = [[UILabel alloc] init];
-        lb.text = @"Guard Videos";
+        lb.text = NSLocalizedString(@"Guard Videos", @"新手引导");
         lb.textColor = [UIColor yellowColor];
         lb.textAlignment = NSTextAlignmentCenter;
         
@@ -65,7 +65,8 @@ static NSString *const reuseIdentifier = @"cell";
             view.frame = CGRectMake(0, 0, kWidth, 50);
             [btn setImage:[UIImage imageNamed:@"jt-0"] forState:UIControlStateNormal];
             btn.frame = CGRectMake(0, 0, 50, 50);
-            lb.frame = CGRectMake(kWidth / 2 - 50, 0, 100, 50);
+            lb.frame = CGRectMake(kWidth / 2 - 50, 0, 200, 50);
+            lb.center = view.center;
             lb.font = [UIFont boldSystemFontOfSize:19];
         }
         

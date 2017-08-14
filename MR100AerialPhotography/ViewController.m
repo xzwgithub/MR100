@@ -1590,10 +1590,20 @@ singleton_implementation(ViewController)
         return;
     }
     
+     uint8_t electric = [[[NSUserDefaults standardUserDefaults] objectForKey:ELECTRIC_NUM] integerValue];
+    
+    if (electric < CAPACITY_LOW_FOR_RECORD) {
+        
+        //电量低于百分之十禁止录像
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to record", @"电量少于10%禁止录像") delegate:self
+                                               cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+        [alert show];
+        return;
+    }
+    
     sender.exclusiveTouch = YES;
     sender.selected = !sender.selected;
     if (sender.selected) {
-    
 //            ------------------------     UI效果代码       ---------------------------
         [self circleDropViewbuttonClickAction:nil];
         [self removeCameraDropView];
@@ -1700,6 +1710,7 @@ singleton_implementation(ViewController)
     [self closeRecord];
     
 }
+
 
 #pragma mark - 360按钮的懒加载及相应方法
 //360按钮
@@ -3122,6 +3133,7 @@ static bool roting = false;
 #pragma mark -更新信息
 -(void)updateInfo
 {
+    
     //电压、gps星数、校准、校准进度
     self.sateView.badgeLable.text = [NSString stringWithFormat:@"%d",self.flyControlManager.response.responseUnion.info.gpsNum];
     
@@ -3136,6 +3148,27 @@ static bool roting = false;
     
      NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
     
+    NSInteger electricNum = [[[NSUserDefaults standardUserDefaults] objectForKey:ELECTRIC_NUM] integerValue];
+    
+    //如果电量小于百分之10,自动禁止录像
+    if (electricNum < 10 && _liveBtn.selected) {
+        [self tapGesClickAction];//自动停止录像
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to record", @"电量少于10%禁止录像") delegate:self
+                                               cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+        [alert show];
+    }
+    
+    //如果飞行中电量低于10%,弹框提示
+    if (electricNum < 10 &&  FlyModel == BASE_INFO_FLY_MODEL_TYPE_SKY) {
+        
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量不足以飞行") delegate:self
+                                                   cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+            [alert show];
+        });
+    }
     
     NSLog(@"FlyModel:%ld",FlyModel);
     
@@ -3159,20 +3192,7 @@ static bool roting = false;
         [self getStates:NO];
     }
     
-//    NSLog(@"%d",self.flyControlManager.response.responseUnion.info.calibProgress);
-//    if (self.flyControlManager.response.responseUnion.info.takeoff && self.takeOffOrLandingBtn.selected == NO) {
-//        //起飞成功
-//        self.takeOffOrLandingBtn.selected = YES;
-//        if (_isClick == YES) {
-//            [self getStates:YES];
-//        }
-//        self.lock.hidden = YES;//隐藏锁按钮
-//    }
-//    else if (self.flyControlManager.response.responseUnion.info.landed && self.takeOffOrLandingBtn.selected == YES){
-//        //降落
-//        self.takeOffOrLandingBtn.selected = NO;
-//        self.lock.hidden = NO;//显示锁按钮
-//    }
+
     if (self.flyControlManager.response.responseUnion.info.landed) {
         if (_followBtn.selected) {
             _followBtn.selected = NO;
@@ -3193,6 +3213,22 @@ static bool roting = false;
         [_deleate getProgress:self.flyControlManager.response.responseUnion.info.calibProgress MagXY:self.flyControlManager.response.responseUnion.info.magXYCalib MagZ:self.flyControlManager.response.responseUnion.info.magZCalib Acc:self.flyControlManager.response.responseUnion.info.insCalib];
         
     }
+    
+    
+    //    NSLog(@"%d",self.flyControlManager.response.responseUnion.info.calibProgress);
+    //    if (self.flyControlManager.response.responseUnion.info.takeoff && self.takeOffOrLandingBtn.selected == NO) {
+    //        //起飞成功
+    //        self.takeOffOrLandingBtn.selected = YES;
+    //        if (_isClick == YES) {
+    //            [self getStates:YES];
+    //        }
+    //        self.lock.hidden = YES;//隐藏锁按钮
+    //    }
+    //    else if (self.flyControlManager.response.responseUnion.info.landed && self.takeOffOrLandingBtn.selected == YES){
+    //        //降落
+    //        self.takeOffOrLandingBtn.selected = NO;
+    //        self.lock.hidden = NO;//显示锁按钮
+    //    }
     
 }
 

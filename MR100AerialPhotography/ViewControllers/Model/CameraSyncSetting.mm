@@ -20,7 +20,7 @@
 
 - (void)reset {
     _white_balance = MENU_LIST_SYS_SET_WHITE_BALANCE_ITEM_IDX_AUTO;
-    _cts = M_CTS_0;
+    _cts = M_CTS_4;
     _expousure = MENU_LIST_SYS_SET_EXPOSURE_ITEM_IDX_0;
     _brightness = BRIGHTNESS_4;
 }

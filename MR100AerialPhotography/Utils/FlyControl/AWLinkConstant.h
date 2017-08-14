@@ -14,6 +14,7 @@
 
 //注册lingPian通知
 #define kNotice_lingPian   @"Notice_lingPian"
+
 //acc校准控制
 #define kNotice_correct_acc  @"Notice_correct_acc"
 
@@ -22,6 +23,7 @@
 
 //360本地旋转
 #define kNotice360   @"kNotice360"
+
 
 
 /**

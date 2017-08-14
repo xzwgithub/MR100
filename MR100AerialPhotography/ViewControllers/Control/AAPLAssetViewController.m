@@ -23,7 +23,7 @@
 
 @property (nonatomic, assign) CGSize lastTargetSize;
 @property (nonatomic, strong) PHAsset *asset;
-@property(nonatomic, assign) BOOL canPresent;                 //
+//@property(nonatomic, assign) BOOL canPresent;                 //
 @property(nonatomic, strong) NSMutableArray *assetArrM;          //
 
 @end
@@ -45,7 +45,6 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.canPresent = YES;
 }
 
 - (void)dealloc {
@@ -70,6 +69,7 @@
     else if (model.asset.mediaType == PHAssetMediaTypeVideo) {
         self.playBtn.hidden = NO;
         [self updateImage];
+        [self handlePlayButtonItem:nil];
     }
 }
 
@@ -273,15 +273,17 @@
 
 //播放按钮
 - (void)handlePlayButtonItem:(id)sender {
-    if (self.canPresent) {
-        self.canPresent = NO;
-        [[PHImageManager defaultManager] requestAVAssetForVideo:self.asset options:nil resultHandler:^(AVAsset *avAsset, AVAudioMix *audioMix, NSDictionary *info) {
-            
-            ZWHPlayerViewController *videoVC = [[ZWHPlayerViewController alloc] initWithPlayItem:[AVPlayerItem playerItemWithAsset:avAsset]];
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:videoVC];
-            [self presentViewController:nav animated:YES completion:nil];
-        }];
-    }
+    
+    [[PHImageManager defaultManager] requestAVAssetForVideo:self.asset options:nil resultHandler:^(AVAsset *avAsset, AVAudioMix *audioMix, NSDictionary *info) {
+        
+        ZWHPlayerViewController *videoVC = [[ZWHPlayerViewController alloc] initWithPlayItem:[AVPlayerItem playerItemWithAsset:avAsset]];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:videoVC];
+        [self presentViewController:nav animated:YES completion:nil];
+    }];
+    
+//    if (self.canPresent) {
+//        self.canPresent = NO;
+//            }
 }
 
 - (NSString *)getOriFileNameFromModel:(ZWHAssetModel *)model {

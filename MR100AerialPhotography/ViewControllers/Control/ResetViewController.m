@@ -128,7 +128,8 @@ typedef enum {
             view.frame = CGRectMake(0, 0, kWidth, 50);
             [btn setImage:[UIImage imageNamed:@"jt-0"] forState:UIControlStateNormal];
             btn.frame = CGRectMake(0, 0, 50, 50);
-            lb.frame = CGRectMake(kWidth / 2 - 50, 0, 100, 50);
+            lb.frame = CGRectMake(kWidth / 2 - 50, 0, 200, 50);
+            lb.center = view.center;
             lb.font = [UIFont boldSystemFontOfSize:19];
         }
         

@@ -53,7 +53,7 @@
         [view addSubview:btn];
         
         UILabel *lb = [[UILabel alloc] init];
-        lb.text = @"Change Password";
+        lb.text = NSLocalizedString(@"Change Password", @"修改密码");
         lb.textColor = [UIColor yellowColor];
         lb.textAlignment = NSTextAlignmentCenter;
         
@@ -185,7 +185,7 @@
         
         [_modifyBtn setBackgroundImage:ImageNamed(@"Modify-button") forState:UIControlStateNormal];
         [_modifyBtn setBackgroundImage:ImageNamed(@"Modify-select-click") forState:UIControlStateHighlighted];
-        [_modifyBtn setTitle:@"modify" forState:UIControlStateNormal];
+        [_modifyBtn setTitle:NSLocalizedString(@"modify", @"修改") forState:UIControlStateNormal];
         [_modifyBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
         [_modifyBtn setTitleColor:[UIColor colorWithHexString:@"#5c5c5c"] forState:UIControlStateHighlighted];
         [_modifyBtn addTarget:self action:@selector(modifyAction:) forControlEvents:UIControlEventTouchUpInside];

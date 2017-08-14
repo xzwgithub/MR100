@@ -47,7 +47,7 @@
         [view addSubview:btn];
         
         UILabel *lb = [[UILabel alloc] init];
-        lb.text = @"Device";
+        lb.text = NSLocalizedString(@"device", @"设备");
         lb.textColor = [UIColor yellowColor];
         lb.textAlignment = NSTextAlignmentCenter;
         

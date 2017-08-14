@@ -63,7 +63,7 @@ static NSString *const reuseIdentifier = @"cell";
         [view addSubview:btn];
         
         UILabel *lb = [[UILabel alloc] init];
-        lb.text = @"Help";
+        lb.text = NSLocalizedString(@"help", @"帮助");
         lb.textColor = [UIColor yellowColor];
         lb.textAlignment = NSTextAlignmentCenter;
         

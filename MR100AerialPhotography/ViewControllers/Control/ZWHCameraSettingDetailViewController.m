@@ -12,6 +12,9 @@
 #import "CameraSyncSetting.h"
 #import "PGQCAEAGLLayer.h"
 #import "ViewController.h"
+
+static int imgViewInterval = 120;
+
 @interface ZWHCameraSettingDetailViewController ()
 @property(nonatomic, assign) NSInteger index;           //点击的下标
 @property(nonatomic, strong) NSArray *headImageArr;     //头部图片数组
@@ -208,13 +211,13 @@
             view.frame = CGRectMake(75, 0, 455, 75);
             lb.font = [UIFont fontWithName:@"Arial" size:24];
             lb.frame = CGRectMake(0, 45, 455, 30);
-            lb.text = @"-4     -3     -2     -1     -0      1      2      3      4";
+            lb.text = @"-4     -3     -2     -1     0      1      2      3      4";
         }
         else {
             view.frame = CGRectMake(60, 0, 338, 50);
             lb.font = [UIFont fontWithName:@"Arial" size:20];
             lb.frame = CGRectMake(0, 30, 338, 20);
-            lb.text = @"-4    -3    -2    -1    -0     1     2     3     4";
+            lb.text = @"-4    -3    -2    -1     0     1     2     3     4";
         }
         _sliderAndLableView = view;
     }
@@ -325,18 +328,17 @@
     
     if (_imgView == nil) {
         
-        
         if (kIsIpad) {
             _imgView = [[PGQCAEAGLLayer alloc] initWithFrame:CGRectMake((kWidth - (kWidth/kHeight) * (kHeight - 180))/2, 105, kWidth/kHeight * (kHeight - 180), kHeight - 180)];
         }
         else {
-            _imgView = [[PGQCAEAGLLayer alloc] initWithFrame:CGRectMake((kWidth - (kWidth/kHeight) * (kHeight - 130))/2, 80, kWidth/kHeight * (kHeight - 130), kHeight - 130)];
+            _imgView = [[PGQCAEAGLLayer alloc] initWithFrame:CGRectMake((kWidth - (kWidth/kHeight) * (kHeight - imgViewInterval))/2, 60, kWidth/kHeight * (kHeight - imgViewInterval), kHeight - imgViewInterval)];
         }
         [self.view.layer addSublayer:_imgView];
         _imgView.zPosition = -1;
         _imgView.backgroundColor = [[UIColor clearColor] CGColor];
         _imgView.borderColor = kGrayColor.CGColor;
-        _imgView.borderWidth = 1;
+        _imgView.borderWidth = 0.5;
     }
     return _imgView;
 }

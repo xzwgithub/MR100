@@ -80,7 +80,6 @@
     
 }
 
-
 //传感器校准状态
 -(StatusSenseCorrectModel*)getSensorCorrectStatus:(NSData*)data
 {
