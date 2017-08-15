@@ -24,6 +24,15 @@
 //360本地旋转
 #define kNotice360   @"kNotice360"
 
+//紧急降落
+#define kEmergency   @"kEmergency"
+
+//一键起飞
+#define ktakeoff   @"ktakeoff"
+
+//一键降落
+#define kland   @"kland"
+
 
 
 /**

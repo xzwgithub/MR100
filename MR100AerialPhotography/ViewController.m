@@ -1595,7 +1595,7 @@ singleton_implementation(ViewController)
     if (electric < CAPACITY_LOW_FOR_RECORD) {
         
         //电量低于百分之十禁止录像
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to record", @"电量少于10%禁止录像") delegate:self
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to record", @"电量低于10%，请不要进行录像") delegate:self
                                                cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
         [alert show];
         return;
@@ -2007,6 +2007,7 @@ singleton_implementation(ViewController)
 
 #pragma mark-快捷分享1
 - (UIButton *)share1Btn {
+    
     if (_share1Btn == nil) {
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -2027,6 +2028,13 @@ singleton_implementation(ViewController)
     return _share1Btn;
 }
 - (void)share1BtnClickAction:(UIButton *)sender {
+    
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"Temporarily unsupported", @"暂不支持") delegate:self
+                                           cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+    [alert show];
+    return;
+
     
     if (self.share2Btn.selected || !frameCount) {
         return;
@@ -2112,6 +2120,11 @@ singleton_implementation(ViewController)
 }
 - (void)share2BtnClickAction:(UIButton *)sender {
     
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"Temporarily unsupported", @"暂不支持") delegate:self
+                                           cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+    [alert show];
+    return;
+
     if (self.share1Btn.selected || !frameCount) {
         return;
     }
@@ -2388,11 +2401,9 @@ singleton_implementation(ViewController)
             }
             
         }
-
-        
     }
     else{
-        alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量不足以飞行") delegate:self
+        alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量低于10%，不能起飞") delegate:self
                                  cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
         alert.tag = 11;
         objc_setAssociatedObject(alert, &kAlertKey, @(alert.tag) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -3153,7 +3164,7 @@ static bool roting = false;
     //如果电量小于百分之10,自动禁止录像
     if (electricNum < 10 && _liveBtn.selected) {
         [self tapGesClickAction];//自动停止录像
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to record", @"电量少于10%禁止录像") delegate:self
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is Less than 10%  to stop recording automaticly", @"电量低于10%，自动停止录像") delegate:self
                                                cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
         [alert show];
     }
@@ -3164,7 +3175,7 @@ static bool roting = false;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量不足以飞行") delegate:self
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"less_than_10_of_electricity_automatic_return", @"电量低于10%，自动返航") delegate:self
                                                    cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
             [alert show];
         });

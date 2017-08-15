@@ -16,6 +16,7 @@
 #import "NSString+Reverse.h"
 #import "AWLinkConstant.h"
 #import "StatusSenseCorrectModel.h"
+#import "StatusSenseModel.h"
 
 @interface FlyResponse ()
 {
@@ -57,7 +58,9 @@
                     break;
                     
                 case 1: //状态
-                    if (resData[4] == 0) {//子项号
+                    
+                    //子项号
+                    if (resData[4] == 0) {
                         //基本信息
                         self.infoModel = [self getBaseInfo:data];
                         [self updateInfo];
@@ -67,6 +70,12 @@
                         //传感器校准状态
                         self.correctModel = [self getSensorCorrectStatus:data];
                         [[NSNotificationCenter defaultCenter] postNotificationName:kProgress_correct_acc object:self.correctModel];
+                        
+                    }else if (resData[4] == 3)
+                    {
+                        //传感器状态
+                        self.senseStatusModel = [self getSensorStatus:data];
+                       
                     }
                     
                     break;
@@ -78,6 +87,26 @@
         }
   }
     
+}
+
+//传感器状态
+-(StatusSenseModel*)getSensorStatus:(NSData*)data
+{
+    StatusSenseModel * senseModel = [[StatusSenseModel alloc]init];
+    //加速度
+    senseModel.acc = [self subNSData:data FromIndex:5];
+    //陀螺仪
+    senseModel.gyro = [self subNSData:data FromIndex:6];
+    //罗盘
+    senseModel.mag = [self subNSData:data FromIndex:7];
+    //气压计
+    senseModel.baro = [self subNSData:data FromIndex:8];
+    //gps
+    senseModel.gps = [self subNSData:data FromIndex:9];
+    //光流
+    senseModel.flow = [self subNSData:data FromIndex:10];
+    
+    return senseModel;
 }
 
 //传感器校准状态

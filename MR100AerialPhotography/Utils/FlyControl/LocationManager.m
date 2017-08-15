@@ -119,7 +119,7 @@
 //return YES:是当在室内、地下、有磁场干扰或者很久没有用指南针时系统发现方向不够准确时自动弹出校准;return NO地图定位使用方向时取消指南针校准
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager
 {
-    return YES;
+    return NO;
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
 {

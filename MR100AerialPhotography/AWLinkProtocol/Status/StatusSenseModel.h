@@ -14,7 +14,8 @@ typedef enum{
     STATUS_SENSOR_ERROR,//异常
     STATUS_SENSOR_SELF_CHECK,//自检
     STATUS_SENSOR_WILL_CORRECT,//待校准
-    STATUS_SENSOR_CORRECT_ING //校准中
+    STATUS_SENSOR_CORRECT_ING,//校准中
+    STATUS_SENSOR_Not_EQUIPPED,//未配备
     
 }STATUS_SENSOR_TYPE;
 
@@ -22,26 +23,26 @@ typedef enum{
 /**
  *  加速度
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  acc;
+@property (nonatomic,assign) uint8_t  acc;
 /**
  *  陀螺仪
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  gyro;
+@property (nonatomic,assign) uint8_t  gyro;
 /**
  *  罗盘
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  mag;
+@property (nonatomic,assign) uint8_t  mag;
 /**
  *  气压计
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  baro;
+@property (nonatomic,assign) uint8_t  baro;
 /**
  *  gps
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  gps;
+@property (nonatomic,assign) uint8_t  gps;
 /**
  *  光流
  */
-@property (nonatomic,assign) STATUS_SENSOR_TYPE  flow;
+@property (nonatomic,assign) uint8_t  flow;
 
 @end

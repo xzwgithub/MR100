@@ -31,7 +31,7 @@
     message[3] = 0x02;
     message[4] = 0x01;
     message[5] = 0x00;
-    message[6] = 0x14;
+    message[6] = 0x14;//发送频率20hz
     
     //crc16校验和
     Byte crc16[length-3];
@@ -49,10 +49,9 @@
     return data;
 }
 
-//获取传感器校准状态
-+(NSData*)getSensorCorrectStatus
+//获取传感器状态
++(NSData*)getSensorStatus
 {
-    
     int length = 9;
     Byte message[length];
     message[0] = START_CODE;
@@ -60,8 +59,8 @@
     message[2] = ID_SRC;
     message[3] = 0x02;
     message[4] = 0x01;
-    message[5] = 0x04;
-    message[6] = 0x14;
+    message[5] = 0x03;//传感器状态
+    message[6] = 0x14;//发送频率20hz
     
     //crc16校验和
     Byte crc16[length-3];
@@ -74,6 +73,37 @@
     int low = crc16_int&0xff;
     message[7] =  strtoul([[NSString getHexByDecimal:low] UTF8String],0,16); //0x29
     message[8] = strtoul([[NSString getHexByDecimal:high] UTF8String],0,16);
+    NSData *data = [[NSData alloc] initWithBytes:message length:length];
+    NSLog(@"获取传感器状态命令：%@",data);
+    return data;
+
+}
+
+//获取传感器校准状态
++(NSData*)getSensorCorrectStatus
+{
+    
+    int length = 9;
+    Byte message[length];
+    message[0] = START_CODE;
+    message[1] = 0x02;
+    message[2] = ID_SRC;
+    message[3] = 0x02;
+    message[4] = 0x01;
+    message[5] = 0x04;//传感器校准
+    message[6] = 0x14;//20代表发送频率
+    
+    //crc16校验和
+    Byte crc16[length-3];
+    for (int i = 0; i < length-3; i++) {
+        crc16[i] = message[i+1];
+    }
+    NSData * crc16Data = [NSData dataWithBytes:crc16 length:sizeof(crc16)/sizeof(crc16[0])];
+    uint16_t crc16_int = [crc16Data crc16];
+    int high = crc16_int>>8;
+    int low = crc16_int&0xff;
+    message[length-2] =  strtoul([[NSString getHexByDecimal:low] UTF8String],0,16); //0x29
+    message[length-1] = strtoul([[NSString getHexByDecimal:high] UTF8String],0,16);
     NSData *data = [[NSData alloc] initWithBytes:message length:length];
     NSLog(@"获取传感器校准状态命令：%@",data);
     return data;

@@ -34,9 +34,9 @@ static int delayClearTime = 2;
         _shengjiang = 0;
         _youmen = 0x00;
         _fangxiang = 0;
-        _onekeyfly = false;
-        _onekeyland = false;
-        _emergency = false;
+//        _onekeyfly = false;
+//        _onekeyland = false;
+        //_emergency = false;
         _followMe = false;
         _magX = false;
         _magY = false;
@@ -67,40 +67,15 @@ static int delayClearTime = 2;
     
 }
 
--(FlyControlModeTye)getControlMessage
-{
-    
-    if (_onekeyfly) {
-        return FlyControlModeTyeTakeoff;
-    }
-    if (_onekeyland) {
-        
-         return FlyControlModeTyeLand;
-    }
-    if (_emergency) {
-        return FlyControlModeTyeStop;
-    }
-    
-    return FlyControlModeTyeUnknow;
-    
-}
 
 -(void)takeoffAction
 {
-    if (_onekeyfly) {
-        return;
-    }
-    _onekeyfly = true;
-    [self performSelector:@selector(resetValue:) withObject:[NSNumber numberWithInt:0] afterDelay:delayClearTime];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ktakeoff object:nil];
 }
 
 -(void)landAction
 {
-    if (_onekeyland) {
-        return;
-    }
-    _onekeyland = true;
-    [self performSelector:@selector(resetValue:) withObject:[NSNumber numberWithInt:8] afterDelay:delayClearTime];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kland object:nil];
 }
 
 -(void)reserveBitControl
@@ -121,12 +96,7 @@ static int delayClearTime = 2;
 
 -(void)emergency_action
 {
-    if (_emergency) {
-        return;
-    }
-    
-    _emergency = true;
-    [self performSelector:@selector(resetValue:) withObject:[NSNumber numberWithInt:3] afterDelay:delayClearTime];
+   [[NSNotificationCenter defaultCenter] postNotificationName:kEmergency object:nil];
 }
 
 
@@ -170,7 +140,7 @@ static int delayClearTime = 2;
     switch (tag) {
         case 0:
         {
-            _onekeyfly= 0;
+            //_onekeyfly= 0;
         }
             break;
         case 1:
@@ -185,7 +155,7 @@ static int delayClearTime = 2;
             break;
         case 3:
         {
-            _emergency = 0;
+           // _emergency = 0;
         }
             break;
         case 4:
@@ -205,7 +175,7 @@ static int delayClearTime = 2;
             break;
         case 8:
         {
-            _onekeyland = 0;
+            //_onekeyland = 0;
         }
             break;
         default:

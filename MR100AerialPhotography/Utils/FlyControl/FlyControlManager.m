@@ -77,6 +77,9 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lingPian) name:kNotice_lingPian object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accCorrect) name:kNotice_correct_acc object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Rotate360) name:kNotice360 object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emergency) name:kEmergency object:nil];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takeoff) name:ktakeoff object:nil];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(land) name:kland object:nil];
         
     }
     
@@ -85,6 +88,12 @@
 
 -(void)startUploadData
 {
+    //获取基本信息
+    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
+    //获取传感器状态
+    [self.udp sendData:[AWLinkHelper getSensorStatus] Tag:0];
+    //获取传感器校准状态
+    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
     
     if (!_controlTimer) {
         _controlTimer = [NSTimer scheduledTimerWithTimeInterval:SendRate/1000.0 target:self selector:@selector(sendControlMsg:) userInfo:nil repeats:YES];
@@ -111,15 +120,28 @@
 
 -(void)sendControlMsg:(NSTimer *)timer
 {
-    //获取基本信息
-    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
-    //获取传感器校准状态
-    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
-    //发送一键起飞命令
-    [self.udp sendData:[AWLinkHelper sendFlyModelCommand:[self.controller getControlMessage]] Tag:0];
     //发送遥感控制
     [self.udp sendData:[AWLinkHelper sendRemoteControlCommand:[self getRemoteModel]] Tag:0];
     
+}
+
+//一键起飞
+-(void)takeoff
+{
+     [self.udp sendData:[AWLinkHelper sendFlyModelCommand:FlyControlModeTyeTakeoff] Tag:0];
+}
+
+//一键降落
+-(void)land
+{
+    [self.udp sendData:[AWLinkHelper sendFlyModelCommand:FlyControlModeTyeLand] Tag:0];
+}
+
+//紧急降落
+-(void)emergency
+{
+    //紧急降落
+    [self.udp sendData:[AWLinkHelper sendFlyModelCommand:FlyControlModeTyeStop] Tag:0];
 }
 
 

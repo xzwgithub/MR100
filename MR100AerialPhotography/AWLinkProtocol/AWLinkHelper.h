@@ -26,7 +26,6 @@ typedef enum{
     FlyControlModeTyeStop,//停止
     FlyControlModeTyeLocal360,//本地旋转
     FlyControlModeTyeFindme,//param1为手机罗盘的角度
-    FlyControlModeTyeUnknow = 110 //未知
 } FlyControlModeTye;
 
 @interface AWLinkHelper : NSObject
@@ -34,9 +33,11 @@ typedef enum{
 //获取基本信息
 +(NSData*)getBaseInfoCommand;
 
+//获取传感器状态
++(NSData*)getSensorStatus;
+
 //获取传感器校准状态
 +(NSData*)getSensorCorrectStatus;
-
 
 //模式控制
 +(NSData*)sendFlyModelCommand:(FlyControlModeTye)modeType;

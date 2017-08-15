@@ -10,9 +10,9 @@
 #import "AWLinkHelper.h"
 
 @interface Controller : NSObject
-@property(atomic,assign)Boolean onekeyfly;  //一键起飞
-@property(atomic,assign)Boolean onekeyland;  //降落
-@property(atomic,assign)Boolean emergency;  //紧急停止
+//@property(atomic,assign)Boolean onekeyfly;  //一键起飞
+//@property(atomic,assign)Boolean onekeyland;  //降落
+//@property(atomic,assign)Boolean emergency;  //紧急停止
 @property(atomic,assign)int16_t youmen;            //-1000-1000
 @property(atomic,assign)int16_t fangxiang;    //偏航，方向舵                   // -1000 - 1000
 @property(atomic,assign)int16_t fuyi;                            // -1000 - 1000
@@ -41,5 +41,5 @@
 
 //开始acc校准
 -(void)accAdapt_action;
--(FlyControlModeTye )getControlMessage;
+//-(FlyControlModeTye )getControlMessage;
 @end

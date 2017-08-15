@@ -24,7 +24,10 @@
 		6C511C301F3046500069017E /* FollowMeControlModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C2F1F3046500069017E /* FollowMeControlModel.m */; };
 		6C511C331F3047CB0069017E /* OffsetControlModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C321F3047CB0069017E /* OffsetControlModel.m */; };
 		6C5F3A901F33664500BB38CA /* NSString+StatusTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F3A8F1F33664500BB38CA /* NSString+StatusTransform.m */; };
+		6C69A0EC1F42FB6F002FDF25 /* Product manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C69A0EB1F42FB6F002FDF25 /* Product manual.pdf */; };
 		6C8586E21F3858A3003C8CA0 /* AWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8586E11F3858A3003C8CA0 /* AWProgressView.m */; };
+		6CC4D4171F42D2F500A3722C /* Quick user manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4D4161F42D2F400A3722C /* Quick user manual.pdf */; };
+		6CC4D42C1F42D7D900A3722C /* PDFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4D42B1F42D7D900A3722C /* PDFBrowseViewController.m */; };
 		6CD41FE61F32B18F006AB6A3 /* NSData+CRC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD41FE51F32B18F006AB6A3 /* NSData+CRC16.m */; };
 		6CD41FFE1F3316F8006AB6A3 /* NSString+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD41FFD1F3316F8006AB6A3 /* NSString+Reverse.m */; };
 		6CF7EB441F30AB72005D9CBD /* AWLinkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7EB431F30AB72005D9CBD /* AWLinkHelper.m */; };
@@ -559,8 +562,12 @@
 		6C511C321F3047CB0069017E /* OffsetControlModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OffsetControlModel.m; sourceTree = "<group>"; };
 		6C5F3A8E1F33664500BB38CA /* NSString+StatusTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StatusTransform.h"; sourceTree = "<group>"; };
 		6C5F3A8F1F33664500BB38CA /* NSString+StatusTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StatusTransform.m"; sourceTree = "<group>"; };
+		6C69A0EB1F42FB6F002FDF25 /* Product manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Product manual.pdf"; sourceTree = "<group>"; };
 		6C8586E01F3858A3003C8CA0 /* AWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWProgressView.h; sourceTree = "<group>"; };
 		6C8586E11F3858A3003C8CA0 /* AWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWProgressView.m; sourceTree = "<group>"; };
+		6CC4D4161F42D2F400A3722C /* Quick user manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Quick user manual.pdf"; sourceTree = "<group>"; };
+		6CC4D42A1F42D7D900A3722C /* PDFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFBrowseViewController.h; sourceTree = "<group>"; };
+		6CC4D42B1F42D7D900A3722C /* PDFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFBrowseViewController.m; sourceTree = "<group>"; };
 		6CD41FE41F32B18F006AB6A3 /* NSData+CRC16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC16.h"; sourceTree = "<group>"; };
 		6CD41FE51F32B18F006AB6A3 /* NSData+CRC16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC16.m"; sourceTree = "<group>"; };
 		6CD41FFC1F3316F8006AB6A3 /* NSString+Reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Reverse.h"; sourceTree = "<group>"; };
@@ -1466,6 +1473,8 @@
 				DA5D49141DF6F08F008497BE /* ResetViewController.m */,
 				DAEB44C91E1B8C1100375E13 /* CustomAlertController.h */,
 				DAEB44CA1E1B8C1100375E13 /* CustomAlertController.m */,
+				6CC4D42A1F42D7D900A3722C /* PDFBrowseViewController.h */,
+				6CC4D42B1F42D7D900A3722C /* PDFBrowseViewController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -2075,6 +2084,8 @@
 		DAB37BCB1D7435EA005C5F03 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6C69A0EB1F42FB6F002FDF25 /* Product manual.pdf */,
+				6CC4D4161F42D2F400A3722C /* Quick user manual.pdf */,
 				F86CCEDA1E0A1DA900B2F963 /* Info.plist */,
 				F8DF13EE1DACED86008FE345 /* Launch Screen.storyboard */,
 				DAB37BCC1D7435EA005C5F03 /* main.m */,
@@ -2874,6 +2885,7 @@
 				7CBF582B1D7EBA350086E61E /* Makefile.head in Resources */,
 				F86CCEDE1E0A1DC200B2F963 /* InfoPlist.strings in Resources */,
 				F8F215D71DE58F2500F6075F /* 3_circle.mov in Resources */,
+				6C69A0EC1F42FB6F002FDF25 /* Product manual.pdf in Resources */,
 				F8F215DC1DE58F2500F6075F /* 8_takeoff.mov in Resources */,
 				7CBF57C11D7EBA350086E61E /* Makefile.head in Resources */,
 				7CBF57771D7EBA350086E61E /* Makefile.head in Resources */,
@@ -2884,6 +2896,7 @@
 				F8F215D61DE58F2500F6075F /* 2_movie.mov in Resources */,
 				F8B20E241E03E1F10042AFEE /* ZWHCaptionView.xib in Resources */,
 				7CBF58181D7EBA350086E61E /* st3TWape in Resources */,
+				6CC4D4171F42D2F500A3722C /* Quick user manual.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2968,6 +2981,7 @@
 				6C511C331F3047CB0069017E /* OffsetControlModel.m in Sources */,
 				7CBF57AA1D7EBA350086E61E /* H263plusVideoStreamFramer.cpp in Sources */,
 				7CBF579F1D7EBA350086E61E /* FileServerMediaSubsession.cpp in Sources */,
+				6CC4D42C1F42D7D900A3722C /* PDFBrowseViewController.m in Sources */,
 				F80F07601DEFC73E0048B529 /* GTMKeychain_iOS.m in Sources */,
 				7CBF57DA1D7EBA350086E61E /* MPEG1or2AudioRTPSink.cpp in Sources */,
 				7CBF57B81D7EBA350086E61E /* H265VideoRTPSink.cpp in Sources */,

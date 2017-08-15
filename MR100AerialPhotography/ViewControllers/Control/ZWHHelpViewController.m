@@ -11,6 +11,8 @@
 #import "ViewController.h"
 #import "ZWHNewGuardViewController.h"
 #import "ZWHSettingCell.h"
+#import "PDFBrowseViewController.h"
+
 static NSString *const reuseIdentifier = @"cell";
 @interface ZWHHelpViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,11 +28,18 @@ static NSString *const reuseIdentifier = @"cell";
 
 @implementation ZWHHelpViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self topBarView];
     
-    self.titleListArr = @[NSLocalizedString(@"quick user manual",@"快速使用手册"),NSLocalizedString(@"rookie help",@"新手帮助"),NSLocalizedString(@"product manual",@"产品说明书"),NSLocalizedString(@"geomagnetic calibration animation",@"地磁校准动画"),NSLocalizedString(@"find me use animation",@"Find me使用动画"),NSLocalizedString(@"contact us",@"联系我们"),@"http://www.c-mecamera.com"];
+//    self.titleListArr = @[NSLocalizedString(@"quick user manual",@"快速使用手册"),NSLocalizedString(@"rookie help",@"新手帮助"),NSLocalizedString(@"product manual",@"产品说明书"),NSLocalizedString(@"geomagnetic calibration animation",@"地磁校准动画"),NSLocalizedString(@"find me use animation",@"Find me使用动画"),NSLocalizedString(@"contact us",@"联系我们"),@"http://www.c-mecamera.com"];
+    
+    self.titleListArr = @[NSLocalizedString(@"quick user manual",@"快速使用手册"),NSLocalizedString(@"rookie help",@"新手帮助"),NSLocalizedString(@"product manual",@"产品说明书"),NSLocalizedString(@"About the machine",@"关于本机"),@"http://www.c-mecamera.com"];
+
+    
     self.view.backgroundColor = kWhiteColor;
     if (kIsIpad) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 75, kWidth, kHeight - 75) style:UITableViewStylePlain];
@@ -140,33 +149,37 @@ static NSString *const reuseIdentifier = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //PDF
+    //快速使用手册
     if (indexPath.row == 0) {
+     
+        PDFBrowseViewController * pdfVC = [[PDFBrowseViewController alloc] init];
+        pdfVC.pdfType = PDF_DOCUMENT_TYPE_USER;
+        [self.navigationController pushViewController:pdfVC animated:YES];
         
     }
     
+    //新手引导
     else if (indexPath.row == 1) {
         ZWHNewGuardViewController *guideVC = [[ZWHNewGuardViewController alloc]init];
         [self.navigationController pushViewController:guideVC animated:YES];
     }
     
+    //产品说明书
     else if (indexPath.row == 2) {
         
+        PDFBrowseViewController * pdfVC = [[PDFBrowseViewController alloc] init];
+        pdfVC.pdfType = PDF_DOCUMENT_TYPE_PRODUCT;
+        [self.navigationController pushViewController:pdfVC animated:YES];
     }
     
+    //关于本机
     else if (indexPath.row == 3) {
         
-    }
-    else if (indexPath.row == 4)
-    {
-       
-    }
-    else if (indexPath.row == 5){
-    
         
     }
+    
     //链接
-    else if (indexPath.row == 6){
+    else if (indexPath.row == 4){
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.c-mecamera.com"]];
     }

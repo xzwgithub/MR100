@@ -10,6 +10,7 @@
 
 @class StatusBaseInfoModel;
 @class StatusSenseCorrectModel;
+@class StatusSenseModel;
 
 @protocol responseBlockDelegate <NSObject>
 
@@ -67,6 +68,10 @@ typedef union {
  *  获取传感器校准状态
  */
 @property (nonatomic,strong) StatusSenseCorrectModel * correctModel;
+/**
+ *  获取传感器状态
+ */
+@property (nonatomic,strong) StatusSenseModel * senseStatusModel;
 
 -(int)device_is_ok;
 

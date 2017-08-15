@@ -82,16 +82,19 @@ typedef enum {
         
         self.progressView.progress = progress/100.0;
         NSLog(@"acc_progress--%f",self.progressView.progress);
-        if (progress == 100) {
+        if (progress == 100 && _isAccCorrect == YES) {
+            
+            _isAccCorrect = NO;
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-                _isAccCorrect = NO;
                 [self.progressView removeFromSuperview];
                 self.progressView = nil;
                 
+                UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"acc_finish", @"Acc校准完成")  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+                [view show];
+
             });
-            
     }
 
     }
