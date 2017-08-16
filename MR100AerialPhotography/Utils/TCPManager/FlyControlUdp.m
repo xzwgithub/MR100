@@ -57,7 +57,7 @@
 
 - (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
     
-    
+    NSLog(@"udp_socket----%@",error.description);
 }
 
 

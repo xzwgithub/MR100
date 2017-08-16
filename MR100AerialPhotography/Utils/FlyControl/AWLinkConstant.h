@@ -33,6 +33,9 @@
 //一键降落
 #define kland   @"kland"
 
+//获取基本信息和状态信息
+#define kbaseInfoAndStatus   @"kbaseInfoAndStatus"
+
 
 
 /**

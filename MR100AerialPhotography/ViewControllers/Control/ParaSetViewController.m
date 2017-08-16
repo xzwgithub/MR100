@@ -312,7 +312,7 @@
 
         _settingTableView.backgroundColor = kWhiteColor;
         _settingTableView.delegate = self;
-         _settingTableView.titleArr = @[NSLocalizedString(@"camera", @"相机"),NSLocalizedString(@"device", @"设备"),NSLocalizedString(@"help", @"帮助"),NSLocalizedString(@"calibration", @"校准"),NSLocalizedString(@"full screen mode", @"全屏模式"),NSLocalizedString(@"indoor model", @"室内模式")];
+         _settingTableView.titleArr = @[NSLocalizedString(@"camera", @"相机"),NSLocalizedString(@"device", @"设备"),NSLocalizedString(@"help", @"帮助"),NSLocalizedString(@"calibration", @"校准"),NSLocalizedString(@"full screen mode", @"全屏模式"),NSLocalizedString(@"indoor model", @"定高模式")];
 
         [self.view addSubview:_settingTableView];
     }

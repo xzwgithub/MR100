@@ -36,6 +36,7 @@
 #import <objc/runtime.h>
 #import "StatusBaseInfoModel.h"
 #import "Singleton.h"
+#import "StatusSenseModel.h"
 
 
 static char kAlertKey;
@@ -2354,7 +2355,7 @@ singleton_implementation(ViewController)
 }
 - (void)takeOffOrLandingBtnClickAction:(UIButton *)sender {
     
-    if (![self.flyControlManager isConnected]) {
+    if (![self.flyControlManager isConnected]) {//udp是否连接上
         return;
     }
     else if (![self.flyControlManager.location isValidate]){
@@ -2371,23 +2372,43 @@ singleton_implementation(ViewController)
     
     if (electric > CAPACITY_LOW_FOR_FLY) {
         
-        if (!self.flyControlManager.controller.flyModel) {
-            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"GPS is not available, whether to start the indoor flight mode", @"gps不可用,是否启动室内飞行模式") delegate:self
-                                     cancelButtonTitle:NSLocalizedString(@"cancel", @"取消") otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
-            alert.tag = 10;
-            objc_setAssociatedObject(alert, &kAlertKey, @(alert.tag) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-            [alert show];
-            
-        }else
-        {
-            
             if (!sender.selected) {
                 
-                if (self.flyControlManager){
-                    [_flyControlManager.controller takeoffAction];//一键起飞
+                //一键起飞之前做判断
+              boolean_t flyModel =  [[[NSUserDefaults standardUserDefaults] objectForKey:@"flyModel"] boolValue];
+                if (flyModel) { //定高模式起飞
+                    if (self.flyControlManager){
+                        [_flyControlManager.controller takeoffAction];//定高模式
+                    }
+                }else //定点模式
+                {
+                    //判断gps 光流
+                    uint8_t gps =  self.flyControlManager.response.senseStatusModel.gps;
+                    uint8_t flow = self.flyControlManager.response.senseStatusModel.flow;
+                    if (gps == 5 && flow == 5) { //未配备
+                        if (self.flyControlManager){
+                            [_flyControlManager.controller takeoffAction];//定高模式
+                        }
+                    }else
+                    {
+                        if (gps == 1 && flow == 1) {//异常
+                            //弹框提示
+                            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"fixed point pattern exception", @"定点模式异常") delegate:self
+                                                     cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+                            [alert show];
+                            
+                             [_flyControlManager.controller takeoffAction];//定高模式
+                            
+                        }else //非异常
+                        {
+                             [_flyControlManager.controller takeoffAction];//定点模式
+                        }
+                    }
                     
                 }
-            }else
+                
+            }
+            else
             {
                 if (self.flyControlManager){
                     [_flyControlManager.controller landAction];//降落
@@ -2400,48 +2421,15 @@ singleton_implementation(ViewController)
                 }
             }
             
-        }
-    }
-    else{
-        alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量低于10%，不能起飞") delegate:self
+        }else{
+          alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The electricity is not enough to fly", @"电量低于10%，不能起飞") delegate:self
                                  cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
-        alert.tag = 11;
-        objc_setAssociatedObject(alert, &kAlertKey, @(alert.tag) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+         alert.tag = 11;
+         objc_setAssociatedObject(alert, &kAlertKey, @(alert.tag) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
-        [alert show];
+         [alert show];
     }
     
-    //sender.selected = !sender.selected;
-    
-    
-    //    self.takeOffOrLandingBtn.selected = !self.takeOffOrLandingBtn.selected;
-    //    if (self.takeOffOrLandingBtn.selected) {
-    //        [self getStates:YES];
-    //        self.lock.hidden = YES;//隐藏锁按钮
-    //    }
-    //    else{
-    //        self.lock.hidden = NO;//显示锁按钮
-    //        if (_mp4Helper && [_mp4Helper isRecording]) {
-    //            [self closeRecord];
-    //        }
-    //    }
-    
-    
-    //        int ret = [self.flyControlManager.response device_is_ok];
-
-//        if (ret != 0) {
-//
-//            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"hardware is unusual, can't take off", @"硬件异常,无法起飞") delegate:nil
-//                                     cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
-//            [alert show];
-//            return;
-//        }
-////        
-//        if (![self.flyControlManager.response gpsFine] && !self.flyControlManager.controller.flyModel) {
-//            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"GPS is not available, whether to start the indoor flight mode", @"gps不可用,是否启动室内飞行模式") delegate:self
-//                                     cancelButtonTitle:NSLocalizedString(@"cancel", @"取消") otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
-//            [alert show];
-//        }
     
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -17,6 +17,7 @@
 @interface FlyControlManager ()<flyUdpDelegate>
 @property(nonatomic,strong)NSTimer *controlTimer;
 @property(nonatomic,strong)NSTimer *gpsTimer;
+@property(nonatomic,strong)NSTimer *baseInfoTimer;
 
 @end
 
@@ -24,6 +25,7 @@
 
 #define SendRate 10   //ms
 #define GpsRate 10   //ms
+#define BaseInfoRate 1000 //ms
 
 -(Controller *)controller
 {
@@ -88,17 +90,18 @@
 
 -(void)startUploadData
 {
-    //获取基本信息
-    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
-    //获取传感器状态
-    [self.udp sendData:[AWLinkHelper getSensorStatus] Tag:0];
-    //获取传感器校准状态
-    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
     
     if (!_controlTimer) {
         _controlTimer = [NSTimer scheduledTimerWithTimeInterval:SendRate/1000.0 target:self selector:@selector(sendControlMsg:) userInfo:nil repeats:YES];
         [_controlTimer fire];
     }
+    
+    if (!_baseInfoTimer) {
+        
+        _baseInfoTimer = [NSTimer scheduledTimerWithTimeInterval:BaseInfoRate/1000.0 target:self selector:@selector(getBaseInfo:) userInfo:nil repeats:YES];
+        [_baseInfoTimer fire];
+    }
+    
     if (!_gpsTimer) {
         if (self.location) {
             int result = [_location startUpdateLocation];
@@ -116,13 +119,26 @@
             }
         }
     }
+    
 }
+
 
 -(void)sendControlMsg:(NSTimer *)timer
 {
     //发送遥感控制
     [self.udp sendData:[AWLinkHelper sendRemoteControlCommand:[self getRemoteModel]] Tag:0];
-    
+}
+
+
+//获取基础信息和状态信息
+-(void)getBaseInfo:(NSTimer*)timer
+{
+    //获取基本信息
+    [self.udp sendData:[AWLinkHelper getBaseInfoCommand] Tag:0];
+    //获取传感器状态
+    [self.udp sendData:[AWLinkHelper getSensorStatus] Tag:0];
+    //获取传感器校准状态
+    [self.udp sendData:[AWLinkHelper getSensorCorrectStatus] Tag:0];
 }
 
 //一键起飞
@@ -198,7 +214,7 @@
 -(void)sendGpsMsg:(NSTimer *)timer
 {
     if (_location.isValidate) {
-        [self.udp sendData:[self.location getCoordinateData] Tag:0];
+       // [self.udp sendData:[self.location getCoordinateData] Tag:0];
     }
 }
 
@@ -211,6 +227,10 @@
     if (_gpsTimer) {
         [_gpsTimer invalidate];
         _gpsTimer = nil;
+    }
+    if (_baseInfoTimer) {
+        [_baseInfoTimer invalidate];
+        _baseInfoTimer = nil;
     }
 }
 

@@ -93,4 +93,9 @@ typedef enum{
  */
 @property (nonatomic,assign) BOOL  armed;
 
+/**
+ *  控制手机ip
+ */
+@property (nonatomic,copy) NSString * ipStr;
+
 @end

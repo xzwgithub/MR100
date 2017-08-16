@@ -12,6 +12,7 @@
 #import "ZWHNewGuardViewController.h"
 #import "ZWHSettingCell.h"
 #import "PDFBrowseViewController.h"
+#import "CameraSyncSetting.h"
 
 static NSString *const reuseIdentifier = @"cell";
 @interface ZWHHelpViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -175,6 +176,22 @@ static NSString *const reuseIdentifier = @"cell";
     //关于本机
     else if (indexPath.row == 3) {
         
+        CameraSyncSetting * setting = [CameraSyncSetting cameraSetting];
+        NSDictionary * info = [[NSBundle mainBundle] infoDictionary];
+        //version号
+        NSString * versionStr = [info objectForKey:@"CFBundleShortVersionString"];
+        //build号
+        NSString * buildStr = [info objectForKey:@"CFBundleVersion"];
+        
+        NSString * version_build = [NSString stringWithFormat:@"V%@.%@",versionStr,buildStr];
+        
+        //app版本号
+        version_build = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"APPVersion",@"APP版本:"),version_build];
+        //固件版本
+        NSString * firmwareVersion = [NSString stringWithFormat:@"%@V%@",NSLocalizedString(@"FirmwareVersion",@"固件版本:"),setting.version ? :@""];
+        
+        UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"C-me Flying Camera",@"C-me Flying Camera") message:[NSString stringWithFormat:@"\n%@\n%@",version_build,firmwareVersion]  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+        [view show];
         
     }
     
