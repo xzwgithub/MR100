@@ -167,14 +167,6 @@
     info.temp = [self subNSData:data FromIndex:46];
     info.armed = [self subNSData:data FromIndex:47];
     
-    //手机ip
-    uint8_t ip1 = [self subNSData:data FromIndex:48];
-    uint8_t ip2 = [self subNSData:data FromIndex:49];
-    uint8_t ip3 = [self subNSData:data FromIndex:50];
-    uint8_t ip4 = [self subNSData:data FromIndex:51];
-    
-    info.ipStr = [NSString stringWithFormat:@"%hhu.%hhu.%hhu.%hhu",ip1,ip2,ip3,ip4];
-    
     return info;
 }
 
