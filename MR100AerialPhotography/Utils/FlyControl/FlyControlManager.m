@@ -16,7 +16,6 @@
 
 @interface FlyControlManager ()<flyUdpDelegate>
 @property(nonatomic,strong)NSTimer *controlTimer;
-@property(nonatomic,strong)NSTimer *gpsTimer;
 @property(nonatomic,strong)NSTimer *baseInfoTimer;
 
 @end
@@ -97,27 +96,8 @@
     }
     
     if (!_baseInfoTimer) {
-        
         _baseInfoTimer = [NSTimer scheduledTimerWithTimeInterval:BaseInfoRate/1000.0 target:self selector:@selector(getBaseInfo:) userInfo:nil repeats:YES];
         [_baseInfoTimer fire];
-    }
-    
-    if (!_gpsTimer) {
-        if (self.location) {
-            int result = [_location startUpdateLocation];
-            if (result == 0) {
-                _gpsTimer = [NSTimer scheduledTimerWithTimeInterval:GpsRate/1000.0 target:self selector:@selector(sendGpsMsg:) userInfo:nil repeats:YES];
-                [_gpsTimer fire];
-            }
-            else if (result == -1)
-            {
-                
-            }
-            else if (result == -2)
-            {
-                
-            }
-        }
     }
     
 }
@@ -211,23 +191,13 @@
 }
 
 
--(void)sendGpsMsg:(NSTimer *)timer
-{
-    if (_location.isValidate) {
-       // [self.udp sendData:[self.location getCoordinateData] Tag:0];
-    }
-}
-
 -(void)stopUploadData
 {
     if (_controlTimer) {
         [_controlTimer invalidate];
         _controlTimer = nil;
     }
-    if (_gpsTimer) {
-        [_gpsTimer invalidate];
-        _gpsTimer = nil;
-    }
+
     if (_baseInfoTimer) {
         [_baseInfoTimer invalidate];
         _baseInfoTimer = nil;

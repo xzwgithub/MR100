@@ -2358,13 +2358,13 @@ singleton_implementation(ViewController)
     if (![self.flyControlManager isConnected]) {//udp是否连接上
         return;
     }
-    else if (![self.flyControlManager.location isValidate]){
-        UIAlertView *alert;
-        alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"please go to the Settings in the access to open the GPS before take-off", @"请到设置中打开GPS使用权限之后再进行起飞操作") delegate:nil
-                                 cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
-        [alert show];
-        return;
-    }
+//    else if (![self.flyControlManager.location isValidate]){
+//        UIAlertView *alert;
+//        alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"please go to the Settings in the access to open the GPS before take-off", @"请到设置中打开GPS使用权限之后再进行起飞操作") delegate:nil
+//                                 cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
+//        [alert show];
+//        return;
+//    }
     _isClick = YES;//只要操作了这个按钮就会有值，用以开锁5秒后不操作自动关闭
     
        UIAlertView *alert;
@@ -2385,15 +2385,17 @@ singleton_implementation(ViewController)
                     //判断gps 光流
                     uint8_t gps =  self.flyControlManager.response.senseStatusModel.gps;
                     uint8_t flow = self.flyControlManager.response.senseStatusModel.flow;
+                    gps = 5;
+                    flow = 1;
                     if (gps == 5 && flow == 5) { //未配备
                         if (self.flyControlManager){
                             [_flyControlManager.controller takeoffAction];//定高模式
                         }
                     }else
                     {
-                        if (gps == 1 && flow == 1) {//异常
+                        if ((gps == 1 && flow == 1) || (gps == 5 && flow == 1) || (gps == 1 && flow == 5)) {//异常
                             //弹框提示
-                            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"fixed point pattern exception", @"定点模式异常") delegate:self
+                            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"Fixed point pattern exception", @"定点模式异常") delegate:self
                                                      cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"ok", @"确定"), nil];
                             [alert show];
                             
