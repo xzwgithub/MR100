@@ -20,6 +20,36 @@
 
 @implementation AWLinkHelper
 
+//发送心跳
++(NSData*)getHeartBeatCommand:(uint8_t)heart
+{
+    int length = 8;
+    Byte message[length];
+    message[0] = START_CODE;
+    message[1] = 0x01;
+    message[2] = ID_SRC;
+    message[3] = 0x00;
+    message[4] = 0x03;
+    message[5] = strtoul([[NSString getHexByDecimal:heart] UTF8String],0,16);
+    
+    //crc16校验和
+    Byte crc16[length-3];
+    for (int i = 0; i < length-3; i++) {
+        crc16[i] = message[i+1];
+    }
+    NSData * crc16Data = [NSData dataWithBytes:crc16 length:sizeof(crc16)/sizeof(crc16[0])];
+    uint16_t crc16_int = [crc16Data crc16];
+    int high = crc16_int>>8;
+    int low = crc16_int&0xff;
+    message[6] =  strtoul([[NSString getHexByDecimal:low] UTF8String],0,16); //0x29
+    message[7] = strtoul([[NSString getHexByDecimal:high] UTF8String],0,16);
+    NSData *data = [[NSData alloc] initWithBytes:message length:length];
+    NSLog(@"发送心跳命令：%@",data);
+    return data;
+
+}
+
+
 //获取基本信息
 +(NSData*)getBaseInfoCommand
 {

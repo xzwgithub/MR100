@@ -30,6 +30,9 @@ typedef enum{
 
 @interface AWLinkHelper : NSObject
 
+//发送心跳
++(NSData*)getHeartBeatCommand:(uint8_t)heart;
+
 //获取基本信息
 +(NSData*)getBaseInfoCommand;
 

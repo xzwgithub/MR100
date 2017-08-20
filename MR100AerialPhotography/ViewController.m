@@ -263,6 +263,9 @@ singleton_implementation(ViewController)
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(enterBg)
                                                  name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateUI)
+                                                 name:kUpdateUI object:nil];
 
 }
 
@@ -2385,8 +2388,6 @@ singleton_implementation(ViewController)
                     //判断gps 光流
                     uint8_t gps =  self.flyControlManager.response.senseStatusModel.gps;
                     uint8_t flow = self.flyControlManager.response.senseStatusModel.flow;
-                    gps = 5;
-                    flow = 1;
                     if (gps == 5 && flow == 5) { //未配备
                         if (self.flyControlManager){
                             [_flyControlManager.controller takeoffAction];//定高模式
@@ -3036,6 +3037,7 @@ singleton_implementation(ViewController)
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
                    [tcpManager tcpConnect];
+                   [self.flyControlManager startUploadData];
                 });
                 
              }
@@ -3132,6 +3134,26 @@ singleton_implementation(ViewController)
 static bool roting = false;
 
 #pragma mark -更新信息
+-(void)updateUI
+{
+    self.batteryView.elecQuantity = 0;
+    
+     NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
+    
+    if (FlyModel == BASE_INFO_FLY_MODEL_TYPE_SKY) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@(BASE_INFO_FLY_MODEL_TYPE_OVERGROUND) forKey:FLY_MODE_STATUS];
+        
+        self.takeOffOrLandingBtn.selected = NO;
+        self.lock.hidden = NO;//显示锁按钮
+        self.lock.selected = NO;
+        [self.takeOffOrLandingBtn setImage:[UIImage imageNamed:@"take-off-ash"] forState:UIControlStateNormal];
+        [self getStates:NO];
+        
+    }
+    
+}
+
 -(void)updateInfo
 {
     

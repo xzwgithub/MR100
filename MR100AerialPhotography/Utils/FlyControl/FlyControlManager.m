@@ -15,16 +15,19 @@
 #import "AWLinkHelper.h"
 
 @interface FlyControlManager ()<flyUdpDelegate>
+{
+    uint8_t _heartCount;//心跳计数
+}
 @property(nonatomic,strong)NSTimer *controlTimer;
 @property(nonatomic,strong)NSTimer *baseInfoTimer;
-
+@property(nonatomic,strong)NSTimer *heartBeatTimer;
 @end
 
 @implementation FlyControlManager
 
 #define SendRate 10   //ms
-#define GpsRate 10   //ms
 #define BaseInfoRate 1000 //ms
+#define HeartBeatRate 50 //ms
 
 -(Controller *)controller
 {
@@ -81,10 +84,19 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emergency) name:kEmergency object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takeoff) name:ktakeoff object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(land) name:kland object:nil];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopBaseInfoTimer) name:kstopBaseInfoTimer object:nil];
         
     }
     
     return self;
+}
+
+-(void)stopBaseInfoTimer
+{
+    if (_baseInfoTimer) {
+        [_baseInfoTimer invalidate];
+        _baseInfoTimer = nil;
+    }
 }
 
 -(void)startUploadData
@@ -99,10 +111,25 @@
         _baseInfoTimer = [NSTimer scheduledTimerWithTimeInterval:BaseInfoRate/1000.0 target:self selector:@selector(getBaseInfo:) userInfo:nil repeats:YES];
         [_baseInfoTimer fire];
     }
+    if (!_heartBeatTimer) {
+        _heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:HeartBeatRate/1000.0 target:self selector:@selector(sendHeartBeat) userInfo:nil repeats:YES];
+        [_heartBeatTimer fire];
+    }
     
 }
 
+//发送心跳
+-(void)sendHeartBeat
+{
+    _heartCount++;
+    if (_heartCount > 255) {
+        _heartCount = 0;
+    }
+    [self.udp sendData:[AWLinkHelper getHeartBeatCommand:_heartCount] Tag:0];
+    
+}
 
+//发送遥感控制命令
 -(void)sendControlMsg:(NSTimer *)timer
 {
     //发送遥感控制

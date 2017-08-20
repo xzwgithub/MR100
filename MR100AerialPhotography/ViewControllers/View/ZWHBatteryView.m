@@ -137,6 +137,7 @@
         else if (elecQuantity == 0) {
             self.batteryImageView.image = [UIImage imageNamed:@"battery"];
             [self removeTimer];
+            self.insideView.hidden = YES;
         }
         else if (elecQuantity == -1) {
             self.insideView.hidden = YES;

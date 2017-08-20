@@ -36,6 +36,11 @@
 //获取基本信息和状态信息
 #define kbaseInfoAndStatus   @"kbaseInfoAndStatus"
 
+//停止获取基本信息定时器
+#define kstopBaseInfoTimer   @"kstopBaseInfoTimer"
+
+#define kUpdateUI @"kUpdateUI"
+
 
 
 /**

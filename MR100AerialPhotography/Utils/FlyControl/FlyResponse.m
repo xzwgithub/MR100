@@ -19,18 +19,134 @@
 #import "StatusSenseModel.h"
 
 @interface FlyResponse ()
-{
-    
-}
+/**
+ *  心跳个数累计
+ */
+@property (nonatomic,assign) NSInteger  heartCount;
+/**
+ *  心跳暂停累计
+ */
+@property (nonatomic,assign) NSInteger  heartStopNum;
+
+/**
+ *  常驻线程
+ */
+@property (nonatomic,strong) NSThread * thread;
+
+/**
+ *  定时器
+ */
+@property (nonatomic,strong) NSTimer * timer;
+
+/**
+ *  弹框
+ */
+@property (nonatomic,strong) UIAlertView * alertView;
+
+/**
+ *  标志位
+ */
+@property (nonatomic,assign) boolean_t  isCheckHeart;
+
 @end
 
+
 @implementation FlyResponse
+
+-(NSThread *)thread
+{
+    if (!_thread) {
+        
+        _thread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
+        [_thread start];
+    }
+    return _thread;
+}
+
+//开启子线程
+-(void)runThread
+{
+    @autoreleasepool {
+        //1、添加一个input source
+        [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
+        
+    }
+    
+}
+
+-(void)creatTimer
+{
+    if (!_timer) {
+        
+        _timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkHeartCount) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
+        _isCheckHeart = NO;
+    }
+    
+}
+
+-(void)checkHeartCount
+{
+    if (self.heartCount < 5 && !_isCheckHeart ) {
+        
+        self.heartStopNum++;
+        
+        if (self.heartStopNum == 5) {
+            
+            self.heartStopNum = 0;
+            _isCheckHeart = YES;
+
+            //弹框提示,关闭定时器
+            if (_thread) {
+                [_thread cancel];
+                _thread = nil;
+            }
+            
+            if (_timer) {
+                [_timer invalidate];
+                _timer = nil;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
+                
+                if (FlyModel == BASE_INFO_FLY_MODEL_TYPE_SKY)
+                {
+                    
+                    UIAlertView * view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"tip", @"提示") message:NSLocalizedString(@"The signal is not good, automatic return", @"信号不好，自动返航")  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+                    [view show];
+
+                }
+                    
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateUI object:nil];
+                
+            });
+            
+            
+        }
+    }
+    else
+    {
+        self.heartStopNum = 0;
+    }
+    @synchronized (self) {
+        
+        self.heartCount = 0;
+    }
+    
+}
+
+
 
 -(instancetype)init
 {
     self = [super init];
     if (self) {
         response_data_queue = dispatch_queue_create("response_queue", NULL);
+        _heartCount = 0;
     }
     return self;
 }
@@ -53,7 +169,18 @@
             
             switch (resData[3]) {//主项号
                 case 0 : //系统
-                    
+                    if (resData[4] == 3) {
+                        
+                        [self performSelector:@selector(creatTimer) onThread:self.thread withObject:nil waitUntilDone:NO ];
+                        
+                        _isCheckHeart = NO;
+                        
+                        @synchronized (self) {
+                            //心跳包个数
+                            self.heartCount++;
+                        }
+
+                    }
                     
                     break;
                     
@@ -64,6 +191,7 @@
                         //基本信息
                         self.infoModel = [self getBaseInfo:data];
                         [self updateInfo];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kstopBaseInfoTimer object:nil];
                         
                     }else if (resData[4] == 4)
                     {
