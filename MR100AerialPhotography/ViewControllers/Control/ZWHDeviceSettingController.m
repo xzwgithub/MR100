@@ -11,7 +11,10 @@
 #import "ViewController.h"
 #import "CameraSyncSetting.h"
 #import "ZWHSettingCell.h"
-@interface ZWHDeviceSettingController ()<UITableViewDelegate,UITableViewDataSource>
+
+#define iOS10 ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
+
+@interface ZWHDeviceSettingController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @property(nonatomic, weak) UIView *topBarView;          //上部导航栏
 
@@ -227,7 +230,8 @@
                     self.userNameLb.text = wifiName;
                     self.passwordLb.text = wifiPassword;
                     
-                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"modify success, please reconnect WiFi drones", @"修改成功，请重新连接无人机WiFi") delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"modify success, please reconnect WiFi drones", @"修改成功，请重新连接无人机WiFi") delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+                    alert.tag = 111;
                     [alert show];
 
                 }
@@ -246,6 +250,25 @@
 
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 111) {
+        
+        if (buttonIndex == 0) {
+            
+            //跳转到wifi界面
+            NSString * urlString = @"App-Prefs:root=WIFI";
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:urlString]]) {
+                if (iOS10) {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString] options:@{} completionHandler:nil];
+                } else {
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
+                }
+            }
+            
+        }
+    }
+}
 - (void)dealloc {
     NSLog(@"设备设置控制器挂掉了");
 }

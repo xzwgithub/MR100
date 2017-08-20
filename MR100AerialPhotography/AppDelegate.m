@@ -18,6 +18,7 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 static NSString * const kClientID = @"555408402165-l92t3rmsa56d5kljdhmg6fsfjb9rpl67.apps.googleusercontent.com";
 
@@ -33,6 +34,9 @@ static NSString * const kClientID = @"555408402165-l92t3rmsa56d5kljdhmg6fsfjb9rp
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
+    
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     
     //初次启动，初始化设置
     if (![kUserDefaults objectForKey:kShare1Platform]) {

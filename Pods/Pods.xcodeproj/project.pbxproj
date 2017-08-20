@@ -7,134 +7,353 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2821C7322294870B3FE0FFC89F45A9F3 /* Pods-MR100AerialPhotography-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F9A5716B9970A0EABB53507BC5CE8B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		94DB13156565F6E05F8AAD8FDE7880D9 /* Pods-MR100AerialPhotography-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */; };
+		00311CA07AA560C1D4A6A656C492436F /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 108E6AF71C087A221D6DC042BAB82D27 /* IQUIView+Hierarchy.m */; };
+		014BB832E93832634E095EED7A914D02 /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A4029AD4E07771C98C4A6A1A3090834 /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02742ED90591BC1183A1DE46CB6DFD40 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F26C0B3ADF4298A790F57BB535C8356 /* IQUITextFieldView+Additions.m */; };
+		0D97037AA7A973DB562DFE98B3AD06A0 /* Pods-MR100AerialPhotography-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */; };
+		0E434D8AC2D4367AA481F8082FE45D65 /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B5500A5A5F3113E7F331C54A4AE354 /* IQTitleBarButtonItem.m */; };
+		152389779F3A613C0EAE6DC07E8DD029 /* IQTitleBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8616255BCB4DDC9A15E151E113B8C725 /* IQTitleBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1748943A9E8A6CD3FF42FF12ED330B65 /* IQUIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A6DBB66C48147E879465A81DB006C1D /* IQUIView+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EB9A3C9B8BBE8633574895B21E6669B /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8750B9E76249E2A8AD77EA05C8A5D967 /* IQTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24E1F5D4F5C07EE1C1415FBF13C174D2 /* IQUIWindow+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 10868FF7BA25A7DCB7C75F19E4BE1085 /* IQUIWindow+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D5B8839594155AF1978A86EFFE885C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */; };
+		33AE9F72E40A4EBA41AD1A47211E2B2A /* IQUITextFieldView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B13DCDE0B6CB4AD421DED5CCDA44C89C /* IQUITextFieldView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D445E46E9A0DBC7EE04A0D6633564D3 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = 36B95F2E8A928803B11152FA13FB3377 /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		416FA8B963C82F9BD251B04EA528B6FD /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BDAC997345EDA7BF0FB85C783A8CB6 /* IQTextView.m */; };
+		532D1D3C948874DB3655973BE5D1DB70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */; };
+		532F0A73022F47783FCF897CFB0686EC /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9501134F1A75253E1409B8BE5A56B7A /* IQUIWindow+Hierarchy.m */; };
+		57602CD59C85D4D6A781F7267AE2EE8B /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = DC948BA5E3CD92763CF34160DAA9261B /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57F39E6FA17DA6EE64DD7FEEE9B50B06 /* IQKeyboardReturnKeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A49BA1B7FCF6F8A3E0308A7460953B /* IQKeyboardReturnKeyHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CDF0C05D13E7DA75A626D2A56D3804F /* IQKeyboardManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B6172283D2FB2437F11EF819A29920B /* IQKeyboardManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60D8DBAEF5140AB6D447788D20117595 /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 933205C3128ADACBFC8D55FDD982C225 /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63521E633F5EA450D3E79EAA40B8D458 /* IQKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E6B4D3EF70F174175CD5578EF4E17DF4 /* IQKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6669B6EB7324507D291CD715FBD4FBF8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */; };
+		69BC64FA6EF6E7D967A051E53B7E50A1 /* IQKeyboardManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7207DBCC5A36F6782A084268EFCFFDAB /* IQKeyboardManager-dummy.m */; };
+		785A04B56932A6AE12E4C2B5ABD95D0E /* Pods-MR100AerialPhotography-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83600557B65E2614D7F683A0D3F74D90 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F101957B345C6492B9714FCB38FEE /* IQUIScrollView+Additions.m */; };
+		85CCC724DF5432D149EE53936C20C61C /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C354A54BB9EBD912E4625B4E8EFAF /* IQBarButtonItem.m */; };
+		9C2B4ABD7ACF23AAEF514982A55D99EE /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10FA6FE7F3F585903496AA4A32336066 /* IQUIViewController+Additions.m */; };
+		9CDD05F3FF8498F2F0513A20B858B689 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3D5549FFDA1AD9CC4C931C766E53E6 /* IQToolbar.m */; };
+		A8B53F29975200B5D116BE9A36AC9625 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9EDDDEE088405CAA9BABB5CEA52C309 /* IQKeyboardManager.bundle */; };
+		A9E42CC45FD71B38F532643C3BD8934F /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C13D2E1555A2786BA424D1621A6EF75D /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9548D587DD2C24B5FEE71F136E44D6B /* IQToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D836AA5B1EA5C7FB512BF69098A151 /* IQToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9C2D2D2787674E1ABF18675D5CB6C06 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E09478D02FFC39729C1036000EB26C6E /* IQKeyboardReturnKeyHandler.m */; };
+		C1E4A971CF84B06064F82D87044449E8 /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688ED204E1C0E3A48A526943BFF6165 /* IQPreviousNextView.m */; };
+		C6FF8F0FED3ADDD3C629574093487897 /* IQUIView+IQKeyboardToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CFF9AAEF2ECEAFF13772237A18D583 /* IQUIView+IQKeyboardToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE80A7F8F2A6C77121B6BCEEEAD158BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */; };
+		D8EC7C59672A6275D2ABFEE9556F5B4A /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79C783A81A924F35DD278F7A7B0C44 /* IQUIView+IQKeyboardToolbar.m */; };
+		D9AD2EB3539128A89E0ABED7A64DB455 /* IQPreviousNextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D6E39E4DB0521754DAED0E4634496A /* IQPreviousNextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E62D23900BC87F851BC637427042B214 /* IQUIViewController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7155EB7A2A1E534399C6DB58832CF0 /* IQUIViewController+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF59FAF202E5C9DBFAD2CFA028895214 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3DE319F27623D9CA233B9B130D0A9F /* IQNSArray+Sort.m */; };
+		FE3F0DD9F7B386BA9F5D6EF561AD6B70 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F172EC449E13CB00A690E10943826FB /* IQKeyboardManager.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B683EAAE1F9B16A0F3117250C63F9F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C36CB2CB977A4E7D954935096D00A1ED;
+			remoteInfo = IQKeyboardManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		020DB03D84B89DE5C8292EF41C4D3C74 /* GTLPlusMoment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMoment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMoment.h"; sourceTree = "<group>"; };
-		0720CDB3E1F2035FBDCD051E5E9CE205 /* GTLPlusComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusComment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusComment.h"; sourceTree = "<group>"; };
+		07D6E39E4DB0521754DAED0E4634496A /* IQPreviousNextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPreviousNextView.h; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.h; sourceTree = "<group>"; };
 		07EEAD72A95AA22E758ED8A7A264D9FB /* Pods-MR100AerialPhotography-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MR100AerialPhotography-frameworks.sh"; sourceTree = "<group>"; };
-		08DD76C7EDE304E51B5C44AF5FE0CFEC /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
-		0CAD59E0ABD5C62D79FBEAB313CCA2DA /* GTLPlusPlace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPlace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPlace.h"; sourceTree = "<group>"; };
-		116CEB541D41DDCAC1288A191CA65FA3 /* OpenInChromeController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/OpenInChromeController.h"; sourceTree = "<group>"; };
-		138DCA83A57D157C06BDA91F893CCF4C /* GTMHTTPFetchHistory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetchHistory.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetchHistory.h"; sourceTree = "<group>"; };
-		19093B769FBA6FDC292FEDCF0CAE6BFF /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
-		1DFF45926B651E10EC18457E03AA77C1 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMDefines.h"; sourceTree = "<group>"; };
-		1EA89CA37EF73C3AB969F736357AAB35 /* GooglePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GooglePlus.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GooglePlus.h"; sourceTree = "<group>"; };
-		1ECB9CD2FA8690D1B014D419C9A41027 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
-		2CFCB43CEDA406A72C5A29556F3FED48 /* GTMHTTPFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherLogging.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherLogging.h"; sourceTree = "<group>"; };
-		3282AD141EED5C31F874D5C6CBD47B58 /* GTLPlusAcl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAcl.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAcl.h"; sourceTree = "<group>"; };
-		37EA148115563B228F2E73EF7929C7AF /* GTLJSONParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLJSONParser.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLJSONParser.h"; sourceTree = "<group>"; };
-		37F8B4BD17B8D7688B440F0FC6F71B32 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2SignIn.h"; sourceTree = "<group>"; };
-		39CBC9EA15A9745C17644FCC09CF7162 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework"; sourceTree = "<group>"; };
+		0A4029AD4E07771C98C4A6A1A3090834 /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstantsInternal.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		0C8F06EB02C5B440060107BB99307BBF /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMObjC2Runtime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMObjC2Runtime.h"; sourceTree = "<group>"; };
+		0E4DFBD17DFBF4ADBD1B92C36C628010 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcher.h"; sourceTree = "<group>"; };
+		0FC2FC70A794FBC74653B0BB10217A68 /* GTLFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLFramework.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLFramework.h"; sourceTree = "<group>"; };
+		0FCC73EA6499472BC76586CCF70A6CA6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10868FF7BA25A7DCB7C75F19E4BE1085 /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIWindow+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		108E6AF71C087A221D6DC042BAB82D27 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		10FA6FE7F3F585903496AA4A32336066 /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIViewController+Additions.m"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.m"; sourceTree = "<group>"; };
+		16A8A6E21FA8153E3DFA092582611970 /* GTLPlusMoment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMoment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMoment.h"; sourceTree = "<group>"; };
+		1A071A1C2F6F0D47CF8845324B24B1BA /* GTLUploadParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUploadParameters.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUploadParameters.h"; sourceTree = "<group>"; };
+		1B6172283D2FB2437F11EF819A29920B /* IQKeyboardManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManager-umbrella.h"; sourceTree = "<group>"; };
+		1E2FA7928967D879228BBE8BB858C3BB /* GTLService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLService.h"; sourceTree = "<group>"; };
+		1F5A11F31E06AEDCFAAC8B6D82C2F3FC /* GTLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLObject.h"; sourceTree = "<group>"; };
+		1F7155EB7A2A1E534399C6DB58832CF0 /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIViewController+Additions.h"; path = "IQKeyboardManager/Categories/IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		2379319A603B59F4BF10DA8E962E78A1 /* OpenInChromeController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/OpenInChromeController.h"; sourceTree = "<group>"; };
+		2867A3CEF815CED573EE692CBEC2EDB6 /* GTLPlusMomentsFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMomentsFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMomentsFeed.h"; sourceTree = "<group>"; };
+		29D5109A871D7C3E675D2D0151A84069 /* IQKeyboardManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManager.framework; path = IQKeyboardManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F9963BF169294E0D0450CE21EC22AE /* GPPSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignIn.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignIn.h"; sourceTree = "<group>"; };
+		36179394B9DC06FC3ABB67B6AE70F53B /* GoogleOpenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleOpenSource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GoogleOpenSource.h"; sourceTree = "<group>"; };
+		36B95F2E8A928803B11152FA13FB3377 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		39962C2F85514C0B9B6B219D28B3D78C /* GTLPlusPlace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPlace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPlace.h"; sourceTree = "<group>"; };
 		3CAEA90701E2F019BB6420F764AB54AC /* Pods-MR100AerialPhotography-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MR100AerialPhotography-resources.sh"; sourceTree = "<group>"; };
-		42DE7CB1D21D62CE6A6EFEE03E8FDDE6 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGarbageCollection.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMGarbageCollection.h"; sourceTree = "<group>"; };
-		43D0779145986572ACF9330CD575F9D1 /* GTMHTTPFetcherService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherService.h"; sourceTree = "<group>"; };
-		47F5E4027CD687B876725C4264C7C21F /* GTLPlusMomentsFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusMomentsFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusMomentsFeed.h"; sourceTree = "<group>"; };
+		40CC57C09880878B7B6EFF30128AB319 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMDefines.h"; sourceTree = "<group>"; };
+		42B24461F12FAF16317F1F5C487099DC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		45B8B96333E9BCED7CDDB058BE24395E /* GTLPlusCommentFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusCommentFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusCommentFeed.h"; sourceTree = "<group>"; };
+		46CB0934ABA228E0E9489185AAC9B6BC /* GPPDeepLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPDeepLink.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPDeepLink.h"; sourceTree = "<group>"; };
+		47FD92E1CA7E5B641E894EB644E85951 /* IQKeyboardManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManager-prefix.pch"; sourceTree = "<group>"; };
 		49E67A1AC2F2E9B25E572C26937AFCB5 /* Pods-MR100AerialPhotography-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MR100AerialPhotography-umbrella.h"; sourceTree = "<group>"; };
 		49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MR100AerialPhotography.release.xcconfig"; sourceTree = "<group>"; };
-		4A66117626F746594CCFA7D1257C9A7E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
-		4AA6134DDD2245625DB1400A43768B58 /* GPPDeepLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPDeepLink.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPDeepLink.h"; sourceTree = "<group>"; };
-		50E1128E9DBB1BDD8D6E45AD54BA189B /* GTLErrorObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLErrorObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLErrorObject.h"; sourceTree = "<group>"; };
-		526A8925CEFC36B0D43A490B857AAE9B /* GTLPlusPeopleFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPeopleFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPeopleFeed.h"; sourceTree = "<group>"; };
-		55AA7E152BE504151009D9DE2BA33821 /* GTLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDefines.h"; sourceTree = "<group>"; };
-		5621049CD08A8B10A8F6F0BAA52CF6DF /* GPPSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignIn.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignIn.h"; sourceTree = "<group>"; };
-		57280D86DED21D6BBA873791D851E2A2 /* GTLRuntimeCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLRuntimeCommon.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLRuntimeCommon.h"; sourceTree = "<group>"; };
-		57E38B4CC5BEF1AF846FC2D3B7E52FD3 /* GTLTargetNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLTargetNamespace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLTargetNamespace.h"; sourceTree = "<group>"; };
-		5A27F7AA7BA5CC8FC950B377C612D2DA /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
-		5DF457B8E8B7E79CD12740EC442EDDF0 /* GTLPlusAclentryResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAclentryResource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAclentryResource.h"; sourceTree = "<group>"; };
-		62AE612058C148234679AB5D9F02CB7D /* GTLPlusCommentFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusCommentFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusCommentFeed.h"; sourceTree = "<group>"; };
-		63931B12711217DAEF45C99D47E4A0F8 /* GooglePlus.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
-		63D1A320820AAFB6DE56AF52BC2701D9 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		718359566BCBF7F5774AB1EB19071C2B /* GoogleOpenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleOpenSource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GoogleOpenSource.h"; sourceTree = "<group>"; };
-		758761EFCD308B09DE06773E5125DBC5 /* GTLServicePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLServicePlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLServicePlus.h"; sourceTree = "<group>"; };
-		7715DAC533F7F511AF0DAF8C72CEAA11 /* GTMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMLogger.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMLogger.h"; sourceTree = "<group>"; };
-		7C6344F1B856C15718361B2E3A2E1A99 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcher.h"; sourceTree = "<group>"; };
-		7D553848D26F278C80A49A387DC5BB4E /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework"; sourceTree = "<group>"; };
+		4B155199A202D634C9A1F41AD8FE286E /* GTLQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQuery.h"; sourceTree = "<group>"; };
+		4D2BC62929AB500816B3A848ED14E18D /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2Authentication.h"; sourceTree = "<group>"; };
+		51AD03F77CB73DB9C0C7AA8C12DF1EB2 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2SignIn.h"; sourceTree = "<group>"; };
+		55F7E6DB0EABC0D5933FC9CED943778F /* GTLPlusItemScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusItemScope.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusItemScope.h"; sourceTree = "<group>"; };
+		58B09880B55C208DB3CA2CB7FC5EAA2C /* GTLPlusAcl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAcl.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAcl.h"; sourceTree = "<group>"; };
+		5D2F101957B345C6492B9714FCB38FEE /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
+		5E3D5549FFDA1AD9CC4C931C766E53E6 /* IQToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQToolbar.m; path = IQKeyboardManager/IQToolbar/IQToolbar.m; sourceTree = "<group>"; };
+		5E61C302B7417576B784C2764DAE85B2 /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMMethodCheck.h"; sourceTree = "<group>"; };
+		5F7ED3F6F6CDB8E01653AC96180452A4 /* GTMHTTPFetcherService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherService.h"; sourceTree = "<group>"; };
+		63CFF9AAEF2ECEAFF13772237A18D583 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+IQKeyboardToolbar.h"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		64B8C5164C06F811F3612DB17A6A9DC5 /* GTLBatchResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchResult.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchResult.h"; sourceTree = "<group>"; };
+		66D836AA5B1EA5C7FB512BF69098A151 /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
+		69A00E31E5AAADDBC9972A41FBCDAA4B /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		6A6DBB66C48147E879465A81DB006C1D /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIView+Hierarchy.h"; path = "IQKeyboardManager/Categories/IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		7207DBCC5A36F6782A084268EFCFFDAB /* IQKeyboardManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManager-dummy.m"; sourceTree = "<group>"; };
+		7688ED204E1C0E3A48A526943BFF6165 /* IQPreviousNextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPreviousNextView.m; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.m; sourceTree = "<group>"; };
+		7762926FA49C88A2C617A6BA4070094A /* GTMGarbageCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGarbageCollection.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMGarbageCollection.h"; sourceTree = "<group>"; };
+		78FF2F30DB4E38A08530C2DCF9533485 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterCore.framework; path = iOS/TwitterCore.framework; sourceTree = "<group>"; };
+		7A84F52220CCA56BD7DD026D17680ECA /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		7F26C0B3ADF4298A790F57BB535C8356 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
 		7F29D5CD9525A4E3A6FAED1F0B01E29C /* Pods-MR100AerialPhotography-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MR100AerialPhotography-acknowledgements.plist"; sourceTree = "<group>"; };
-		85547249EA59D0CE156E84138A685609 /* GTLUploadParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUploadParameters.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUploadParameters.h"; sourceTree = "<group>"; };
+		7F4C354A54BB9EBD912E4625B4E8EFAF /* IQBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.m; sourceTree = "<group>"; };
+		7F79C783A81A924F35DD278F7A7B0C44 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIView+IQKeyboardToolbar.m"; path = "IQKeyboardManager/IQToolbar/IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		80950288BDAEBC6B0CED344B2EE3BB21 /* GTLPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlus.h"; sourceTree = "<group>"; };
+		81638C7F8FB20B4551A5CD257160D31A /* GTLUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUtilities.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUtilities.h"; sourceTree = "<group>"; };
+		8547A4CF168D98C11D567EB438217234 /* GTLDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDefines.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDefines.h"; sourceTree = "<group>"; };
+		8616255BCB4DDC9A15E151E113B8C725 /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTitleBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		8750B9E76249E2A8AD77EA05C8A5D967 /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
 		884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MR100AerialPhotography.debug.xcconfig"; sourceTree = "<group>"; };
-		8D0711E8A680F45D785728262D852192 /* GTLPlusActivityFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivityFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivityFeed.h"; sourceTree = "<group>"; };
-		8E43543E4C49208FDE169ED4CA9F9A3B /* GTLBase64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBase64.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBase64.h"; sourceTree = "<group>"; };
-		8FE1C51BDC688FB76EDE6809E31F21D2 /* GTLQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQuery.h"; sourceTree = "<group>"; };
+		89163D6DE0903874D96C1B3F6056BA4C /* GTLJSONParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLJSONParser.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLJSONParser.h"; sourceTree = "<group>"; };
+		8A9E87A4BAAF4D2DA2E376977957F2BC /* GTMHTTPFetcherLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcherLogging.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetcherLogging.h"; sourceTree = "<group>"; };
+		8CCD51567FB9926BC3E65266346E54F4 /* GPPSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignInButton.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignInButton.h"; sourceTree = "<group>"; };
+		8D4E3EAFA942C651A4772D49DE127A35 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		8F172EC449E13CB00A690E10943826FB /* IQKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardManager.m; path = IQKeyboardManager/IQKeyboardManager.m; sourceTree = "<group>"; };
 		90C31AE91F04141CA64D1DB9226067D1 /* Pods-MR100AerialPhotography-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MR100AerialPhotography-dummy.m"; sourceTree = "<group>"; };
-		9267C2BF9024F2D69BD66B89BB103606 /* GTLPlusActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivity.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivity.h"; sourceTree = "<group>"; };
+		933205C3128ADACBFC8D55FDD982C225 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUIScrollView+Additions.h"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		949EACDF0795BE8B666B464F7AA7620E /* GTLService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLService.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLService.h"; sourceTree = "<group>"; };
-		9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MR100AerialPhotography.framework; path = "Pods-MR100AerialPhotography.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A8C7E3489732804EADA76E1DAD0D0ED /* GPPShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPShare.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPShare.h"; sourceTree = "<group>"; };
-		A22050FBBBA8D5F8FC126D00AE388FFC /* GTLPlusConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusConstants.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusConstants.h"; sourceTree = "<group>"; };
-		A487C61D31796039A29614789AB783F4 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		A5B5F988D574CA92E72E8F56A373D203 /* GTMMethodCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMMethodCheck.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMMethodCheck.h"; sourceTree = "<group>"; };
-		A6CE447FF31A63A59344C4099D107E5F /* GTLPlusPerson.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPerson.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPerson.h"; sourceTree = "<group>"; };
+		95FC865B3C50F34EC59F6471108923A1 /* GTLBase64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBase64.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBase64.h"; sourceTree = "<group>"; };
+		99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		A471E9B86F44A34639771420AD17937F /* GTLBatchQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchQuery.h"; sourceTree = "<group>"; };
+		A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A55B967D5CBFE4D9B158F4B7F0F3FCAC /* GTLRuntimeCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLRuntimeCommon.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLRuntimeCommon.h"; sourceTree = "<group>"; };
+		A87B2D2E51738B7A3113813FD922ED18 /* GooglePlus.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
+		A9A6AEF540891A3ECE3B2A44BB749F12 /* GTLPlusConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusConstants.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusConstants.h"; sourceTree = "<group>"; };
+		AA50F6EED65561C7A024DF3D604262CA /* GPPShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPShare.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPShare.h"; sourceTree = "<group>"; };
+		AEF39CBCA702B10A7C9D03E6A6DCA257 /* IQKeyboardManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManager.xcconfig; sourceTree = "<group>"; };
+		B02B78D2C0B96F803949BC5EB623F4D4 /* GTLServicePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLServicePlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLServicePlus.h"; sourceTree = "<group>"; };
+		B13DCDE0B6CB4AD421DED5CCDA44C89C /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUITextFieldView+Additions.h"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		B2DAE55516868CA7ECEAECA68712FF1B /* GTLPlusActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivity.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivity.h"; sourceTree = "<group>"; };
 		B4BD6D920B767E76BDEFC9B93135F4D1 /* Pods-MR100AerialPhotography-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MR100AerialPhotography-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B5408D66415F2693F2EA8E7631850FC3 /* GPPURLHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPURLHandler.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPURLHandler.h"; sourceTree = "<group>"; };
-		BE0DF23055AD669516217B047CB973F0 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSDictionary+URLArguments.h"; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
-		C4F2EDDD9742FB343FF79424632883C2 /* GTLPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlus.h"; sourceTree = "<group>"; };
-		CD0FF7D832697C30C91C5DF790852434 /* GTMHTTPUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPUploadFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPUploadFetcher.h"; sourceTree = "<group>"; };
-		CECB6B1D660531FAE976D1E664F55A17 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMObjC2Runtime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMObjC2Runtime.h"; sourceTree = "<group>"; };
-		CEEAB50E1EC13A9505AEACFA383DCA0F /* GTLUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLUtilities.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLUtilities.h"; sourceTree = "<group>"; };
-		CFB7A7FA1CA8E1BFE5BCF93178932BB5 /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2Authentication.h"; sourceTree = "<group>"; };
-		D0EF9A5F4E4ABE30FFA31E1CB3597B23 /* GTLDateTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDateTime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDateTime.h"; sourceTree = "<group>"; };
-		D5FE99C847C758E49FF1AB67B76E4E8B /* GTLObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLObject.h"; sourceTree = "<group>"; };
-		D7D4B09C455557C231C569F5C9D42273 /* GTLBatchResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchResult.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchResult.h"; sourceTree = "<group>"; };
-		D89C054CF1660E317F34106CB1CE0FB1 /* GTLFramework.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLFramework.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLFramework.h"; sourceTree = "<group>"; };
-		DCB6FEC84AC6F2D1C360FFF508B06AFA /* GPPSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPSignInButton.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPSignInButton.h"; sourceTree = "<group>"; };
-		E55CEECB0D1132D71960D41CE8ED5931 /* GTLPlusItemScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusItemScope.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusItemScope.h"; sourceTree = "<group>"; };
-		F3B22B425B1E0FAE59AD09FC1B5F7DE7 /* GTLBatchQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLBatchQuery.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLBatchQuery.h"; sourceTree = "<group>"; };
+		B4BDAC997345EDA7BF0FB85C783A8CB6 /* IQTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTextView.m; path = IQKeyboardManager/IQTextView/IQTextView.m; sourceTree = "<group>"; };
+		B9501134F1A75253E1409B8BE5A56B7A /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIWindow+Hierarchy.m"; path = "IQKeyboardManager/Categories/IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		B9EDDDEE088405CAA9BABB5CEA52C309 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManager/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		BB586FFD78AB1BA4078C01205CE17F8E /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2ViewControllerTouch.h"; sourceTree = "<group>"; };
+		C13D2E1555A2786BA424D1621A6EF75D /* IQBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.h; sourceTree = "<group>"; };
+		C2E2636A6A9C72F9553AAFDC66B28870 /* GTLDateTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLDateTime.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLDateTime.h"; sourceTree = "<group>"; };
+		CB304E69DF13BFC11CE7538F7D76CFC9 /* GTLPlusComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusComment.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusComment.h"; sourceTree = "<group>"; };
+		CB49FC676EFA7D8476F2057B8016D8D6 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework"; sourceTree = "<group>"; };
+		CB979A3F874B0785ECC3BA8949C818E8 /* GPPURLHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GPPURLHandler.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GPPURLHandler.h"; sourceTree = "<group>"; };
+		CC418A4D6D15450086CA12723B7CD3DC /* GTMHTTPUploadFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPUploadFetcher.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPUploadFetcher.h"; sourceTree = "<group>"; };
+		CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D0074B80A803D9760A538453C5163358 /* Pods_MR100AerialPhotography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MR100AerialPhotography.framework; path = "Pods-MR100AerialPhotography.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1A49BA1B7FCF6F8A3E0308A7460953B /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardReturnKeyHandler.h; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
+		D7B5500A5A5F3113E7F331C54A4AE354 /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		D94768014D5501EACDECFA765F0FF4BC /* GTLPlusPerson.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPerson.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPerson.h"; sourceTree = "<group>"; };
+		DC948BA5E3CD92763CF34160DAA9261B /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstants.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		E09478D02FFC39729C1036000EB26C6E /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQKeyboardReturnKeyHandler.m; path = IQKeyboardManager/IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		E11E2A195D60850B6E3A7D8686377E33 /* GTMHTTPFetchHistory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetchHistory.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMHTTPFetchHistory.h"; sourceTree = "<group>"; };
+		E3CEB8C4C127E7C971861382EC7F2E22 /* GooglePlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GooglePlus.h; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework/Versions/A/Headers/GooglePlus.h"; sourceTree = "<group>"; };
+		E6B4D3EF70F174175CD5578EF4E17DF4 /* IQKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManager.h; path = IQKeyboardManager/IQKeyboardManager.h; sourceTree = "<group>"; };
+		E7F13F8044D60D7B1824F304EC739C33 /* GTLErrorObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLErrorObject.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLErrorObject.h"; sourceTree = "<group>"; };
+		EA9EC46065854C5613C1F31733779B1F /* GTMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMLogger.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMLogger.h"; sourceTree = "<group>"; };
+		EB2C582D2E87B319397AA6B9E488BAE2 /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		EBBDC62F41EE4B441E7F119AFC644E27 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		EDB353885FBBFDCEBD83A791D6959367 /* GTLQueryPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQueryPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQueryPlus.h"; sourceTree = "<group>"; };
+		EE9E6FE1D1FEEC3D9E4AFEEC1491C0FC /* GTLPlusPeopleFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusPeopleFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusPeopleFeed.h"; sourceTree = "<group>"; };
+		EEBEE08E4B782EB1E2F0286098AF38A8 /* IQKeyboardManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = IQKeyboardManager.modulemap; sourceTree = "<group>"; };
 		F47776281687CCAED48D5F0AE33536C4 /* Pods-MR100AerialPhotography.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MR100AerialPhotography.modulemap"; sourceTree = "<group>"; };
-		F8DABA26561AFA48574ED2AE90CFB36C /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2ViewControllerTouch.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTMOAuth2ViewControllerTouch.h"; sourceTree = "<group>"; };
+		F926F59A477C015ADC3BD389E4B1C878 /* GTLTargetNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLTargetNamespace.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLTargetNamespace.h"; sourceTree = "<group>"; };
 		F96051EBB266BDBC2AB0062C04027C0B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFD51CFF576BB27130A1589D2253CBDF /* GTLQueryPlus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLQueryPlus.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLQueryPlus.h"; sourceTree = "<group>"; };
+		FA33E745F5FC71680EC44F4BA1341B09 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = "google-plus-ios-sdk-1.7.1/GooglePlus.framework"; sourceTree = "<group>"; };
+		FC7D4DC945B4E1BF49FEA764C1087305 /* GTLPlusAclentryResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusAclentryResource.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusAclentryResource.h"; sourceTree = "<group>"; };
+		FD3DE319F27623D9CA233B9B130D0A9F /* IQNSArray+Sort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQNSArray+Sort.m"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.m"; sourceTree = "<group>"; };
+		FF8D478D3AD0308A59B0D789C6CC4939 /* GTLPlusActivityFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTLPlusActivityFeed.h; path = "google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework/Versions/A/Headers/GTLPlusActivityFeed.h"; sourceTree = "<group>"; };
+		FFE00C056128A773E17C2E0D00F98E82 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5603E971FBDD8E1811721DA6B6DAD37B /* Frameworks */ = {
+		A5220702F0A18A2B878F4C83551FF3A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F9A5716B9970A0EABB53507BC5CE8B4 /* Foundation.framework in Frameworks */,
+				6669B6EB7324507D291CD715FBD4FBF8 /* CoreGraphics.framework in Frameworks */,
+				2D5B8839594155AF1978A86EFFE885C8 /* Foundation.framework in Frameworks */,
+				532D1D3C948874DB3655973BE5D1DB70 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAEBB892123FFB3C92811E78619E9385 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE80A7F8F2A6C77121B6BCEEEAD158BA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		245BE1FE77BB86A4B76A4CDB33547388 /* TwitterCore */ = {
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C1A45829502C12542DB84BB155075E67 /* Frameworks */,
-			);
-			name = TwitterCore;
-			path = TwitterCore;
-			sourceTree = "<group>";
-		};
-		50897F8887FD1405E56D8B662D1FC878 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				19093B769FBA6FDC292FEDCF0CAE6BFF /* TwitterKit.framework */,
+				93FD095B5FC2A2BCC81B8E3CFC167E67 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6BBA493DE33BB9D97A0102CDE5DEDD45 /* Pods */ = {
+		17C9CE47FAD8C393D400861C16E1BDFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A20EEAD3B0349F63D646F04C08D42AB3 /* Fabric */,
-				886598C9925F926E8220FB5529905289 /* google-plus-ios-sdk */,
-				245BE1FE77BB86A4B76A4CDB33547388 /* TwitterCore */,
-				8A1B2F695F963A47EBD22A040084E633 /* TwitterKit */,
+				EBBDC62F41EE4B441E7F119AFC644E27 /* TwitterKitResources.bundle */,
 			);
-			name = Pods;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */ = {
+		1B2F77B84CFC3F525ECB79510F33591A /* google-plus-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */,
+				36179394B9DC06FC3ABB67B6AE70F53B /* GoogleOpenSource.h */,
+				E3CEB8C4C127E7C971861382EC7F2E22 /* GooglePlus.h */,
+				46CB0934ABA228E0E9489185AAC9B6BC /* GPPDeepLink.h */,
+				AA50F6EED65561C7A024DF3D604262CA /* GPPShare.h */,
+				35F9963BF169294E0D0450CE21EC22AE /* GPPSignIn.h */,
+				8CCD51567FB9926BC3E65266346E54F4 /* GPPSignInButton.h */,
+				CB979A3F874B0785ECC3BA8949C818E8 /* GPPURLHandler.h */,
+				95FC865B3C50F34EC59F6471108923A1 /* GTLBase64.h */,
+				A471E9B86F44A34639771420AD17937F /* GTLBatchQuery.h */,
+				64B8C5164C06F811F3612DB17A6A9DC5 /* GTLBatchResult.h */,
+				C2E2636A6A9C72F9553AAFDC66B28870 /* GTLDateTime.h */,
+				8547A4CF168D98C11D567EB438217234 /* GTLDefines.h */,
+				E7F13F8044D60D7B1824F304EC739C33 /* GTLErrorObject.h */,
+				0FC2FC70A794FBC74653B0BB10217A68 /* GTLFramework.h */,
+				89163D6DE0903874D96C1B3F6056BA4C /* GTLJSONParser.h */,
+				1F5A11F31E06AEDCFAAC8B6D82C2F3FC /* GTLObject.h */,
+				80950288BDAEBC6B0CED344B2EE3BB21 /* GTLPlus.h */,
+				58B09880B55C208DB3CA2CB7FC5EAA2C /* GTLPlusAcl.h */,
+				FC7D4DC945B4E1BF49FEA764C1087305 /* GTLPlusAclentryResource.h */,
+				B2DAE55516868CA7ECEAECA68712FF1B /* GTLPlusActivity.h */,
+				FF8D478D3AD0308A59B0D789C6CC4939 /* GTLPlusActivityFeed.h */,
+				CB304E69DF13BFC11CE7538F7D76CFC9 /* GTLPlusComment.h */,
+				45B8B96333E9BCED7CDDB058BE24395E /* GTLPlusCommentFeed.h */,
+				A9A6AEF540891A3ECE3B2A44BB749F12 /* GTLPlusConstants.h */,
+				55F7E6DB0EABC0D5933FC9CED943778F /* GTLPlusItemScope.h */,
+				16A8A6E21FA8153E3DFA092582611970 /* GTLPlusMoment.h */,
+				2867A3CEF815CED573EE692CBEC2EDB6 /* GTLPlusMomentsFeed.h */,
+				EE9E6FE1D1FEEC3D9E4AFEEC1491C0FC /* GTLPlusPeopleFeed.h */,
+				D94768014D5501EACDECFA765F0FF4BC /* GTLPlusPerson.h */,
+				39962C2F85514C0B9B6B219D28B3D78C /* GTLPlusPlace.h */,
+				4B155199A202D634C9A1F41AD8FE286E /* GTLQuery.h */,
+				EDB353885FBBFDCEBD83A791D6959367 /* GTLQueryPlus.h */,
+				A55B967D5CBFE4D9B158F4B7F0F3FCAC /* GTLRuntimeCommon.h */,
+				1E2FA7928967D879228BBE8BB858C3BB /* GTLService.h */,
+				B02B78D2C0B96F803949BC5EB623F4D4 /* GTLServicePlus.h */,
+				F926F59A477C015ADC3BD389E4B1C878 /* GTLTargetNamespace.h */,
+				1A071A1C2F6F0D47CF8845324B24B1BA /* GTLUploadParameters.h */,
+				81638C7F8FB20B4551A5CD257160D31A /* GTLUtilities.h */,
+				40CC57C09880878B7B6EFF30128AB319 /* GTMDefines.h */,
+				7762926FA49C88A2C617A6BA4070094A /* GTMGarbageCollection.h */,
+				0E4DFBD17DFBF4ADBD1B92C36C628010 /* GTMHTTPFetcher.h */,
+				8A9E87A4BAAF4D2DA2E376977957F2BC /* GTMHTTPFetcherLogging.h */,
+				5F7ED3F6F6CDB8E01653AC96180452A4 /* GTMHTTPFetcherService.h */,
+				E11E2A195D60850B6E3A7D8686377E33 /* GTMHTTPFetchHistory.h */,
+				CC418A4D6D15450086CA12723B7CD3DC /* GTMHTTPUploadFetcher.h */,
+				EA9EC46065854C5613C1F31733779B1F /* GTMLogger.h */,
+				5E61C302B7417576B784C2764DAE85B2 /* GTMMethodCheck.h */,
+				69A00E31E5AAADDBC9972A41FBCDAA4B /* GTMNSDictionary+URLArguments.h */,
+				7A84F52220CCA56BD7DD026D17680ECA /* GTMNSString+URLArguments.h */,
+				4D2BC62929AB500816B3A848ED14E18D /* GTMOAuth2Authentication.h */,
+				51AD03F77CB73DB9C0C7AA8C12DF1EB2 /* GTMOAuth2SignIn.h */,
+				BB586FFD78AB1BA4078C01205CE17F8E /* GTMOAuth2ViewControllerTouch.h */,
+				0C8F06EB02C5B440060107BB99307BBF /* GTMObjC2Runtime.h */,
+				2379319A603B59F4BF10DA8E962E78A1 /* OpenInChromeController.h */,
+				E8A0A876DF3AA8E43C3FABF00157685B /* Frameworks */,
+				822ECAF9FC79B33286E8024F49596D6B /* Resources */,
+			);
+			name = "google-plus-ios-sdk";
+			path = "google-plus-ios-sdk";
+			sourceTree = "<group>";
+		};
+		3416D3212E99EE40935A69FB32D9598B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFE00C056128A773E17C2E0D00F98E82 /* TwitterKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3617E6FF157F59EBDE16CE281C5EF9BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78FF2F30DB4E38A08530C2DCF9533485 /* TwitterCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44252EE4EFBE1A9D725065D3BE79ACF0 /* IQKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				C13D2E1555A2786BA424D1621A6EF75D /* IQBarButtonItem.h */,
+				7F4C354A54BB9EBD912E4625B4E8EFAF /* IQBarButtonItem.m */,
+				E6B4D3EF70F174175CD5578EF4E17DF4 /* IQKeyboardManager.h */,
+				8F172EC449E13CB00A690E10943826FB /* IQKeyboardManager.m */,
+				DC948BA5E3CD92763CF34160DAA9261B /* IQKeyboardManagerConstants.h */,
+				0A4029AD4E07771C98C4A6A1A3090834 /* IQKeyboardManagerConstantsInternal.h */,
+				D1A49BA1B7FCF6F8A3E0308A7460953B /* IQKeyboardReturnKeyHandler.h */,
+				E09478D02FFC39729C1036000EB26C6E /* IQKeyboardReturnKeyHandler.m */,
+				36B95F2E8A928803B11152FA13FB3377 /* IQNSArray+Sort.h */,
+				FD3DE319F27623D9CA233B9B130D0A9F /* IQNSArray+Sort.m */,
+				07D6E39E4DB0521754DAED0E4634496A /* IQPreviousNextView.h */,
+				7688ED204E1C0E3A48A526943BFF6165 /* IQPreviousNextView.m */,
+				8750B9E76249E2A8AD77EA05C8A5D967 /* IQTextView.h */,
+				B4BDAC997345EDA7BF0FB85C783A8CB6 /* IQTextView.m */,
+				8616255BCB4DDC9A15E151E113B8C725 /* IQTitleBarButtonItem.h */,
+				D7B5500A5A5F3113E7F331C54A4AE354 /* IQTitleBarButtonItem.m */,
+				66D836AA5B1EA5C7FB512BF69098A151 /* IQToolbar.h */,
+				5E3D5549FFDA1AD9CC4C931C766E53E6 /* IQToolbar.m */,
+				933205C3128ADACBFC8D55FDD982C225 /* IQUIScrollView+Additions.h */,
+				5D2F101957B345C6492B9714FCB38FEE /* IQUIScrollView+Additions.m */,
+				B13DCDE0B6CB4AD421DED5CCDA44C89C /* IQUITextFieldView+Additions.h */,
+				7F26C0B3ADF4298A790F57BB535C8356 /* IQUITextFieldView+Additions.m */,
+				6A6DBB66C48147E879465A81DB006C1D /* IQUIView+Hierarchy.h */,
+				108E6AF71C087A221D6DC042BAB82D27 /* IQUIView+Hierarchy.m */,
+				63CFF9AAEF2ECEAFF13772237A18D583 /* IQUIView+IQKeyboardToolbar.h */,
+				7F79C783A81A924F35DD278F7A7B0C44 /* IQUIView+IQKeyboardToolbar.m */,
+				1F7155EB7A2A1E534399C6DB58832CF0 /* IQUIViewController+Additions.h */,
+				10FA6FE7F3F585903496AA4A32336066 /* IQUIViewController+Additions.m */,
+				10868FF7BA25A7DCB7C75F19E4BE1085 /* IQUIWindow+Hierarchy.h */,
+				B9501134F1A75253E1409B8BE5A56B7A /* IQUIWindow+Hierarchy.m */,
+				C3712B3396495BAF26747C97D2D3C0CD /* Resources */,
+				537E4045A5DA70F9C52D9BF71A6FBE3E /* Support Files */,
+			);
+			name = IQKeyboardManager;
+			path = IQKeyboardManager;
+			sourceTree = "<group>";
+		};
+		537E4045A5DA70F9C52D9BF71A6FBE3E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0FCC73EA6499472BC76586CCF70A6CA6 /* Info.plist */,
+				EEBEE08E4B782EB1E2F0286098AF38A8 /* IQKeyboardManager.modulemap */,
+				AEF39CBCA702B10A7C9D03E6A6DCA257 /* IQKeyboardManager.xcconfig */,
+				7207DBCC5A36F6782A084268EFCFFDAB /* IQKeyboardManager-dummy.m */,
+				47FD92E1CA7E5B641E894EB644E85951 /* IQKeyboardManager-prefix.pch */,
+				1B6172283D2FB2437F11EF819A29920B /* IQKeyboardManager-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQKeyboardManager";
+			sourceTree = "<group>";
+		};
+		650DCA421CA62A1A5E1A59EACFDC7EA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29D5109A871D7C3E675D2D0151A84069 /* IQKeyboardManager.framework */,
+				D0074B80A803D9760A538453C5163358 /* Pods_MR100AerialPhotography.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,9 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				6BBA493DE33BB9D97A0102CDE5DEDD45 /* Pods */,
-				6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				FF5B06987BE3D2704BDC2E11C5EDE125 /* Pods */,
+				650DCA421CA62A1A5E1A59EACFDC7EA6 /* Products */,
 				7F4B120ADECB87E7C9E9BF3A7310AC66 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -176,177 +395,163 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8277AC212E96B221BAA64C73E1EA7006 /* Frameworks */ = {
+		80D6DA4AB41004D726046F7A95DD3D2D /* TwitterCore */ = {
 			isa = PBXGroup;
 			children = (
-				7D553848D26F278C80A49A387DC5BB4E /* GoogleOpenSource.framework */,
-				39CBC9EA15A9745C17644FCC09CF7162 /* GooglePlus.framework */,
+				3617E6FF157F59EBDE16CE281C5EF9BB /* Frameworks */,
 			);
-			name = Frameworks;
+			name = TwitterCore;
+			path = TwitterCore;
 			sourceTree = "<group>";
 		};
-		886598C9925F926E8220FB5529905289 /* google-plus-ios-sdk */ = {
+		822ECAF9FC79B33286E8024F49596D6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				718359566BCBF7F5774AB1EB19071C2B /* GoogleOpenSource.h */,
-				1EA89CA37EF73C3AB969F736357AAB35 /* GooglePlus.h */,
-				4AA6134DDD2245625DB1400A43768B58 /* GPPDeepLink.h */,
-				9A8C7E3489732804EADA76E1DAD0D0ED /* GPPShare.h */,
-				5621049CD08A8B10A8F6F0BAA52CF6DF /* GPPSignIn.h */,
-				DCB6FEC84AC6F2D1C360FFF508B06AFA /* GPPSignInButton.h */,
-				B5408D66415F2693F2EA8E7631850FC3 /* GPPURLHandler.h */,
-				8E43543E4C49208FDE169ED4CA9F9A3B /* GTLBase64.h */,
-				F3B22B425B1E0FAE59AD09FC1B5F7DE7 /* GTLBatchQuery.h */,
-				D7D4B09C455557C231C569F5C9D42273 /* GTLBatchResult.h */,
-				D0EF9A5F4E4ABE30FFA31E1CB3597B23 /* GTLDateTime.h */,
-				55AA7E152BE504151009D9DE2BA33821 /* GTLDefines.h */,
-				50E1128E9DBB1BDD8D6E45AD54BA189B /* GTLErrorObject.h */,
-				D89C054CF1660E317F34106CB1CE0FB1 /* GTLFramework.h */,
-				37EA148115563B228F2E73EF7929C7AF /* GTLJSONParser.h */,
-				D5FE99C847C758E49FF1AB67B76E4E8B /* GTLObject.h */,
-				C4F2EDDD9742FB343FF79424632883C2 /* GTLPlus.h */,
-				3282AD141EED5C31F874D5C6CBD47B58 /* GTLPlusAcl.h */,
-				5DF457B8E8B7E79CD12740EC442EDDF0 /* GTLPlusAclentryResource.h */,
-				9267C2BF9024F2D69BD66B89BB103606 /* GTLPlusActivity.h */,
-				8D0711E8A680F45D785728262D852192 /* GTLPlusActivityFeed.h */,
-				0720CDB3E1F2035FBDCD051E5E9CE205 /* GTLPlusComment.h */,
-				62AE612058C148234679AB5D9F02CB7D /* GTLPlusCommentFeed.h */,
-				A22050FBBBA8D5F8FC126D00AE388FFC /* GTLPlusConstants.h */,
-				E55CEECB0D1132D71960D41CE8ED5931 /* GTLPlusItemScope.h */,
-				020DB03D84B89DE5C8292EF41C4D3C74 /* GTLPlusMoment.h */,
-				47F5E4027CD687B876725C4264C7C21F /* GTLPlusMomentsFeed.h */,
-				526A8925CEFC36B0D43A490B857AAE9B /* GTLPlusPeopleFeed.h */,
-				A6CE447FF31A63A59344C4099D107E5F /* GTLPlusPerson.h */,
-				0CAD59E0ABD5C62D79FBEAB313CCA2DA /* GTLPlusPlace.h */,
-				8FE1C51BDC688FB76EDE6809E31F21D2 /* GTLQuery.h */,
-				FFD51CFF576BB27130A1589D2253CBDF /* GTLQueryPlus.h */,
-				57280D86DED21D6BBA873791D851E2A2 /* GTLRuntimeCommon.h */,
-				949EACDF0795BE8B666B464F7AA7620E /* GTLService.h */,
-				758761EFCD308B09DE06773E5125DBC5 /* GTLServicePlus.h */,
-				57E38B4CC5BEF1AF846FC2D3B7E52FD3 /* GTLTargetNamespace.h */,
-				85547249EA59D0CE156E84138A685609 /* GTLUploadParameters.h */,
-				CEEAB50E1EC13A9505AEACFA383DCA0F /* GTLUtilities.h */,
-				1DFF45926B651E10EC18457E03AA77C1 /* GTMDefines.h */,
-				42DE7CB1D21D62CE6A6EFEE03E8FDDE6 /* GTMGarbageCollection.h */,
-				7C6344F1B856C15718361B2E3A2E1A99 /* GTMHTTPFetcher.h */,
-				2CFCB43CEDA406A72C5A29556F3FED48 /* GTMHTTPFetcherLogging.h */,
-				43D0779145986572ACF9330CD575F9D1 /* GTMHTTPFetcherService.h */,
-				138DCA83A57D157C06BDA91F893CCF4C /* GTMHTTPFetchHistory.h */,
-				CD0FF7D832697C30C91C5DF790852434 /* GTMHTTPUploadFetcher.h */,
-				7715DAC533F7F511AF0DAF8C72CEAA11 /* GTMLogger.h */,
-				A5B5F988D574CA92E72E8F56A373D203 /* GTMMethodCheck.h */,
-				BE0DF23055AD669516217B047CB973F0 /* GTMNSDictionary+URLArguments.h */,
-				1ECB9CD2FA8690D1B014D419C9A41027 /* GTMNSString+URLArguments.h */,
-				CFB7A7FA1CA8E1BFE5BCF93178932BB5 /* GTMOAuth2Authentication.h */,
-				37F8B4BD17B8D7688B440F0FC6F71B32 /* GTMOAuth2SignIn.h */,
-				F8DABA26561AFA48574ED2AE90CFB36C /* GTMOAuth2ViewControllerTouch.h */,
-				CECB6B1D660531FAE976D1E664F55A17 /* GTMObjC2Runtime.h */,
-				116CEB541D41DDCAC1288A191CA65FA3 /* OpenInChromeController.h */,
-				8277AC212E96B221BAA64C73E1EA7006 /* Frameworks */,
-				97E669801C96E39578DD95A718415FE8 /* Resources */,
+				A87B2D2E51738B7A3113813FD922ED18 /* GooglePlus.bundle */,
 			);
-			name = "google-plus-ios-sdk";
-			path = "google-plus-ios-sdk";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		8A1B2F695F963A47EBD22A040084E633 /* TwitterKit */ = {
+		93FD095B5FC2A2BCC81B8E3CFC167E67 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				50897F8887FD1405E56D8B662D1FC878 /* Frameworks */,
-				CFA224D580DF2E67F1442BBE059BBD19 /* Resources */,
+				99C06B1B209CA23EC16EBF65CF890313 /* CoreGraphics.framework */,
+				CE59B0D97841C2542CA3D20540685C26 /* Foundation.framework */,
+				A5224A726D9EABB2D5F18E4597390EF3 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C3712B3396495BAF26747C97D2D3C0CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B9EDDDEE088405CAA9BABB5CEA52C309 /* IQKeyboardManager.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CED102A581E98CE05833E8756A00FB14 /* TwitterKit */ = {
+			isa = PBXGroup;
+			children = (
+				3416D3212E99EE40935A69FB32D9598B /* Frameworks */,
+				17C9CE47FAD8C393D400861C16E1BDFD /* Resources */,
 			);
 			name = TwitterKit;
 			path = TwitterKit;
 			sourceTree = "<group>";
 		};
-		97E669801C96E39578DD95A718415FE8 /* Resources */ = {
+		E841A49B4695B8025DD82386B2AAAC29 /* Fabric */ = {
 			isa = PBXGroup;
 			children = (
-				63931B12711217DAEF45C99D47E4A0F8 /* GooglePlus.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A20EEAD3B0349F63D646F04C08D42AB3 /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				08DD76C7EDE304E51B5C44AF5FE0CFEC /* FABAttributes.h */,
-				63D1A320820AAFB6DE56AF52BC2701D9 /* Fabric.h */,
-				EB5C15E64CAC6BFCB47C7CD8A9789C52 /* Frameworks */,
+				EB2C582D2E87B319397AA6B9E488BAE2 /* FABAttributes.h */,
+				8D4E3EAFA942C651A4772D49DE127A35 /* Fabric.h */,
+				FD35E43FBBACF94EC5F8F7E264BC4A32 /* Frameworks */,
 			);
 			name = Fabric;
 			path = Fabric;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		E8A0A876DF3AA8E43C3FABF00157685B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				CB49FC676EFA7D8476F2057B8016D8D6 /* GoogleOpenSource.framework */,
+				FA33E745F5FC71680EC44F4BA1341B09 /* GooglePlus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C1A45829502C12542DB84BB155075E67 /* Frameworks */ = {
+		FD35E43FBBACF94EC5F8F7E264BC4A32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A27F7AA7BA5CC8FC950B377C612D2DA /* TwitterCore.framework */,
+				42B24461F12FAF16317F1F5C487099DC /* Fabric.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CFA224D580DF2E67F1442BBE059BBD19 /* Resources */ = {
+		FF5B06987BE3D2704BDC2E11C5EDE125 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A487C61D31796039A29614789AB783F4 /* TwitterKitResources.bundle */,
+				E841A49B4695B8025DD82386B2AAAC29 /* Fabric */,
+				1B2F77B84CFC3F525ECB79510F33591A /* google-plus-ios-sdk */,
+				44252EE4EFBE1A9D725065D3BE79ACF0 /* IQKeyboardManager */,
+				80D6DA4AB41004D726046F7A95DD3D2D /* TwitterCore */,
+				CED102A581E98CE05833E8756A00FB14 /* TwitterKit */,
 			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		EB5C15E64CAC6BFCB47C7CD8A9789C52 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4A66117626F746594CCFA7D1257C9A7E /* Fabric.framework */,
-			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		724436935E60519475D9748FD537592C /* Headers */ = {
+		0C58A191A49D12100044645E562A47AF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2821C7322294870B3FE0FFC89F45A9F3 /* Pods-MR100AerialPhotography-umbrella.h in Headers */,
+				785A04B56932A6AE12E4C2B5ABD95D0E /* Pods-MR100AerialPhotography-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15F124D2ED467C64EE4E8AD1AD8F4BEB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E42CC45FD71B38F532643C3BD8934F /* IQBarButtonItem.h in Headers */,
+				5CDF0C05D13E7DA75A626D2A56D3804F /* IQKeyboardManager-umbrella.h in Headers */,
+				63521E633F5EA450D3E79EAA40B8D458 /* IQKeyboardManager.h in Headers */,
+				57602CD59C85D4D6A781F7267AE2EE8B /* IQKeyboardManagerConstants.h in Headers */,
+				014BB832E93832634E095EED7A914D02 /* IQKeyboardManagerConstantsInternal.h in Headers */,
+				57F39E6FA17DA6EE64DD7FEEE9B50B06 /* IQKeyboardReturnKeyHandler.h in Headers */,
+				3D445E46E9A0DBC7EE04A0D6633564D3 /* IQNSArray+Sort.h in Headers */,
+				D9AD2EB3539128A89E0ABED7A64DB455 /* IQPreviousNextView.h in Headers */,
+				1EB9A3C9B8BBE8633574895B21E6669B /* IQTextView.h in Headers */,
+				152389779F3A613C0EAE6DC07E8DD029 /* IQTitleBarButtonItem.h in Headers */,
+				B9548D587DD2C24B5FEE71F136E44D6B /* IQToolbar.h in Headers */,
+				60D8DBAEF5140AB6D447788D20117595 /* IQUIScrollView+Additions.h in Headers */,
+				33AE9F72E40A4EBA41AD1A47211E2B2A /* IQUITextFieldView+Additions.h in Headers */,
+				1748943A9E8A6CD3FF42FF12ED330B65 /* IQUIView+Hierarchy.h in Headers */,
+				C6FF8F0FED3ADDD3C629574093487897 /* IQUIView+IQKeyboardToolbar.h in Headers */,
+				E62D23900BC87F851BC637427042B214 /* IQUIViewController+Additions.h in Headers */,
+				24E1F5D4F5C07EE1C1415FBF13C174D2 /* IQUIWindow+Hierarchy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5F470035FF0DEDDBBA67A67D38F3E27E /* Pods-MR100AerialPhotography */ = {
+		75EFBF90FD3AB499E0AC35D152BD5135 /* Pods-MR100AerialPhotography */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 308714081E1D1962DBDEC98F40F35B35 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */;
+			buildConfigurationList = 751133F14D7AC78FEDE012A924846B76 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */;
 			buildPhases = (
-				7053B47405687E4FC221914509D08451 /* Sources */,
-				5603E971FBDD8E1811721DA6B6DAD37B /* Frameworks */,
-				724436935E60519475D9748FD537592C /* Headers */,
+				C4FF0D01C8E6073CA45585849BBBF14E /* Sources */,
+				CAEBB892123FFB3C92811E78619E9385 /* Frameworks */,
+				0C58A191A49D12100044645E562A47AF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D23386038CCC90EC190F1464023B3A71 /* PBXTargetDependency */,
+			);
+			name = "Pods-MR100AerialPhotography";
+			productName = "Pods-MR100AerialPhotography";
+			productReference = D0074B80A803D9760A538453C5163358 /* Pods_MR100AerialPhotography.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C36CB2CB977A4E7D954935096D00A1ED /* IQKeyboardManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA5C052874402BEACAF428E2C2F3C406 /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */;
+			buildPhases = (
+				F80392970FE7A6590B59ABA8EF26286E /* Sources */,
+				A5220702F0A18A2B878F4C83551FF3A9 /* Frameworks */,
+				15F124D2ED467C64EE4E8AD1AD8F4BEB /* Headers */,
+				B808376D2FEE9E833BC4FCC75A57C760 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-MR100AerialPhotography";
-			productName = "Pods-MR100AerialPhotography";
-			productReference = 9609BACBB23E50C07A9CF12CFF00D44C /* Pods_MR100AerialPhotography.framework */;
+			name = IQKeyboardManager;
+			productName = IQKeyboardManager;
+			productReference = 29D5109A871D7C3E675D2D0151A84069 /* IQKeyboardManager.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -366,37 +571,80 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 6EF4DBD9E8F4ACC14830459B4174FC4C /* Products */;
+			productRefGroup = 650DCA421CA62A1A5E1A59EACFDC7EA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F470035FF0DEDDBBA67A67D38F3E27E /* Pods-MR100AerialPhotography */,
+				C36CB2CB977A4E7D954935096D00A1ED /* IQKeyboardManager */,
+				75EFBF90FD3AB499E0AC35D152BD5135 /* Pods-MR100AerialPhotography */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		B808376D2FEE9E833BC4FCC75A57C760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8B53F29975200B5D116BE9A36AC9625 /* IQKeyboardManager.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		7053B47405687E4FC221914509D08451 /* Sources */ = {
+		C4FF0D01C8E6073CA45585849BBBF14E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94DB13156565F6E05F8AAD8FDE7880D9 /* Pods-MR100AerialPhotography-dummy.m in Sources */,
+				0D97037AA7A973DB562DFE98B3AD06A0 /* Pods-MR100AerialPhotography-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F80392970FE7A6590B59ABA8EF26286E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85CCC724DF5432D149EE53936C20C61C /* IQBarButtonItem.m in Sources */,
+				69BC64FA6EF6E7D967A051E53B7E50A1 /* IQKeyboardManager-dummy.m in Sources */,
+				FE3F0DD9F7B386BA9F5D6EF561AD6B70 /* IQKeyboardManager.m in Sources */,
+				B9C2D2D2787674E1ABF18675D5CB6C06 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				EF59FAF202E5C9DBFAD2CFA028895214 /* IQNSArray+Sort.m in Sources */,
+				C1E4A971CF84B06064F82D87044449E8 /* IQPreviousNextView.m in Sources */,
+				416FA8B963C82F9BD251B04EA528B6FD /* IQTextView.m in Sources */,
+				0E434D8AC2D4367AA481F8082FE45D65 /* IQTitleBarButtonItem.m in Sources */,
+				9CDD05F3FF8498F2F0513A20B858B689 /* IQToolbar.m in Sources */,
+				83600557B65E2614D7F683A0D3F74D90 /* IQUIScrollView+Additions.m in Sources */,
+				02742ED90591BC1183A1DE46CB6DFD40 /* IQUITextFieldView+Additions.m in Sources */,
+				00311CA07AA560C1D4A6A656C492436F /* IQUIView+Hierarchy.m in Sources */,
+				D8EC7C59672A6275D2ABFEE9556F5B4A /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				9C2B4ABD7ACF23AAEF514982A55D99EE /* IQUIViewController+Additions.m in Sources */,
+				532F0A73022F47783FCF897CFB0686EC /* IQUIWindow+Hierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D23386038CCC90EC190F1464023B3A71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManager;
+			target = C36CB2CB977A4E7D954935096D00A1ED /* IQKeyboardManager */;
+			targetProxy = B683EAAE1F9B16A0F3117250C63F9F6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		2361E2E2987ABC7538BDC604877A2B4A /* Release */ = {
+		1457ECF7B28E1A81BBA9EA247B62B259 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */;
+			baseConfigurationReference = 884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -409,7 +657,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -421,7 +669,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -466,6 +714,74 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		4905B2FFD34386D1E6A6ACF9DE3BF66D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49EBBA4DD4A54B9D3D9C02A60EC2589A /* Pods-MR100AerialPhotography.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MR100AerialPhotography/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MR100AerialPhotography;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C0C5EF1E05A1D0C565DA9EBB24BD6D07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF39CBCA702B10A7C9D03E6A6DCA257 /* IQKeyboardManager.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManager/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManager/IQKeyboardManager.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = IQKeyboardManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -515,41 +831,37 @@
 			};
 			name = Debug;
 		};
-		F08D89193EE20FEEC9A41F5ABB2867EA /* Debug */ = {
+		EBECAE35A62DAD93FBD2D03C610E1ABB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 884ACB9F2D2E817D5102BD2E5266633E /* Pods-MR100AerialPhotography.debug.xcconfig */;
+			baseConfigurationReference = AEF39CBCA702B10A7C9D03E6A6DCA257 /* IQKeyboardManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MR100AerialPhotography/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManager/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MR100AerialPhotography;
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManager/IQKeyboardManager.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = IQKeyboardManager;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -563,11 +875,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		308714081E1D1962DBDEC98F40F35B35 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */ = {
+		751133F14D7AC78FEDE012A924846B76 /* Build configuration list for PBXNativeTarget "Pods-MR100AerialPhotography" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F08D89193EE20FEEC9A41F5ABB2867EA /* Debug */,
-				2361E2E2987ABC7538BDC604877A2B4A /* Release */,
+				1457ECF7B28E1A81BBA9EA247B62B259 /* Debug */,
+				4905B2FFD34386D1E6A6ACF9DE3BF66D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA5C052874402BEACAF428E2C2F3C406 /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0C5EF1E05A1D0C565DA9EBB24BD6D07 /* Debug */,
+				EBECAE35A62DAD93FBD2D03C610E1ABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

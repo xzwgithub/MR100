@@ -3,4 +3,5 @@ target 'MR100AerialPhotography' do
   pod 'Fabric'
   pod 'TwitterKit'
   pod 'google-plus-ios-sdk', '~> 1.7.1'
+  pod 'IQKeyboardManager','~> 4.0.9'
 end

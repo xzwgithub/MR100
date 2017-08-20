@@ -122,6 +122,7 @@
             _userNameTf.font = FontSize(15);
         }
         
+        _userNameTf.clearButtonMode = UITextFieldViewModeWhileEditing;
         _userNameTf.borderStyle = UITextBorderStyleRoundedRect;
         _userNameTf.textAlignment = NSTextAlignmentCenter;
         _userNameTf.textColor = kGrayColor;
@@ -143,6 +144,7 @@
             _newwordTf.font = FontSize(15);
         }
         
+        _newwordTf.clearButtonMode = UITextFieldViewModeWhileEditing;
         _newwordTf.borderStyle = UITextBorderStyleRoundedRect;
         _newwordTf.textAlignment = NSTextAlignmentCenter;
         _newwordTf.textColor = kGrayColor;
@@ -163,6 +165,7 @@
             _confirmTf.font = FontSize(15);
         }
         
+        _confirmTf.clearButtonMode = UITextFieldViewModeWhileEditing;
         _confirmTf.borderStyle = UITextBorderStyleRoundedRect;
         _confirmTf.textAlignment = NSTextAlignmentCenter;
         _confirmTf.textColor = kGrayColor;
@@ -292,7 +295,6 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    textField.text = nil;
     return YES;
 }
 

@@ -23,6 +23,14 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prefs</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>facebook</string>
 			<key>CFBundleURLSchemes</key>
@@ -61,6 +69,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleVersion</key>
 	<string>0</string>
 	<key>Fabric</key>

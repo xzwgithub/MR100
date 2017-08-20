@@ -1,22 +1,25 @@
 PODS:
   - Fabric (1.6.11)
   - google-plus-ios-sdk (1.7.1)
-  - TwitterCore (2.6.1):
+  - IQKeyboardManager (4.0.9)
+  - TwitterCore (2.8.0):
     - Fabric
-  - TwitterKit (2.6.1):
-    - TwitterCore (= 2.6.1)
+  - TwitterKit (2.8.1):
+    - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
   - Fabric
   - google-plus-ios-sdk (~> 1.7.1)
+  - IQKeyboardManager (~> 4.0.9)
   - TwitterKit
 
 SPEC CHECKSUMS:
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   google-plus-ios-sdk: 47adbe03ea904bdb7aa1c0eca282a23c4686e1bc
-  TwitterCore: a8aea8bdaf2abd6572c8f264707a4ea4dc2d0eab
-  TwitterKit: d38c08d31dfd4ba604f95deca6cf8e174b5cbd96
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: 2c86e4dbb568d38230e0b6b6106841f319caf4d5
+PODFILE CHECKSUM: ba9305549285b47b1379afd041f76f6ba89bbbc6
 
 COCOAPODS: 1.2.1
