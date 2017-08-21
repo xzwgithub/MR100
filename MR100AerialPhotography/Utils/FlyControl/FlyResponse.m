@@ -266,17 +266,18 @@
     float sX = [self subNSData:data FromIndex:17 length:4];
     float sY = [self subNSData:data FromIndex:21 length:4];
     float sZ = [self subNSData:data FromIndex:25 length:4];;
-    info.att = @[@(sX),@(sY),@(sZ)];
+    info.vel = @[@(sX),@(sY),@(sZ)];
     
     //位置x,y,z
     float pX = [self subNSData:data FromIndex:29 length:4];
     float pY = [self subNSData:data FromIndex:33 length:4];
     float pZ = [self subNSData:data FromIndex:37 length:4];;
-    info.att = @[@(pX),@(pY),@(pZ)];
+    info.pos = @[@(pX),@(pY),@(pZ)];
     
     //状态，模式，电量，电压
     info.status = [self subNSData:data FromIndex:41];
     info.mode = [self flyModelWithInt: [self subNSData:data FromIndex:42]];
+    info.flyMode = [self subNSData:data FromIndex:42];
     NSLog(@"无人机返回飞行状态：%hhu", [self subNSData:data FromIndex:42]);
     
     //飞行模式保存
@@ -320,8 +321,21 @@
 {
     NSData * ZTData = [data subdataWithRange:NSMakeRange(index, length)];
     NSString * ZTStr = [self convertDataToHexStr:ZTData];
-    NSString * ZTReverStr = [ZTStr twoBitReverse];
-    float x = strtoul([ZTReverStr UTF8String], 0, 16);
+    
+    Byte message[4];
+    message[0] = strtoul([[ZTStr substringWithRange:NSMakeRange(0, 2)] UTF8String], 0, 16);
+    message[1] = strtoul([[ZTStr substringWithRange:NSMakeRange(2, 2)] UTF8String], 0, 16);
+    message[2] = strtoul([[ZTStr substringWithRange:NSMakeRange(4, 2)] UTF8String], 0, 16);
+    message[3] = strtoul([[ZTStr substringWithRange:NSMakeRange(6, 2)] UTF8String], 0, 16);
+    
+    //十六进制转float
+    float x;
+    unsigned char * xChar = (unsigned char*)&x;
+    xChar[0] = message[0];
+    xChar[1] = message[1];
+    xChar[2] = message[2];
+    xChar[3] = message[3];
+    
     return x;
 }
 

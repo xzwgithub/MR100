@@ -37,6 +37,10 @@
 #import "StatusBaseInfoModel.h"
 #import "Singleton.h"
 #import "StatusSenseModel.h"
+#import "ZWDebugInfoView.h"
+#import "DebugInfoModel.h"
+#import "AWTools.h"
+#import "NSString+StatusTransform.h"
 
 
 static char kAlertKey;
@@ -102,6 +106,15 @@ static char kAlertKey;
 /** 启动TCP连接的定时器 */
 @property(nonatomic, strong) dispatch_source_t tcpTimer;
 
+/** 启动调试信息定时器 */
+@property(nonatomic, strong) dispatch_source_t debugInfoTimer;
+
+/**
+ *  线程
+ */
+@property (nonatomic,strong) NSThread * debugInfoThread;
+
+
 @property(nonatomic, strong) NSDateFormatter *formatter;
 /** 用户是否选择更新飞机版本 */
 @property(nonatomic, assign) BOOL upgratedFirmware;
@@ -111,6 +124,21 @@ static char kAlertKey;
 @property(nonatomic, assign) BOOL viewDidAppear;
 
 @property(nonatomic,strong) UIView *bigCircle;
+
+/**
+ *  调试信息View
+ */
+@property (nonatomic,strong) ZWDebugInfoView * debugInfoView;
+/**
+ *  调试信息模型
+ */
+@property (nonatomic,strong) DebugInfoModel * debugInfo;
+
+/**
+ *  起飞时长
+ */
+@property (nonatomic,assign) long  takeoff_time;
+
 
 @end
 
@@ -144,6 +172,36 @@ singleton_implementation(ViewController)
     [self.view addGestureRecognizer:tapGes];
     self.view.userInteractionEnabled = YES;
 }
+
+//懒加载
+-(NSThread *)debugInfoThread
+{
+    if (!_debugInfoThread) {
+        _debugInfoThread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
+        [_debugInfoThread start];
+    }
+    return _debugInfoThread;
+}
+
+//开启子线程
+-(void)runThread
+{
+    @autoreleasepool {
+        //1、添加一个input source
+        [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] run];
+        
+    }
+}
+
+-(DebugInfoModel *)debugInfo
+{
+    if (!_debugInfo) {
+        _debugInfo = [[DebugInfoModel alloc] init];
+    }
+    return _debugInfo;
+}
+
 //恢复
 - (void)resumeScreen {
     if (kIsIpad) {
@@ -210,6 +268,7 @@ singleton_implementation(ViewController)
     
     [self bgImageView];
     [self topBarView];
+    [self debugInfoView];
     [self bottomBarView];
     [self gesCtrView];
     [self mainCtrStickView];
@@ -250,10 +309,19 @@ singleton_implementation(ViewController)
         dispatch_resume(self.tcpTimer);
     }
     
+    if (_debugInfoTimer == nil) {
+        dispatch_resume(self.debugInfoTimer);
+    }
+    
+    
     //fly control
     [self.flyControlManager connectToDevice];
     [self.flyControlManager startUploadData];
     self.expectedPhotoCount = -1;
+    
+    
+    //开启常驻子线程
+      [self performSelector:@selector(creatTimer) onThread:self.debugInfoThread withObject:nil waitUntilDone:NO ];
     
     //监听 后台通知
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -280,6 +348,10 @@ singleton_implementation(ViewController)
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
     }
+    if (_debugInfoTimer == nil) {
+        dispatch_resume(self.debugInfoTimer);
+    }
+    
     self.navigationController.navigationBar.hidden = YES;
     
     [kAppDelegate sendEvent:[[UIEvent alloc] init]];
@@ -442,6 +514,16 @@ singleton_implementation(ViewController)
             make.width.mas_equalTo(kIpadMainBottomBtnWidth);
             make.height.mas_equalTo(60);
         }];
+        
+        [self.debugInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(self.view.mas_left).with.offset(0);
+            make.right.equalTo(self.view.mas_right).with.offset(0);
+            make.top.equalTo(self.topBarView.mas_bottom).with.offset(0);
+            make.height.mas_equalTo(130);
+            
+        }];
+        
     }
     else {
         [self.topBarView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -602,6 +684,15 @@ singleton_implementation(ViewController)
             make.width.mas_equalTo(kMainBottomBtnWidth);
             make.height.mas_equalTo(40);
         }];
+        
+        [self.debugInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(self.view.mas_left).with.offset(0);
+            make.right.equalTo(self.view.mas_right).with.offset(0);
+            make.top.equalTo(self.topBarView.mas_bottom).with.offset(0);
+            make.height.mas_equalTo(130);
+            
+        }];
     }
 }
 
@@ -617,6 +708,10 @@ singleton_implementation(ViewController)
     if (_tcpTimer != nil) {
         dispatch_source_cancel(_tcpTimer);
         _tcpTimer = nil;
+    }
+    if (_debugInfoTimer != nil) {
+        dispatch_source_cancel(_debugInfoTimer);
+        _debugInfoTimer = nil;
     }
 }
 
@@ -637,6 +732,9 @@ singleton_implementation(ViewController)
     
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
+    }
+    if (_debugInfoTimer == nil) {
+        dispatch_resume(self.debugInfoTimer);
     }
     
     if (kIsIpad) {
@@ -680,6 +778,11 @@ singleton_implementation(ViewController)
         dispatch_source_cancel(_tcpTimer);
         _tcpTimer = nil;
     }
+    if (_debugInfoTimer != nil) {
+        dispatch_source_cancel(_debugInfoTimer);
+        _debugInfoTimer = nil;
+    }
+    
     //  关闭所有的下拉视图，相应的计时器关闭
     [self tapGesClickAction];
     
@@ -2871,6 +2974,18 @@ singleton_implementation(ViewController)
     return _flyControlManager;
 }
 
+//调试信息
+-(ZWDebugInfoView *)debugInfoView
+{
+    if (!_debugInfoView) {
+        _debugInfoView = [ZWDebugInfoView creatDebugInfoView];
+        _debugInfoView.backgroundColor = kRGBAColorFloat(0.3, 0.3, 0.3, 0.3);
+        [self.view addSubview:_debugInfoView];
+    }
+    return _debugInfoView;
+}
+
+
 //上部工具栏
 - (UIView *)topBarView {
     if (_topBarView == nil) {
@@ -3008,6 +3123,44 @@ singleton_implementation(ViewController)
         _wifiImageView = im;
     }
     return _wifiImageView;
+}
+
+#pragma mark -调试信息定时器
+
+-(void)creatTimer
+{
+    [self debugInfoTimer];
+}
+
+-(dispatch_source_t)debugInfoTimer
+{
+    if (_debugInfoTimer == nil) {
+        
+        _debugInfoTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        dispatch_source_set_timer(_debugInfoTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(_debugInfoTimer, ^{
+            
+            self.debugInfo.cpuUseRate = [AWTools cpu_usage];//cpu使用率
+            self.debugInfo.unUsedMemory = [AWTools availableMemory];//可用内存
+            if ([self.flyControlManager isConnected]) {
+                self.debugInfo.flyMode = [NSString flyModelTransform:self.flyControlManager.response.infoModel.flyMode];
+            }else
+            {
+                self.debugInfo.flyMode = @"unKnown";
+            }
+            
+            self.debugInfo.flyHeight = [self.flyControlManager.response.infoModel.pos[2] floatValue];
+            self.debugInfo.flyTime = _takeoff_time++;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.debugInfoView.debugInfo = self.debugInfo;
+
+            });
+            
+        });
+        
+    }
+    return _debugInfoTimer;
 }
 
 #pragma mark-tcp定时器

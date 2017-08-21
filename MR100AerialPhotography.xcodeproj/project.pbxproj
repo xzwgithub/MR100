@@ -26,6 +26,10 @@
 		6C5F3A901F33664500BB38CA /* NSString+StatusTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F3A8F1F33664500BB38CA /* NSString+StatusTransform.m */; };
 		6C69A0EC1F42FB6F002FDF25 /* Product manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C69A0EB1F42FB6F002FDF25 /* Product manual.pdf */; };
 		6C8586E21F3858A3003C8CA0 /* AWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8586E11F3858A3003C8CA0 /* AWProgressView.m */; };
+		6CA0CF4F1F4A888C00AFDE4D /* ZWDebugInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0CF4E1F4A888C00AFDE4D /* ZWDebugInfoView.m */; };
+		6CA0CF631F4A88A200AFDE4D /* ZWDebugInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0CF621F4A88A200AFDE4D /* ZWDebugInfoView.xib */; };
+		6CA0CF661F4A8D7900AFDE4D /* DebugInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0CF651F4A8D7900AFDE4D /* DebugInfoModel.m */; };
+		6CA0CF691F4AB75900AFDE4D /* AWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0CF681F4AB75900AFDE4D /* AWTools.m */; };
 		6CC4D4171F42D2F500A3722C /* Quick user manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4D4161F42D2F400A3722C /* Quick user manual.pdf */; };
 		6CC4D42C1F42D7D900A3722C /* PDFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4D42B1F42D7D900A3722C /* PDFBrowseViewController.m */; };
 		6CD41FE61F32B18F006AB6A3 /* NSData+CRC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD41FE51F32B18F006AB6A3 /* NSData+CRC16.m */; };
@@ -565,6 +569,13 @@
 		6C69A0EB1F42FB6F002FDF25 /* Product manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Product manual.pdf"; sourceTree = "<group>"; };
 		6C8586E01F3858A3003C8CA0 /* AWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWProgressView.h; sourceTree = "<group>"; };
 		6C8586E11F3858A3003C8CA0 /* AWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWProgressView.m; sourceTree = "<group>"; };
+		6CA0CF4D1F4A888C00AFDE4D /* ZWDebugInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDebugInfoView.h; sourceTree = "<group>"; };
+		6CA0CF4E1F4A888C00AFDE4D /* ZWDebugInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWDebugInfoView.m; sourceTree = "<group>"; };
+		6CA0CF621F4A88A200AFDE4D /* ZWDebugInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWDebugInfoView.xib; sourceTree = "<group>"; };
+		6CA0CF641F4A8D7900AFDE4D /* DebugInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugInfoModel.h; sourceTree = "<group>"; };
+		6CA0CF651F4A8D7900AFDE4D /* DebugInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugInfoModel.m; sourceTree = "<group>"; };
+		6CA0CF671F4AB75900AFDE4D /* AWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWTools.h; sourceTree = "<group>"; };
+		6CA0CF681F4AB75900AFDE4D /* AWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWTools.m; sourceTree = "<group>"; };
 		6CC4D4161F42D2F400A3722C /* Quick user manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Quick user manual.pdf"; sourceTree = "<group>"; };
 		6CC4D42A1F42D7D900A3722C /* PDFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFBrowseViewController.h; sourceTree = "<group>"; };
 		6CC4D42B1F42D7D900A3722C /* PDFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFBrowseViewController.m; sourceTree = "<group>"; };
@@ -1325,6 +1336,8 @@
 				6CF7EB421F30AB72005D9CBD /* AWLinkHelper.h */,
 				6CF7EB431F30AB72005D9CBD /* AWLinkHelper.m */,
 				6C511BCD1F3019B60069017E /* AWLinkConstant.h */,
+				6CA0CF671F4AB75900AFDE4D /* AWTools.h */,
+				6CA0CF681F4AB75900AFDE4D /* AWTools.m */,
 				6C511C1F1F30381D0069017E /* Control */,
 				6C511C201F30381D0069017E /* Mission */,
 				6C511C211F30381D0069017E /* Parameter */,
@@ -1486,6 +1499,8 @@
 				DAF35A571DAF283400C1AA57 /* CameraSyncSetting.mm */,
 				F85CC8101D86D30300F99D78 /* ZWHAssetModel.h */,
 				F85CC8111D86D30300F99D78 /* ZWHAssetModel.m */,
+				6CA0CF641F4A8D7900AFDE4D /* DebugInfoModel.h */,
+				6CA0CF651F4A8D7900AFDE4D /* DebugInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2542,6 +2557,9 @@
 				F8B20E261E03E1F10042AFEE /* ZWHCaptionView.xib */,
 				F86CCEE61E0A461200B2F963 /* ZWHSettingCell.h */,
 				F86CCEE71E0A461200B2F963 /* ZWHSettingCell.m */,
+				6CA0CF4D1F4A888C00AFDE4D /* ZWDebugInfoView.h */,
+				6CA0CF4E1F4A888C00AFDE4D /* ZWDebugInfoView.m */,
+				6CA0CF621F4A88A200AFDE4D /* ZWDebugInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2869,6 +2887,7 @@
 				F8F215D51DE58F2500F6075F /* 1_photo.mov in Resources */,
 				F8F215DA1DE58F2500F6075F /* 6_share.mov in Resources */,
 				F80F07571DEFC73E0048B529 /* GTMSessionFetcher-Info.plist in Resources */,
+				6CA0CF631F4A88A200AFDE4D /* ZWDebugInfoView.xib in Resources */,
 				F80F07711DEFC73E0048B529 /* GTLRiOSFramework-Info.plist in Resources */,
 				7CBF582C1D7EBA350086E61E /* Makefile.tail in Resources */,
 				7CBF57781D7EBA350086E61E /* Makefile.tail in Resources */,
@@ -3012,6 +3031,7 @@
 				F80F07741DEFC73E0048B529 /* GTLRURITemplate.m in Sources */,
 				7CBF57BB1D7EBA350086E61E /* H265VideoStreamFramer.cpp in Sources */,
 				7CBF57AE1D7EBA350086E61E /* H264or5VideoStreamDiscreteFramer.cpp in Sources */,
+				6CA0CF4F1F4A888C00AFDE4D /* ZWDebugInfoView.m in Sources */,
 				DA71EAD21D81A00500F2C8EB /* ZWHDeviceSettingController.m in Sources */,
 				6C511C271F3044170069017E /* StatusInfoControlModel.m in Sources */,
 				7CBF580A1D7EBA350086E61E /* RTCP.cpp in Sources */,
@@ -3037,6 +3057,7 @@
 				7CBF57D31D7EBA350086E61E /* MP3AudioMatroskaFileServerMediaSubsession.cpp in Sources */,
 				6C511C161F3037DC0069017E /* StatusGpsInfoModel.m in Sources */,
 				7CBF57FF1D7EBA350086E61E /* OggFileServerDemux.cpp in Sources */,
+				6CA0CF661F4A8D7900AFDE4D /* DebugInfoModel.m in Sources */,
 				DAF35A581DAF283400C1AA57 /* CameraSyncSetting.mm in Sources */,
 				F80F07431DEFC73E0048B529 /* OIDAuthorizationRequest.m in Sources */,
 				6C8586E21F3858A3003C8CA0 /* AWProgressView.m in Sources */,
@@ -3254,6 +3275,7 @@
 				7CBF57C31D7EBA350086E61E /* MatroskaDemuxedTrack.cpp in Sources */,
 				F84715E41D926D4C00F367CF /* ZWHFlashLedButton.m in Sources */,
 				7CBF579A1D7EBA350086E61E /* DVVideoFileServerMediaSubsession.cpp in Sources */,
+				6CA0CF691F4AB75900AFDE4D /* AWTools.m in Sources */,
 				DA6421711DE5CF9F0000D245 /* (null) in Sources */,
 				7CBF57CE1D7EBA350086E61E /* MP3ADUinterleaving.cpp in Sources */,
 				F80F07641DEFC73E0048B529 /* GTLRYouTubeObjects.m in Sources */,

@@ -16,6 +16,9 @@
 
 static NSString *const reuseIdentifier = @"cell";
 @interface ZWHHelpViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSInteger _clickNum;
+}
 
 @property(nonatomic, weak) UIView *topBarView;          //上部导航栏
 
@@ -25,12 +28,46 @@ static NSString *const reuseIdentifier = @"cell";
 
 @property(nonatomic, strong) UIAlertController *accAlert;
 
+@property (nonatomic,strong) NSTimer * testModeTimer;
+
 @end
 
 @implementation ZWHHelpViewController
 
+-(NSTimer *)testModeTimer
+{
+    if (!_testModeTimer) {
+        _testModeTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkClickNum) userInfo:nil repeats:YES];
+    }
+    return _testModeTimer;
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self clearTimer];
+}
+
+//清除定时器
+-(void)clearTimer
+{
+    if (_testModeTimer) {
+        [_testModeTimer invalidate];
+        _testModeTimer = nil;
+    }
+}
+
+//检查点击次数，连续五次开启测试模式
+-(void)checkClickNum
+{
+    [self getVersionAndAlert];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -176,23 +213,21 @@ static NSString *const reuseIdentifier = @"cell";
     //关于本机
     else if (indexPath.row == 3) {
         
-        CameraSyncSetting * setting = [CameraSyncSetting cameraSetting];
-        NSDictionary * info = [[NSBundle mainBundle] infoDictionary];
-        //version号
-        NSString * versionStr = [info objectForKey:@"CFBundleShortVersionString"];
-        //build号
-        NSString * buildStr = [info objectForKey:@"CFBundleVersion"];
+        _clickNum++;
+        if (_clickNum == 5) {
+            
+            
+        }
         
-        NSString * version_build = [NSString stringWithFormat:@"V%@.%@",versionStr,buildStr];
-        
-        //app版本号
-        version_build = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"APPVersion",@"APP版本:"),version_build];
-        //固件版本
-        NSString * firmwareVersion = [NSString stringWithFormat:@"%@V%@",NSLocalizedString(@"FirmwareVersion",@"固件版本:"),setting.version ? :@""];
-        
-        UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"C-me Flying Camera",@"C-me Flying Camera") message:[NSString stringWithFormat:@"\n%@\n%@",version_build,firmwareVersion]  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
-        [view show];
-        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            if (_clickNum <= 1) {
+                
+                _clickNum = 0;
+                [self getVersionAndAlert];//获取版本号，弹框提示
+            }
+            
+        });
     }
     
     //链接
@@ -200,6 +235,27 @@ static NSString *const reuseIdentifier = @"cell";
         
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.c-mecamera.com"]];
     }
+}
+
+-(void)getVersionAndAlert
+{
+    CameraSyncSetting * setting = [CameraSyncSetting cameraSetting];
+    NSDictionary * info = [[NSBundle mainBundle] infoDictionary];
+    //version号
+    NSString * versionStr = [info objectForKey:@"CFBundleShortVersionString"];
+    //build号
+    NSString * buildStr = [info objectForKey:@"CFBundleVersion"];
+    
+    NSString * version_build = [NSString stringWithFormat:@"V%@.%@",versionStr,buildStr];
+    
+    //app版本号
+    version_build = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"APPVersion",@"APP版本:"),version_build];
+    //固件版本
+    NSString * firmwareVersion = [NSString stringWithFormat:@"%@V%@",NSLocalizedString(@"FirmwareVersion",@"固件版本:"),setting.version ? :@""];
+    
+    UIAlertView *view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"C-me Flying Camera",@"C-me Flying Camera") message:[NSString stringWithFormat:@"\n%@\n%@",version_build,firmwareVersion]  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+    [view show];
+
 }
 
 @end

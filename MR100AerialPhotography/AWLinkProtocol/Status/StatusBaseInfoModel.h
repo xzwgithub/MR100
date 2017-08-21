@@ -69,9 +69,15 @@ typedef enum{
  */
 @property (nonatomic,assign) BASE_INFO_STATUS_TYPE  status;
 /**
- *  模式
+ *  模式（做过处理）
  */
 @property (nonatomic,assign) BASE_INFO_FLY_MODEL_TYPE  mode;
+
+/**
+ *  模式（原始）
+ */
+@property (nonatomic,assign) NSInteger  flyMode;
+
 /**
  *  电量
  */
