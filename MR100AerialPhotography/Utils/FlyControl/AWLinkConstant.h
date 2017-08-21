@@ -42,6 +42,12 @@
 #define kUpdateUI @"kUpdateUI"
 
 
+#define kTestModeIsOpen @"kTestModeIsOpen"
+
+//开启调试模式
+#define kOpenDebugMode @"kopenDebugMode"
+
+
 
 /**
  * 室内起飞悬停高度(单位为米)

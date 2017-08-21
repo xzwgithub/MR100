@@ -109,12 +109,6 @@ static char kAlertKey;
 /** 启动调试信息定时器 */
 @property(nonatomic, strong) dispatch_source_t debugInfoTimer;
 
-/**
- *  线程
- */
-@property (nonatomic,strong) NSThread * debugInfoThread;
-
-
 @property(nonatomic, strong) NSDateFormatter *formatter;
 /** 用户是否选择更新飞机版本 */
 @property(nonatomic, assign) BOOL upgratedFirmware;
@@ -173,26 +167,6 @@ singleton_implementation(ViewController)
     self.view.userInteractionEnabled = YES;
 }
 
-//懒加载
--(NSThread *)debugInfoThread
-{
-    if (!_debugInfoThread) {
-        _debugInfoThread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
-        [_debugInfoThread start];
-    }
-    return _debugInfoThread;
-}
-
-//开启子线程
--(void)runThread
-{
-    @autoreleasepool {
-        //1、添加一个input source
-        [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
-        [[NSRunLoop currentRunLoop] run];
-        
-    }
-}
 
 -(DebugInfoModel *)debugInfo
 {
@@ -269,6 +243,7 @@ singleton_implementation(ViewController)
     [self bgImageView];
     [self topBarView];
     [self debugInfoView];
+    [self observerDebugInfo];
     [self bottomBarView];
     [self gesCtrView];
     [self mainCtrStickView];
@@ -309,19 +284,11 @@ singleton_implementation(ViewController)
         dispatch_resume(self.tcpTimer);
     }
     
-    if (_debugInfoTimer == nil) {
-        dispatch_resume(self.debugInfoTimer);
-    }
-    
     
     //fly control
     [self.flyControlManager connectToDevice];
     [self.flyControlManager startUploadData];
     self.expectedPhotoCount = -1;
-    
-    
-    //开启常驻子线程
-      [self performSelector:@selector(creatTimer) onThread:self.debugInfoThread withObject:nil waitUntilDone:NO ];
     
     //监听 后台通知
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -334,7 +301,33 @@ singleton_implementation(ViewController)
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateUI)
                                                  name:kUpdateUI object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(observerDebugInfo)
+                                                 name:kOpenDebugMode object:nil];
 
+
+}
+
+//调试模式开关
+-(void)observerDebugInfo
+{
+    boolean_t isOpen = [[[NSUserDefaults standardUserDefaults] objectForKey:kTestModeIsOpen] boolValue];
+    
+    if (isOpen) {
+        
+        self.debugInfoView.hidden = NO;
+        [self debugInfoTimer];
+        
+    }else
+    {
+        if (_debugInfoTimer != nil) {
+            dispatch_source_cancel(_debugInfoTimer);
+            _debugInfoTimer = nil;
+        }
+        [_debugInfoView removeFromSuperview];
+        _debugInfoView = nil;
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -347,9 +340,6 @@ singleton_implementation(ViewController)
     
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
-    }
-    if (_debugInfoTimer == nil) {
-        dispatch_resume(self.debugInfoTimer);
     }
     
     self.navigationController.navigationBar.hidden = YES;
@@ -709,10 +699,6 @@ singleton_implementation(ViewController)
         dispatch_source_cancel(_tcpTimer);
         _tcpTimer = nil;
     }
-    if (_debugInfoTimer != nil) {
-        dispatch_source_cancel(_debugInfoTimer);
-        _debugInfoTimer = nil;
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -733,9 +719,9 @@ singleton_implementation(ViewController)
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
     }
-    if (_debugInfoTimer == nil) {
-        dispatch_resume(self.debugInfoTimer);
-    }
+//    if (_debugInfoTimer == nil) {
+//        dispatch_resume(self.debugInfoTimer);
+//    }
     
     if (kIsIpad) {
         [self.takeOffOrLandingBtn setImage:[UIImage imageNamed:@"takeoff-ash-ipad"] forState:UIControlStateNormal];
@@ -778,10 +764,10 @@ singleton_implementation(ViewController)
         dispatch_source_cancel(_tcpTimer);
         _tcpTimer = nil;
     }
-    if (_debugInfoTimer != nil) {
-        dispatch_source_cancel(_debugInfoTimer);
-        _debugInfoTimer = nil;
-    }
+//    if (_debugInfoTimer != nil) {
+//        dispatch_source_cancel(_debugInfoTimer);
+//        _debugInfoTimer = nil;
+//    }
     
     //  关闭所有的下拉视图，相应的计时器关闭
     [self tapGesClickAction];
@@ -2980,6 +2966,7 @@ singleton_implementation(ViewController)
     if (!_debugInfoView) {
         _debugInfoView = [ZWDebugInfoView creatDebugInfoView];
         _debugInfoView.backgroundColor = kRGBAColorFloat(0.3, 0.3, 0.3, 0.3);
+        _debugInfoView.hidden = YES;
         [self.view addSubview:_debugInfoView];
     }
     return _debugInfoView;
@@ -3127,11 +3114,6 @@ singleton_implementation(ViewController)
 
 #pragma mark -调试信息定时器
 
--(void)creatTimer
-{
-    [self debugInfoTimer];
-}
-
 -(dispatch_source_t)debugInfoTimer
 {
     if (_debugInfoTimer == nil) {
@@ -3142,7 +3124,7 @@ singleton_implementation(ViewController)
             
             self.debugInfo.cpuUseRate = [AWTools cpu_usage];//cpu使用率
             self.debugInfo.unUsedMemory = [AWTools availableMemory];//可用内存
-            if ([self.flyControlManager isConnected]) {
+            if ([self.flyControlManager isConnected] && self.flyControlManager.response.infoModel) {
                 self.debugInfo.flyMode = [NSString flyModelTransform:self.flyControlManager.response.infoModel.flyMode];
             }else
             {
@@ -3157,7 +3139,9 @@ singleton_implementation(ViewController)
 
             });
             
+            
         });
+         dispatch_resume(_debugInfoTimer);
         
     }
     return _debugInfoTimer;

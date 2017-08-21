@@ -13,11 +13,13 @@
 #import "ZWHSettingCell.h"
 #import "PDFBrowseViewController.h"
 #import "CameraSyncSetting.h"
+#import "AWLinkConstant.h"
 
 static NSString *const reuseIdentifier = @"cell";
 @interface ZWHHelpViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger _clickNum;
+    boolean_t _isOpenTestMode;
 }
 
 @property(nonatomic, weak) UIView *topBarView;          //上部导航栏
@@ -66,7 +68,9 @@ static NSString *const reuseIdentifier = @"cell";
 //检查点击次数，连续五次开启测试模式
 -(void)checkClickNum
 {
+    _clickNum = 0;
     [self getVersionAndAlert];
+    [self clearTimer];
 }
 
 - (void)viewDidLoad {
@@ -213,21 +217,38 @@ static NSString *const reuseIdentifier = @"cell";
     //关于本机
     else if (indexPath.row == 3) {
         
+        [self clearTimer];
         _clickNum++;
         if (_clickNum == 5) {
-            
-            
-        }
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            if (_clickNum <= 1) {
+           
+            NSString * alertStr;
+            if ([[[NSUserDefaults standardUserDefaults] objectForKey:kTestModeIsOpen] boolValue]) {
                 
-                _clickNum = 0;
-                [self getVersionAndAlert];//获取版本号，弹框提示
+                //测试模式已经关闭
+                [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:kTestModeIsOpen];
+                alertStr = NSLocalizedString(@"Test mode closed", @"已关闭测试模式");
+                
+            }else
+            {
+                //测试模式已经开启
+                [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:kTestModeIsOpen];
+                alertStr = NSLocalizedString(@"Test mode started", @"已开启测试模式");
             }
             
-        });
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                UIAlertView * view = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"tip", @"提示") message:alertStr  delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"确定") otherButtonTitles:nil, nil];
+                [view show];
+                
+            });
+            _clickNum = 0;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kOpenDebugMode object:nil];
+            
+        }else
+        {
+            [self testModeTimer];
+        }
+        
     }
     
     //链接
