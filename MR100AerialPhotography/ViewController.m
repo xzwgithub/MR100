@@ -133,6 +133,11 @@ static char kAlertKey;
  */
 @property (nonatomic,assign) long  takeoff_time;
 
+/**
+ *  起飞开始
+ */
+@property (nonatomic,assign) BOOL  isFlyingStart;
+
 
 @end
 
@@ -2095,6 +2100,7 @@ singleton_implementation(ViewController)
 
     if (self.flyControlManager) {
         [_flyControlManager.controller emergency_action];
+        _isFlyingStart = NO;
     }
 }
 
@@ -2471,6 +2477,8 @@ singleton_implementation(ViewController)
                 if (flyModel) { //定高模式起飞
                     if (self.flyControlManager){
                         [_flyControlManager.controller takeoffAction];//定高模式
+                        _isFlyingStart = YES;
+                        _takeoff_time = 0;
                     }
                 }else //定点模式
                 {
@@ -2480,6 +2488,8 @@ singleton_implementation(ViewController)
                     if (gps == 5 && flow == 5) { //未配备
                         if (self.flyControlManager){
                             [_flyControlManager.controller takeoffAction];//定高模式
+                            _isFlyingStart = YES;
+                            _takeoff_time = 0;
                         }
                     }else
                     {
@@ -2490,10 +2500,14 @@ singleton_implementation(ViewController)
                             [alert show];
                             
                              [_flyControlManager.controller takeoffAction];//定高模式
+                            _isFlyingStart = YES;
+                            _takeoff_time = 0;
                             
                         }else //非异常
                         {
                              [_flyControlManager.controller takeoffAction];//定点模式
+                            _isFlyingStart = YES;
+                            _takeoff_time = 0;
                         }
                     }
                     
@@ -2510,6 +2524,7 @@ singleton_implementation(ViewController)
                     [self.takeOffOrLandingBtn setImage:[UIImage imageNamed:@"take-off-ash"] forState:UIControlStateNormal];
                     self.takeOffOrLandingBtn.selected = NO;
                     [self getStates:NO];
+                    _isFlyingStart = NO;
                 }
             }
             
@@ -3132,7 +3147,14 @@ singleton_implementation(ViewController)
             }
             
             self.debugInfo.flyHeight = [self.flyControlManager.response.infoModel.pos[2] floatValue];
-            self.debugInfo.flyTime = _takeoff_time++;
+            
+            if (_isFlyingStart) {
+                _takeoff_time++;
+                self.debugInfo.flyTime = _takeoff_time;
+            }else
+            {
+                self.debugInfo.flyTime = _takeoff_time;
+            }
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.debugInfoView.debugInfo = self.debugInfo;
