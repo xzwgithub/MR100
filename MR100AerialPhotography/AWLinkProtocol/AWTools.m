@@ -9,24 +9,14 @@
 #import "AWTools.h"
 #import <sys/sysctl.h>
 #import <mach/mach.h>
+#import <sys/mount.h>
 
 @implementation AWTools
 
 //当前设备可用内存(单位：MB)
-+(double)availableMemory
++(NSString*)availableMemory
 {
-    vm_statistics_data_t vmStats;
-    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
-    kern_return_t kernReturn = host_statistics(mach_host_self(),
-                                               HOST_VM_INFO,
-                                               (host_info_t)&vmStats,
-                                               &infoCount);
-    
-    if (kernReturn != KERN_SUCCESS) {
-        return NSNotFound;
-    }
-    
-    return ((vm_page_size *vmStats.free_count) / 1024.0) / 1024.0;
+   return  [self fileSizeToString:[self getAvailableMemorySize]];
 }
 
 //cpu占有率
@@ -91,6 +81,81 @@
     
     return tot_cpu;
 }
+
+
+
+//获取总内存大小
++(long long)getTotalMemorySize
+{
+    return [NSProcessInfo processInfo].physicalMemory;
+}
+
+//获取当前可用内存
++(long long)getAvailableMemorySize
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmStats, &infoCount);
+    if (kernReturn != KERN_SUCCESS)
+    {
+        return NSNotFound;
+    }
+    
+    return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
+}
+
+//获取总磁盘容量
++(long long)getTotalDiskSize
+{
+    struct statfs buf;
+    unsigned long long freeSpace = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeSpace = (unsigned long long)(buf.f_bsize * buf.f_blocks);
+    }
+    return freeSpace;
+}
+
+//获取可用磁盘容量
++(long long)getAvailableDiskSize
+{
+    struct statfs buf;
+    unsigned long long freeSpace = -1;
+    if (statfs("/var", &buf) >= 0)
+    {
+        freeSpace = (unsigned long long)(buf.f_bsize * buf.f_bavail);
+    }
+    return freeSpace;
+}
+
++(NSString *)fileSizeToString:(unsigned long long)fileSize
+{
+    NSInteger KB = 1024;
+    NSInteger MB = KB*KB;
+    NSInteger GB = MB*KB;
+    
+    if (fileSize < 10)
+    {
+        return @"0 B";
+        
+    }else if (fileSize < KB)
+    {
+        return @"< 1 KB";
+        
+    }else if (fileSize < MB)
+    {
+        return [NSString stringWithFormat:@"%.1f KB",((CGFloat)fileSize)/KB];
+        
+    }else if (fileSize < GB)
+    {
+        return [NSString stringWithFormat:@"%.1f MB",((CGFloat)fileSize)/MB];
+        
+    }else
+    {
+        return [NSString stringWithFormat:@"%.1f GB",((CGFloat)fileSize)/GB];
+    }
+}
+
 
 
 

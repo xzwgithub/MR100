@@ -49,13 +49,13 @@
     self.cpuLab.text = [NSString stringWithFormat:@"%@:%ld%%",NSLocalizedString(@"CPU Rate",@"CPU使用率"),(long)debugInfo.cpuUseRate];
     
     //可用内存
-    self.memoryLab.text = [NSString stringWithFormat:@"%@:%ldMB",NSLocalizedString(@"Available Mem",@"可用内存"),(long)debugInfo.unUsedMemory];
+    self.memoryLab.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Available Mem",@"可用内存"),debugInfo.unUsedMemory];
     
     //飞机模式
     self.flyModeLab.text = [NSString stringWithFormat:@"%@:%@",NSLocalizedString(@"Plan Mode",@"飞机模式"),debugInfo.flyMode];
     
     //飞机高度
-    self.flyHeightLab.text = [NSString stringWithFormat:@"%@:%.2f",NSLocalizedString(@"Plan Height",@"飞机高度"),debugInfo.flyHeight];
+    self.flyHeightLab.text = [NSString stringWithFormat:@"%@:%.1f",NSLocalizedString(@"Plan Height",@"飞机高度"),debugInfo.flyHeight];
     
     //起飞时长
     self.flyTimeLab.text = [NSString stringWithFormat:@"%@:%ld秒",NSLocalizedString(@"Takeoff Time",@"起飞时长"),debugInfo.flyTime];

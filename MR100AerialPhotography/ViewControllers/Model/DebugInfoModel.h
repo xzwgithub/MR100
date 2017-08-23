@@ -16,7 +16,7 @@
 /**
  *  可用内存
  */
-@property (nonatomic,assign) double  unUsedMemory;
+@property (nonatomic,copy) NSString*  unUsedMemory;
 /**
  *  飞机模式
  */

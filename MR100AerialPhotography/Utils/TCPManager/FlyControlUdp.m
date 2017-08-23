@@ -24,7 +24,7 @@
 
     flyUdp = [[AsyncUdpSocket alloc] initWithDelegate:self];
     NSError *err;
-    [flyUdp connectToHost:Ip onPort:Port error:&err];
+   [flyUdp connectToHost:Ip onPort:Port error:&err];
     if (!err) {
         [flyUdp receiveWithTimeout:-1 tag:0];
     }

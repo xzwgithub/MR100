@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface AWTools : NSObject
 
 //当前设备可用内存(单位：MB)
-+(double)availableMemory;
++(NSString*)availableMemory;
 
 //cpu占有率
 +(float)cpu_usage;
