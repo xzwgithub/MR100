@@ -47,6 +47,9 @@ static char kAlertKey;
 
 
 @interface ViewController ()<NSURLConnectionDelegate, NSStreamDelegate,UIGestureRecognizerDelegate,rtspDeleagte,responseBlockDelegate,UIAlertViewDelegate>
+{
+    BOOL _tcpIsConnected;
+}
 #pragma mark - UI相关属性
 
 @property(nonatomic, strong) PGQCAEAGLLayer *bgImageView;          //最下面的背景图片视图
@@ -2681,6 +2684,8 @@ singleton_implementation(ViewController)
 -(void)connectSuccess
 {
     [self catchCameraBaseInfo];
+    [self.flyControlManager connectToDevice];
+    [self.flyControlManager startUploadData];
     [UIApplication sharedApplication].idleTimerDisabled=YES;//禁止自动休眠
 }
 
