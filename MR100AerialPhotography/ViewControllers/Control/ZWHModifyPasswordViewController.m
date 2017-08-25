@@ -189,14 +189,15 @@
         [_modifyBtn setBackgroundImage:ImageNamed(@"Modify-button") forState:UIControlStateNormal];
         [_modifyBtn setBackgroundImage:ImageNamed(@"Modify-select-click") forState:UIControlStateHighlighted];
         [_modifyBtn setTitle:NSLocalizedString(@"modify", @"修改") forState:UIControlStateNormal];
-        [_modifyBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
-        [_modifyBtn setTitleColor:[UIColor colorWithHexString:@"#5c5c5c"] forState:UIControlStateHighlighted];
+        [_modifyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+        [_modifyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_modifyBtn addTarget:self action:@selector(modifyAction:) forControlEvents:UIControlEventTouchUpInside];
         _modifyBtn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         _modifyBtn.layer.cornerRadius = 8;
-        _modifyBtn.layer.borderColor = kBlackColor.CGColor;
+        _modifyBtn.layer.borderColor = [UIColor grayColor].CGColor;
         _modifyBtn.layer.borderWidth = 2;
         _modifyBtn.layer.masksToBounds = YES;
+        _modifyBtn.enabled = NO;
     }
     return _modifyBtn;
 }
@@ -270,6 +271,7 @@
         [alert show];
         return;
     }
+    
     //两次密码不一致
     if (![self.newwordTf.text isEqualToString:self.confirmTf.text]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:NSLocalizedString(@"the user name or password cannot be empty", @"两次输入密码不一致，请核对") delegate:nil cancelButtonTitle:NSLocalizedString(@"ok",@"确定") otherButtonTitles:nil, nil];
@@ -312,8 +314,18 @@
             [alert show];
             return NO;
         }
+        if (_newwordTf.text.length && _confirmTf.text.length) {
+            _modifyBtn.enabled = YES;
+        }
     }
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (!textField.text.length) {
+        _modifyBtn.enabled = NO;
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

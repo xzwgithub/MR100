@@ -11,8 +11,6 @@
 
 @interface ZWHSettingTableView ()<UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic, strong) UITableView *tableView;          //
-
 @property(nonatomic, strong) UISwitch *swi;          //
 
 @end

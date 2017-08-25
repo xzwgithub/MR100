@@ -14,11 +14,16 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface AAPLAssetViewController ()
+{
+    boolean_t _isClickPicture;
+}
 @property(nonatomic, weak) UIView *topBarView;        //上部导航栏
 @property(nonatomic, weak) UILabel *titleLable;       //资源名称
 @property(nonatomic, weak) UIImageView *imageViewCurr;//资源图片
 @property(nonatomic, weak) UIButton *playBtn;         //播放按钮
 @property(nonatomic, strong) UIPanGestureRecognizer *pan;       //加在view上的拖动手势，非播放界面有效
+
+@property (nonatomic,strong) UITapGestureRecognizer * tap;
 @property(nonatomic, assign) NSUInteger index;          //当前资源在数组的下标
 
 @property (nonatomic, assign) CGSize lastTargetSize;
@@ -45,6 +50,13 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    if (_model.asset.mediaType == PHAssetMediaTypeImage) {
+        _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideNav:)];
+        [self.view addGestureRecognizer:_tap];
+        
+    }
+
 }
 
 - (void)dealloc {
@@ -69,7 +81,7 @@
     else if (model.asset.mediaType == PHAssetMediaTypeVideo) {
         self.playBtn.hidden = NO;
         [self updateImage];
-        [self handlePlayButtonItem:nil];
+        
     }
 }
 
@@ -238,6 +250,13 @@
     }];
 }
 
+-(void)hideNav:(UITapGestureRecognizer*)tap
+{
+    _isClickPicture = !_isClickPicture;
+    self.topBarView.hidden = _isClickPicture;
+}
+
+
 - (void)panAction:(UIPanGestureRecognizer *)ges {
     
     if (ges.state == UIGestureRecognizerStateBegan) {
@@ -318,6 +337,8 @@
     }];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {};
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+};
 
 @end

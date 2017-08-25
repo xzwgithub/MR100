@@ -163,7 +163,8 @@ typedef enum {
         _menuTab.accessoryType = UITableViewCellAccessoryNone;
         
         ViewController *vc = [ViewController sharedViewController];
-          _menuTab.titleArr = @[NSLocalizedString(@"mag calibration",@""),[NSString stringWithFormat:NSLocalizedString(@"aileron zero bias: %d lift zero bias: %d", @"副翼零偏: %d   升降零偏: %d"),[vc getFlyManager].controller.fuyilingpian,[vc getFlyManager].controller.shengjianglingpian],NSLocalizedString(@"acc calibration", @"acc校准")];
+        //NSLocalizedString(@"mag calibration",@""),
+          _menuTab.titleArr = @[[NSString stringWithFormat:NSLocalizedString(@"aileron zero bias: %.1f lift zero bias: %.1f", @"副翼零偏: %.1f   升降零偏: %.1f"),[vc getFlyManager].controller.fuyilingpian,[vc getFlyManager].controller.shengjianglingpian],NSLocalizedString(@"acc calibration", @"acc校准")];
 
         [self.view addSubview:_menuTab];
     }
@@ -175,24 +176,29 @@ typedef enum {
     ViewController *vc = [ViewController sharedViewController];
     
     switch (indexPath.row) {
+//        case 0:
+//        {
+//            //mag
+//            state = CalibratingMagXY;
+//            vc.deleate = self;
+//            [self playVideo];
+//            if ([vc getFlyManager]) {
+//                [[vc getFlyManager].controller magXAdapt_action];
+//            }
+//        }
+//            break;
         case 0:
         {
-            //mag
-            state = CalibratingMagXY;
-            vc.deleate = self;
-            [self playVideo];
-            if ([vc getFlyManager]) {
-                [[vc getFlyManager].controller magXAdapt_action];
-            }
+            
+            ViewController *vc = [ViewController sharedViewController];
+            [vc getFlyManager].controller.fuyilingpian = 0.0;
+            [vc getFlyManager].controller.shengjianglingpian = 0.0;
+            //NSLocalizedString(@"mag calibration",@""),
+            _menuTab.titleArr = @[[NSString stringWithFormat:NSLocalizedString(@"aileron zero bias: %.1f lift zero bias: %.1f", @"副翼零偏: %.1f   升降零偏: %.1f"),[vc getFlyManager].controller.fuyilingpian,[vc getFlyManager].controller.shengjianglingpian],NSLocalizedString(@"acc calibration", @"acc校准")];
+            [_menuTab.tableView reloadData];
         }
             break;
         case 1:
-        {
-
-
-        }
-            break;
-        case 2:
         {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"tip",@"提示") message:NSLocalizedString(@"please place the unmanned aerial vehicle (uav) in the horizontal plane after reduction, reduction takes about 2 seconds",@"请将无人机放置在水平面上后还原,还原大概需要2秒钟") preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action_confirm = [UIAlertAction actionWithTitle:NSLocalizedString(@"unmanned aerial vehicle (uav) has been placed",@"无人机已水平放置")  style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){

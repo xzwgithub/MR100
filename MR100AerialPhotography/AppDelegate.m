@@ -19,6 +19,7 @@
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "LogUtil.h"
 
 static NSString * const kClientID = @"555408402165-l92t3rmsa56d5kljdhmg6fsfjb9rpl67.apps.googleusercontent.com";
 
@@ -37,6 +38,8 @@ static NSString * const kClientID = @"555408402165-l92t3rmsa56d5kljdhmg6fsfjb9rp
     
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    
+    [LogUtil handleCrashException];//捕获崩溃日志
     
     //初次启动，初始化设置
     if (![kUserDefaults objectForKey:kShare1Platform]) {

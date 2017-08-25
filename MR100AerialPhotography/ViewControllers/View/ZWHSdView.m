@@ -36,8 +36,8 @@
             _quantityLable.font = FontSize(15);
         }
         else {
-            _quantityLable = [[UILabel alloc] initWithFrame:CGRectMake(47, 0, kMainBottomBtnWidth - 47, 40)];
-            _quantityLable.font = FontSize(11);
+            _quantityLable = [[UILabel alloc] initWithFrame:CGRectMake(37, 0, kMainBottomBtnWidth - 47, 40)];
+            _quantityLable.font = FontSize(10);
         }
         
         _quantityLable.hidden = YES;
@@ -93,12 +93,12 @@
             if (memoQuantity > 10 && memoQuantity <= 100) {
                 self.quantityLable.hidden = NO;
                 self.sdImageView.image = ImageNamed(@"SD-card");
-                self.sdImageView.frame = CGRectMake(20, 13.5, 21, 13);
+                self.sdImageView.frame = CGRectMake(10, 13.5, 21, 13);
             }
             else if (memoQuantity >= 0 && memoQuantity < 10) {
                 self.quantityLable.hidden = NO;
                 self.sdImageView.image = ImageNamed(@"SD(Twinkle)");
-                self.sdImageView.frame = CGRectMake(20, 13.5, 21, 13);
+                self.sdImageView.frame = CGRectMake(10, 13.5, 21, 13);
                 self.timer = [NSTimer scheduledTimerWithTimeInterval:0.4 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
                 [self.timer fire];
             }

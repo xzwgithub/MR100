@@ -22,4 +22,6 @@
 
 @property(nonatomic, assign)UITableViewCellAccessoryType accessoryType;
 
+@property(nonatomic, strong) UITableView *tableView;          //
+
 @end

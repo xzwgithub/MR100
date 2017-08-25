@@ -51,8 +51,11 @@ static int imgViewInterval = 120;
         self.index = index;
         self.topImgView.image = self.headImageArr[index];
         self.bottomImgView.image = self.bottomImageArr[index];
+    
         if (index) {
             [self sliderAndLableView];
+            [self.bottomImgView removeFromSuperview];
+            _bottomImgView = nil;
         }
         else {
             [self bottomNoneSliderView];
@@ -171,11 +174,11 @@ static int imgViewInterval = 120;
     if (_addBtn == nil) {
         _addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         if (kIsIpad) {
-            _addBtn.frame = CGRectMake(525, 0, 75, 75);
+            _addBtn.frame = CGRectMake(kWidth-85, 0, 75, 75);
             [_addBtn setImage:ImageNamed(@"plus-ipad") forState:UIControlStateNormal];
         }
         else {
-            _addBtn.frame = CGRectMake(408, 0, 50, 50);
+            _addBtn.frame = CGRectMake(kWidth-60, 0, 50, 50);
             [_addBtn setImage:ImageNamed(@"bottom-plus") forState:UIControlStateNormal];
         }
         
@@ -208,16 +211,16 @@ static int imgViewInterval = 120;
         [view addSubview:lb];
         [view addSubview:self.slider];
         if (kIsIpad) {
-            view.frame = CGRectMake(75, 0, 455, 75);
+            view.frame = CGRectMake(75, 0, kWidth-150, 75);
             lb.font = [UIFont fontWithName:@"Arial" size:24];
-            lb.frame = CGRectMake(0, 45, 455, 30);
-            lb.text = @"-4     -3     -2     -1     0      1      2      3      4";
+            lb.frame = CGRectMake(0, 45, kWidth-150, 30);
+            lb.text = @" -4      -3      -2      -1       0       1       2       3       4";
         }
         else {
-            view.frame = CGRectMake(60, 0, 338, 50);
+            view.frame = CGRectMake(70, 0, kWidth-140, 50);
             lb.font = [UIFont fontWithName:@"Arial" size:20];
-            lb.frame = CGRectMake(0, 30, 338, 20);
-            lb.text = @"-4    -3    -2    -1     0     1     2     3     4";
+            lb.frame = CGRectMake(0, 30,  kWidth-140, 20);
+            lb.text = @" -4      -3      -2      -1       0       1       2       3       4";
         }
         _sliderAndLableView = view;
     }
@@ -228,11 +231,11 @@ static int imgViewInterval = 120;
     if (_slider == nil)
     {
         if (kIsIpad) {
-            _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 8, 455, 35)];
+            _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 8, kWidth-150, 35)];
             [_slider setThumbImage:ImageNamed(@"contrast-control-ipad") forState:UIControlStateNormal];
         }
         else {
-            _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 5, 338, 30)];
+            _slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 5, kWidth-140, 30)];
             [_slider setThumbImage:ImageNamed(@"bottom-control") forState:UIControlStateNormal];
         }
         
@@ -372,10 +375,10 @@ static int imgViewInterval = 120;
 - (UIView *)bottomSliderTypeView {
     if (_bottomSliderTypeView == nil) {
         if (kIsIpad) {
-            _bottomSliderTypeView = [[UIView alloc] initWithFrame:CGRectMake(kWidth - 620, 0, 600, 75)];
+            _bottomSliderTypeView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, kWidth-20, 75)];
         }
         else {
-            _bottomSliderTypeView = [[UIView alloc] initWithFrame:CGRectMake(kWidth - 468, 0, 458, 50)];
+            _bottomSliderTypeView = [[UIView alloc] initWithFrame:CGRectMake(10, 0, kWidth-20, 50)];
         }
         
         _bottomSliderTypeView.backgroundColor = kWhiteColor;

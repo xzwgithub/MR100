@@ -157,6 +157,7 @@ static char kAlertKey;
     CGPoint _validPoint; //滑动点有效坐标
     CGPoint _translation;//滑动点起始的坐标
     BOOL _isClick;//记录用户是否点击了takeoff按钮
+    
 }
 
 static unsigned int frameCount = 0;
@@ -286,7 +287,7 @@ singleton_implementation(ViewController)
     _h264Decoder = [[Decoder alloc] init];
     
     //tcp
-    tcpManager = [[TcpManager alloc] init];
+    tcpManager = [TcpManager defaultManager];
     tcpManager.delegate = self;
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
@@ -1837,79 +1838,82 @@ singleton_implementation(ViewController)
 }
 - (void)circleBtnClickAction:(UIButton *)sender {
     
-     NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
-    
-    if (!_rtspState || FlyModel != BASE_INFO_FLY_MODEL_TYPE_SKY)//未连接图传，直接退出
+    if (!_rtspState || ![self.flyControlManager.response getFlyingState])//未连接图传，直接退出
     {
         return;
     }
+   
+     NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
     
-    [self liveDropViewbuttonClickAction:nil];
-    [self removeCameraDropView];
-    for (id obj in self.view.subviews) {
-        if ([obj isKindOfClass:[ZWHSettingIndicatorView class]]) {
-            [obj removeFromSuperview];
+    if (FlyModel == BASE_INFO_FLY_MODEL_TYPE_SKY) {
+        
+        [self liveDropViewbuttonClickAction:nil];
+        [self removeCameraDropView];
+        for (id obj in self.view.subviews) {
+            if ([obj isKindOfClass:[ZWHSettingIndicatorView class]]) {
+                [obj removeFromSuperview];
+            }
         }
-    }
-    
-    sender.selected = !sender.selected;
-    
-    if (sender.selected) {
-        if (kIsIpad) {
-            _circleDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(0, 75, kWidth * 0.5 - 111.5, 100)];
+        
+        sender.selected = !sender.selected;
+        
+        if (sender.selected) {
+            if (kIsIpad) {
+                _circleDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(0, 75, kWidth * 0.5 - 111.5, 100)];
+            }
+            else {
+                _circleDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(0, 50, kWidth * 0.5 - 74, 75)];
+            }
+            
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setImage:ImageNamed(@"stop_42x42") forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(circleDropViewbuttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [_circleDropView addSubview:btn];
+            
+            UIImageView *imageView = [[UIImageView alloc] init];
+            [_circleDropView addSubview:imageView];
+            
+            _recordingImgView = imageView;
+            
+            _second = 0;
+            _minute = 0;
+            UILabel *lab = [[UILabel alloc] init];
+            lab.text = @"00:00";
+            lab.textColor = kWhiteColor;
+            lab.textAlignment = NSTextAlignmentCenter;
+            [_circleDropView addSubview:lab];
+            
+            if (kIsIpad) {
+                btn.frame = CGRectMake((kWidth * 0.5 - 111.5)*0.5 - 22.5, 45, 55, 55);
+                imageView.image = ImageNamed(@"Small-ipad");
+                imageView.frame = CGRectMake((kWidth*0.5 - 111.5)*0.5 - 40, 14.5, 16, 16);
+                lab.frame = CGRectMake((kWidth*0.5 - 111.5)*0.5 - 18, 0, 60, 45);
+                lab.font = FontSize(17);
+            }
+            else {
+                btn.frame = CGRectMake((kWidth * 0.5 - 74)*0.5 - 15, 35, 30, 30);
+                imageView.image = ImageNamed(@"videorecording_9x9");
+                imageView.frame = CGRectMake((kWidth*0.5 - 74)*0.5 - 28, 10.5, 9, 9);
+                lab.frame = CGRectMake((kWidth*0.5 - 74)*0.5 - 20, 0, 50, 30);
+                lab.font = FontSize(13);
+            }
+            
+            self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countTimerAction:) userInfo:lab repeats:YES];
+            [self.countDownTimer fire];
+            [self.view addSubview:_circleDropView];
+            
+            [self startRecord];
         }
+        
         else {
-            _circleDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(0, 50, kWidth * 0.5 - 74, 75)];
+            [self tapGesClickAction];
         }
+
         
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setImage:ImageNamed(@"stop_42x42") forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(circleDropViewbuttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_circleDropView addSubview:btn];
-        
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [_circleDropView addSubview:imageView];
-        
-        _recordingImgView = imageView;
-        
-        _second = 0;
-        _minute = 0;
-        UILabel *lab = [[UILabel alloc] init];
-        lab.text = @"00:00";
-        lab.textColor = kWhiteColor;
-        lab.textAlignment = NSTextAlignmentCenter;
-        [_circleDropView addSubview:lab];
-        
-        if (kIsIpad) {
-            btn.frame = CGRectMake((kWidth * 0.5 - 111.5)*0.5 - 22.5, 45, 55, 55);
-            imageView.image = ImageNamed(@"Small-ipad");
-            imageView.frame = CGRectMake((kWidth*0.5 - 111.5)*0.5 - 40, 14.5, 16, 16);
-            lab.frame = CGRectMake((kWidth*0.5 - 111.5)*0.5 - 18, 0, 60, 45);
-            lab.font = FontSize(17);
+        if (self.flyControlManager) {
+            [_flyControlManager.controller circle360_action:sender.selected];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotice360 object:nil];
         }
-        else {
-            btn.frame = CGRectMake((kWidth * 0.5 - 74)*0.5 - 15, 35, 30, 30);
-            imageView.image = ImageNamed(@"videorecording_9x9");
-            imageView.frame = CGRectMake((kWidth*0.5 - 74)*0.5 - 28, 10.5, 9, 9);
-            lab.frame = CGRectMake((kWidth*0.5 - 74)*0.5 - 20, 0, 50, 30);
-            lab.font = FontSize(13);
-        }
-        
-        self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countTimerAction:) userInfo:lab repeats:YES];
-        [self.countDownTimer fire];
-        [self.view addSubview:_circleDropView];
-        
-        [self startRecord];
-    }
-    
-    else {
-        [self tapGesClickAction];
-    }
-    
-    if (self.flyControlManager) {
-        
-        [_flyControlManager.controller circle360_action:sender.selected];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotice360 object:nil];
     }
 }
 - (void)circleDropViewbuttonClickAction:(UIButton *)sender {
@@ -2676,13 +2680,27 @@ singleton_implementation(ViewController)
 #pragma mark - tcp delegate
 -(void)connectFailed
 {
-    UIImageView *imgV = (UIImageView *)self.view;
-    imgV.image = [UIImage imageNamed:@"bg"];
+    if (_tcpIsConnected) {
+        _tcpIsConnected = NO;
+        self.bgImageView.contents = [UIImage imageNamed:@"bg"];
+        [_bgImageView removeFromSuperlayer];
+        _bgImageView = nil;
+        
+    }
     [UIApplication sharedApplication].idleTimerDisabled=NO;
 }
 
 -(void)connectSuccess
 {
+    _tcpIsConnected = YES;
+    if (_h264Decoder) {
+        _h264Decoder.showLayer = self.bgImageView;
+    }
+    
+    if (_tcpTimer == nil) {
+        dispatch_resume(self.tcpTimer);
+    }
+
     [self catchCameraBaseInfo];
     [self.flyControlManager connectToDevice];
     [self.flyControlManager startUploadData];
@@ -2910,7 +2928,10 @@ singleton_implementation(ViewController)
     }
     [_h264Decoder decodeNalu:temp_data withSize:size+4];
     
-    frameCount ++;
+    BOOL isMain = [NSThread isMainThread];
+    @synchronized (self) {
+       frameCount ++;
+    }
     free(temp_data);
     temp_data = nil;
 }
@@ -3191,11 +3212,14 @@ singleton_implementation(ViewController)
                 {
                     _rtspState = YES;
                 }
-
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [self updateWifiImg:frameCount];
-                    frameCount = 0;
+                    NSLog(@"一秒内图片帧数据:%u",frameCount);
+                    @synchronized (self) {
+                       frameCount = 0;
+                    }
                 });
             }
             else{
@@ -3301,6 +3325,7 @@ static bool roting = false;
 -(void)updateUI
 {
     self.batteryView.elecQuantity = 0;
+    [self.SDcard setMemoQuantity:0 Out:0];
     
      NSInteger  FlyModel = [[[NSUserDefaults standardUserDefaults] objectForKey:FLY_MODE_STATUS] integerValue];
     
