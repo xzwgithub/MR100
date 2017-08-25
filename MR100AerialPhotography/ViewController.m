@@ -211,7 +211,7 @@ singleton_implementation(ViewController)
                 self.bottomBarView.frame = CGRectMake(0, kHeight-40, kWidth, 40);
                 self.slideView.frame = CGRectMake(0, kHeight - 92 - kHeight*0.5, 80, kHeight*0.5);
                 self.mainCtrStickView.frame = CGRectMake(kWidth - (kHeight - 90), 50, kHeight - 90, kHeight - 90);
-                self.lock.frame = CGRectMake(kWidth/2 - 75, kHeight - 40 - 50, 150, 50);
+                self.lock.frame = CGRectMake(kWidth/2 - 75, kHeight - 40 - 50, 150, 60);
             }];
         }
     }
@@ -239,7 +239,7 @@ singleton_implementation(ViewController)
                 self.bottomBarView.frame = CGRectMake(0, kHeight+50, kWidth, 40);
                 self.slideView.frame = CGRectMake(-80, kHeight - 92 - kHeight*0.5, 80, kHeight*0.5);
                 self.mainCtrStickView.frame = CGRectMake(kWidth, 50, kHeight - 90, kHeight - 90);
-                self.lock.frame = CGRectMake(kWidth/2 - 75, kHeight, 150, 50);
+                self.lock.frame = CGRectMake(kWidth/2 - 75, kHeight, 150, 60);
             }
             
         }];
@@ -660,7 +660,7 @@ singleton_implementation(ViewController)
         [self.lock mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.batteryView.mas_top).with.offset(0);
             make.centerX.equalTo(self.bottomBarView.mas_centerX).with.offset(0);
-            make.size.mas_equalTo(CGSizeMake(150, 50));
+            make.size.mas_equalTo(CGSizeMake(150, 60));
         }];
         
         [self.gelleryBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1838,7 +1838,7 @@ singleton_implementation(ViewController)
 }
 - (void)circleBtnClickAction:(UIButton *)sender {
     
-    if (!_rtspState || ![self.flyControlManager.response getFlyingState])//未连接图传，直接退出
+    if (!_rtspState)//未连接图传，直接退出
     {
         return;
     }

@@ -28,15 +28,11 @@
  */
 @property (nonatomic,assign) NSInteger  heartStopNum;
 
-/**
- *  常驻线程
- */
-@property (nonatomic,strong) NSThread * thread;
 
 /**
  *  定时器
  */
-@property (nonatomic,strong) NSTimer * timer;
+@property (nonatomic,strong) dispatch_source_t heartTimer;
 
 /**
  *  弹框
@@ -53,42 +49,22 @@
 
 @implementation FlyResponse
 
--(NSThread *)thread
-{
-    if (!_thread) {
-        
-        _thread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
-        [_thread start];
-    }
-    return _thread;
-}
-
-//开启子线程
--(void)runThread
-{
-    @autoreleasepool {
-        //1、添加一个input source
-        [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
-        [[NSRunLoop currentRunLoop] run];
-        
-    }
+#pragma mark-tcp定时器
+- (dispatch_source_t)heartTimer {
     
-}
-
--(void)creatTimer
-{
-    if (!_timer) {
-        
-        _timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(checkHeartCount) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
-        [[NSRunLoop currentRunLoop] run];
-        _isCheckHeart = NO;
+    if (_heartTimer == nil) {
+        _heartTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));
+        dispatch_source_set_timer(_heartTimer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(_heartTimer, ^{
+            [self checkHeartCount];//心跳检测
+        });
     }
-    
+    return _heartTimer;
 }
 
 -(void)checkHeartCount
 {
+    NSLog(@"心跳检测...");
     if (self.heartCount < 5 && !_isCheckHeart ) {
         
         self.heartStopNum++;
@@ -99,14 +75,9 @@
             _isCheckHeart = YES;
 
             //弹框提示,关闭定时器
-            if (_thread) {
-                [_thread cancel];
-                _thread = nil;
-            }
-            
-            if (_timer) {
-                [_timer invalidate];
-                _timer = nil;
+            if (_heartTimer) {
+                dispatch_source_cancel(_heartTimer);
+                _heartTimer = nil;
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -171,19 +142,17 @@
                 case 0 : //系统
                     if (resData[4] == 3) {
                         
-                        [self performSelector:@selector(creatTimer) onThread:self.thread withObject:nil waitUntilDone:NO ];
-                        
+                        if (_heartTimer == nil) {
+                            dispatch_resume(self.heartTimer);
+                        }
                         _isCheckHeart = NO;
-                        
                         @synchronized (self) {
                             //心跳包个数
                             self.heartCount++;
                         }
-
                     }
-                    
                     break;
-                    
+
                 case 1: //状态
                     
                     //子项号
