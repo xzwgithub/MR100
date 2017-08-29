@@ -11,16 +11,10 @@
 #import "BasicUsageEnvironment.hh"
 @interface RtspConnection()      //
 
-
 @end
 @implementation RtspConnection
 singleton_implementation(RtspConnection)
 
-#define h264_add @"rtsp://192.168.100.1:7070/H264VideoSMS"
-//#define jpeg_add @"rtsp://192.168.100.1:7070/JPEGVideoSMS"
-//#define audio_add @"rtsp://192.168.100.1:7070/wavLiverAudio"
-//#define video_audio_add @"rtsp://192.168.100.1:7070/JPEGWavLiver"
-#define online_play @"rtsp://192.168.100.1:7070/VideoFileLive"
 +(RtspConnection *)shareStore
 {
     static RtspConnection *shareRtsp = nil;

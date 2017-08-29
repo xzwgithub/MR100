@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#define h264_add @"rtsp://192.168.100.1:7070/H264VideoSMS"
+//#define jpeg_add @"rtsp://192.168.100.1:7070/JPEGVideoSMS"
+//#define audio_add @"rtsp://192.168.100.1:7070/wavLiverAudio"
+//#define video_audio_add @"rtsp://192.168.100.1:7070/JPEGWavLiver"
+#define online_play @"rtsp://192.168.100.1:7070/VideoFileLive"
+
 @protocol rtspDeleagte <NSObject>
 
 @required
@@ -23,7 +29,7 @@
 @interface RtspConnection : NSObject
 singleton_interface(RtspConnection)
 
-//开启rtsp通道，传输视频流数据，online参数填no即可
+//开启rtsp通道，传输视频流数据，online参数填no即可 yes no 决定用h264_add还是online_play
 -(void)start_rtsp_session:(BOOL)online;
 //关闭rtsp通道
 -(void)close_rtsp_client;
