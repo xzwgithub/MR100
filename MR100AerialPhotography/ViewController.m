@@ -49,6 +49,7 @@ static char kAlertKey;
 @interface ViewController ()<NSURLConnectionDelegate, NSStreamDelegate,UIGestureRecognizerDelegate,rtspDeleagte,responseBlockDelegate,UIAlertViewDelegate>
 {
     BOOL _tcpIsConnected;
+    NSInteger _throttleCount;
 }
 #pragma mark - UI相关属性
 
@@ -140,6 +141,16 @@ static char kAlertKey;
  *  起飞开始
  */
 @property (nonatomic,assign) BOOL  isFlyingStart;
+
+/**
+ *  油门－按钮－上
+ */
+@property (nonatomic,strong) UIButton * throttleBtn_top;
+
+/**
+ *  油门－按钮－下
+ */
+@property (nonatomic,strong) UIButton * throttleBtn_bottom;
 
 
 @end
@@ -257,7 +268,9 @@ singleton_implementation(ViewController)
     [self gesCtrView];
     [self mainCtrStickView];
     [self topBtn];
+    [self throttleBtn_top];
     [self bottomBtn];
+    [self throttleBtn_bottom];
     [self rightBtn];
     [self leftBtn];
     [self slideView];
@@ -728,9 +741,6 @@ singleton_implementation(ViewController)
     if (_tcpTimer == nil) {
         dispatch_resume(self.tcpTimer);
     }
-//    if (_debugInfoTimer == nil) {
-//        dispatch_resume(self.debugInfoTimer);
-//    }
     
     if (kIsIpad) {
         [self.takeOffOrLandingBtn setImage:[UIImage imageNamed:@"takeoff-ash-ipad"] forState:UIControlStateNormal];
@@ -1928,6 +1938,66 @@ singleton_implementation(ViewController)
     _circleDropView = nil;
     self.circleBtn.selected = NO;
     [_flyControlManager.controller circle360_action:sender.selected];
+}
+
+#pragma mark -测试模式下的油门按钮视图
+-(UIButton *)throttleBtn_top
+{
+    if (_throttleBtn_top == nil) {
+        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (kIsIpad) {
+            CGFloat centYMainCtrView = 0.5*kHeight;
+            btn.frame = CGRectMake(20,centYMainCtrView-175-20, 86, 175);
+            [btn setImage:[UIImage imageNamed:@"Zero-offset-calibration-top-ipad"] forState:UIControlStateNormal];
+        }
+        else {
+            CGFloat centYMainCtrView = 0.5*kHeight;
+            btn.frame = CGRectMake(15, centYMainCtrView-80-10, 52, 80);
+            [btn setImage:[UIImage imageNamed:@"Zero-offset-calibration-top"] forState:UIControlStateNormal];
+        }
+        
+        [btn addTarget:self action:@selector(throttleTopBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+        _throttleBtn_top = btn;
+        _throttleBtn_top.hidden = YES;
+    }
+    
+    return _throttleBtn_top;
+}
+
+#pragma mark -油门按钮_上
+-(void)throttleTopBtn:(UIButton*)btn{
+    
+
+}
+
+-(UIButton *)throttleBtn_bottom
+{
+    if (_throttleBtn_bottom == nil) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (kIsIpad) {
+            CGFloat centYMainCtrView = 0.5*kHeight;
+            btn.frame = CGRectMake(20, centYMainCtrView+20, 86, 175);
+            [btn setImage:[UIImage imageNamed:@"Zero-offset-calibration-bottom-ipad"] forState:UIControlStateNormal];
+        }
+        else {
+            CGFloat centYMainCtrView = 0.5*kHeight;
+            btn.frame = CGRectMake(15, centYMainCtrView+10, 52, 80);
+            [btn setImage:[UIImage imageNamed:@"Zero-offset-calibration-bottom"] forState:UIControlStateNormal];
+        }
+        
+        [btn addTarget:self action:@selector(throttleBottomBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn];
+        _throttleBtn_bottom = btn;
+        _throttleBtn_bottom.hidden = YES;
+    }
+    return _throttleBtn_bottom;
+}
+
+#pragma mark -油门按钮_下
+-(void)throttleBottomBtn:(UIButton*)btn{
+    
+    
 }
 
 #pragma mark - 零偏校准功能按钮的懒加载及相应方法
