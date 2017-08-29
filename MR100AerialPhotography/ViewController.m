@@ -821,7 +821,7 @@ singleton_implementation(ViewController)
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         if (result && ( [[result objectForKey:@"RESULT"] intValue] == 1 ||[[result objectForKey:@"RESULT"] intValue] == 0)) {
             
-            [[RtspConnection shareStore] start_rtsp_session:NO];
+            [[RtspConnection sharedRtspConnection] start_rtsp_session:NO];
             NSLog(@"开启rtsp");
             //设置日期时间
             [self syncSysTime];
