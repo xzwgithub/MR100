@@ -1219,13 +1219,14 @@ singleton_implementation(ViewController)
     if (btn.selected) {
         ret = YES;//记录这个按钮是不是只想关闭拍照长按视图
     }
-    //拍照前清除所有下拉视图
-    [self tapGesClickAction];
     
     if (_liveBtn.selected || _circleBtn.selected || !_rtspState || ret)//有下拉视图时不能拍照
     {
-      return;
+        return;
     }
+    
+    //拍照前清除所有下拉视图
+    [self tapGesClickAction];
     
     //如果连拍的这个变量不等于－1，则按钮不能操作
     if (self.expectedPhotoCount != -1) {
@@ -1238,7 +1239,7 @@ singleton_implementation(ViewController)
     [tcpManager sendData:data Response:^(NSData *responseData) {
         
     } Tag:0];
-    [self takePhotoFlashScreenWithImage:self.currentImage];
+    [self takePhotoFlashScreenWithImage:self.currentImage];//拍照闪屏效果
     _h264Decoder.takePhotosNum = 1;
 }
 
@@ -1731,7 +1732,6 @@ singleton_implementation(ViewController)
             _liveDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(0, 50, kWidth * 0.5 - 74, 75)];
         }
         
-        
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setImage:ImageNamed(@"stop_42x42") forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(liveDropViewbuttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -1768,13 +1768,10 @@ singleton_implementation(ViewController)
         self.countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countTimerAction:) userInfo:lab repeats:YES];
         [self.countDownTimer fire];
         [self.view addSubview:_liveDropView];
+        [self startRecord];//开始录制
         
-        [self startRecord];
-        
-    }
-    
-    else {
-        [self tapGesClickAction];
+    }else {
+        [self tapGesClickAction];//结束录制
     }
     
 }

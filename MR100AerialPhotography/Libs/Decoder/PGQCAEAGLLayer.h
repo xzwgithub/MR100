@@ -12,7 +12,6 @@
 
 @interface PGQCAEAGLLayer : CAEAGLLayer
 @property CVPixelBufferRef pixelBuffer;
-
 - (id)initWithFrame:(CGRect)frame;
 - (void)resetRenderBuffer;
 -(UIImage *)currentImg;
