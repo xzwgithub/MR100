@@ -1219,13 +1219,14 @@ singleton_implementation(ViewController)
     if (btn.selected) {
         ret = YES;//记录这个按钮是不是只想关闭拍照长按视图
     }
-    //拍照前清除所有下拉视图
-    [self tapGesClickAction];
     
     if (_liveBtn.selected || _circleBtn.selected || !_rtspState || ret)//有下拉视图时不能拍照
     {
       return;
     }
+    
+    //拍照前清除所有下拉视图
+    [self tapGesClickAction];
     
     //如果连拍的这个变量不等于－1，则按钮不能操作
     if (self.expectedPhotoCount != -1) {
