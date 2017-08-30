@@ -3080,6 +3080,7 @@ singleton_implementation(ViewController)
         _debugInfoView.backgroundColor = kRGBAColorFloat(0.3, 0.3, 0.3, 0.3);
         _debugInfoView.hidden = YES;
         [self.view addSubview:_debugInfoView];
+        [self.view sendSubviewToBack:_debugInfoView];
     }
     return _debugInfoView;
 }
