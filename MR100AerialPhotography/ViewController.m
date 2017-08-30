@@ -1297,16 +1297,17 @@ singleton_implementation(ViewController)
         return;
     }
     
-    self.camaraBtn.selected = YES;
     
     if (_cameraDropView == nil) {
+        
+        self.camaraBtn.selected = YES;
+        
         if (kIsIpad) {
             _cameraDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(kWidth * 0.5 - (kWidth * 0.5 - 111.5)/2, 75, kWidth * 0.5 - 111.5, 45)];
         }
         else {
             _cameraDropView = [[ZWHSettingIndicatorView alloc] initWithFrame:CGRectMake(kWidth * 0.5 - (kWidth * 0.5 - 74)/2, 50, kWidth * 0.5 - 74, 30)];
         }
-        
         
         UIButton *delayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [delayBtn addTarget:self action:@selector(delayBtnDidClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -3076,6 +3077,7 @@ singleton_implementation(ViewController)
         _debugInfoView.backgroundColor = kRGBAColorFloat(0.3, 0.3, 0.3, 0.3);
         _debugInfoView.hidden = YES;
         [self.view addSubview:_debugInfoView];
+        [self.view sendSubviewToBack:_debugInfoView];
     }
     return _debugInfoView;
 }
