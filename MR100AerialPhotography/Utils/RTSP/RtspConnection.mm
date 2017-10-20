@@ -9,6 +9,7 @@
 #import "RtspConnection.h"
 #import "liveMedia.hh"
 #import "BasicUsageEnvironment.hh"
+#import "h264_stream.h"
 @interface RtspConnection()      //
 
 @end
@@ -476,7 +477,8 @@ void DummySink::afterGettingFrame(void* clientData, unsigned frameSize, unsigned
 
 // If you don't want to see debugging output for each received frame, then comment out the following line:
 #define DEBUG_PRINT_EACH_RECEIVED_FRAME 1
-
+static int lastPFrameNum = -2;
+bool frame_continuity = YES;
 void DummySink::afterGettingFrame(unsigned frameSize, unsigned numTruncatedBytes,
                                   struct timeval presentationTime, unsigned /*durationInMicroseconds*/) {
     // We've just received a frame of data.  (Optionally) print out information about it:
@@ -543,6 +545,10 @@ void DummySink::afterGettingFrame(unsigned frameSize, unsigned numTruncatedBytes
     }
     else if (!strcmp(fSubsession.mediumName(), "video"))
     {
+        h264_stream_t * h = h264_new();
+        read_nal_unit(h, fReceiveBuffer, frameSize);
+         int frame_num_max = pow(2, (h->sps->log2_max_frame_num_minus4+4));
+        
         RtspConnection *rtspConnection = [RtspConnection shareStore];
         int encode_type = 0;
         
@@ -577,8 +583,35 @@ void DummySink::afterGettingFrame(unsigned frameSize, unsigned numTruncatedBytes
         }
         else{
         
-            [rtspConnection.delegate decodeNalu:fReceiveBuffer Size:frameSize];
+            if(h->nal->nal_unit_type == 1){
+                if(frame_continuity){
+                    if(h->sh->frame_num == lastPFrameNum+1) {
+                        
+                        NSLog(@"PPP h->sh->frame_num:%d",h->sh->frame_num);
+                        [rtspConnection.delegate decodeNalu:fReceiveBuffer Size:frameSize];
+                        lastPFrameNum = h->sh->frame_num;
+                        if(lastPFrameNum == frame_num_max-1) {
+                            lastPFrameNum = -1;
+                        }
+                        
+                    }
+                    else {
+                        //丢帧处理
+                        NSLog(@"h264 error p frame, lost this. frame_num: %d, lastPFrameNum: %d",h->sh->frame_num, lastPFrameNum);
+                        frame_continuity = NO;
+                        // [rtspConnection.delegate decodeNalu:fReceiveBuffer Size:frameSize];
+                    };
+                }
+            }
+            else if(h->nal->nal_unit_type == 5){
+                [rtspConnection.delegate decodeNalu:fReceiveBuffer Size:frameSize];
+                lastPFrameNum = h->sh->frame_num;
+                frame_continuity = YES;
+                NSLog(@"III h->sh->frame_num:%d",h->sh->frame_num);
+            }
+            
         }
+        h264_free(h);
     }
     
     // Then continue, to request the next frame of data:

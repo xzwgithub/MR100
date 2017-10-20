@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C1D0C5D1F99E4C9004AE0D7 /* h264_sei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */; };
+		6C1D0C5E1F99E4C9004AE0D7 /* h264_stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */; };
 		6C511C151F3037DC0069017E /* StatusBaseInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C011F3037DC0069017E /* StatusBaseInfoModel.m */; };
 		6C511C161F3037DC0069017E /* StatusGpsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C031F3037DC0069017E /* StatusGpsInfoModel.m */; };
 		6C511C171F3037DC0069017E /* StatusOpticalFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C051F3037DC0069017E /* StatusOpticalFlowModel.m */; };
@@ -534,6 +536,11 @@
 /* Begin PBXFileReference section */
 		3254A17A79C01DEA8FDEF445 /* Pods-MR100AerialPhotography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MR100AerialPhotography.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.debug.xcconfig"; sourceTree = "<group>"; };
 		5D5F8FB35E8D2C2BD027CD77 /* Pods_MR100AerialPhotography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MR100AerialPhotography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1D0C461F99E4C8004AE0D7 /* bs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bs.h; sourceTree = "<group>"; };
+		6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_sei.cpp; sourceTree = "<group>"; };
+		6C1D0C481F99E4C8004AE0D7 /* h264_sei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_sei.h; sourceTree = "<group>"; };
+		6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_stream.cpp; sourceTree = "<group>"; };
+		6C1D0C4A1F99E4C8004AE0D7 /* h264_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_stream.h; sourceTree = "<group>"; };
 		6C511BCD1F3019B60069017E /* AWLinkConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWLinkConstant.h; path = ../Utils/FlyControl/AWLinkConstant.h; sourceTree = "<group>"; };
 		6C511C001F3037DC0069017E /* StatusBaseInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBaseInfoModel.h; sourceTree = "<group>"; };
 		6C511C011F3037DC0069017E /* StatusBaseInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBaseInfoModel.m; sourceTree = "<group>"; };
@@ -1332,6 +1339,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C1D0C451F99E4C8004AE0D7 /* H264 */ = {
+			isa = PBXGroup;
+			children = (
+				6C1D0C461F99E4C8004AE0D7 /* bs.h */,
+				6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */,
+				6C1D0C481F99E4C8004AE0D7 /* h264_sei.h */,
+				6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */,
+				6C1D0C4A1F99E4C8004AE0D7 /* h264_stream.h */,
+			);
+			path = H264;
+			sourceTree = "<group>";
+		};
 		6C511BE01F30233C0069017E /* AWLinkProtocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -2601,6 +2620,7 @@
 		F8BA72FD1DBE2D3C00513E46 /* RTSP */ = {
 			isa = PBXGroup;
 			children = (
+				6C1D0C451F99E4C8004AE0D7 /* H264 */,
 				F8BA72FE1DBE2D3C00513E46 /* RtspConnection.h */,
 				F8BA72FF1DBE2D3C00513E46 /* RtspConnection.mm */,
 			);
@@ -3092,6 +3112,7 @@
 				7CBF57D91D7EBA350086E61E /* MP3Transcoder.cpp in Sources */,
 				7CBF57911D7EBA350086E61E /* Base64.cpp in Sources */,
 				F80F07581DEFC73E0048B529 /* GTMSessionFetcher.m in Sources */,
+				6C1D0C5D1F99E4C9004AE0D7 /* h264_sei.cpp in Sources */,
 				F80F07551DEFC73E0048B529 /* GTMMIMEDocument.m in Sources */,
 				F84715E51D926D4C00F367CF /* ZWHLockButton.m in Sources */,
 				6C511C1B1F3037DC0069017E /* SystemAWPilotVersion.m in Sources */,
@@ -3102,6 +3123,7 @@
 				F80F074D1DEFC73E0048B529 /* OIDScopeUtilities.m in Sources */,
 				DAC57F081DD9B19000FDB6C4 /* PGQCAEAGLLayer.m in Sources */,
 				6C7C7FC21F50135D00DB7F39 /* LogUtil.m in Sources */,
+				6C1D0C5E1F99E4C9004AE0D7 /* h264_stream.cpp in Sources */,
 				7CBF578E1D7EBA350086E61E /* AudioInputDevice.cpp in Sources */,
 				7CBF579B1D7EBA350086E61E /* DVVideoRTPSink.cpp in Sources */,
 				7CBF579C1D7EBA350086E61E /* DVVideoRTPSource.cpp in Sources */,
