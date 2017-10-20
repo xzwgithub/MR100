@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C1D0C5D1F99E4C9004AE0D7 /* h264_sei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */; };
-		6C1D0C5E1F99E4C9004AE0D7 /* h264_stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */; };
+		6C1D14761F9A02EB004AE0D7 /* h264_sei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D14721F9A02EB004AE0D7 /* h264_sei.cpp */; };
+		6C1D14771F9A02EB004AE0D7 /* h264_stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D14741F9A02EB004AE0D7 /* h264_stream.cpp */; };
+		6C1D14791F9A033F004AE0D7 /* RtspConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C1D14781F9A033F004AE0D7 /* RtspConnection.mm */; };
 		6C511C151F3037DC0069017E /* StatusBaseInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C011F3037DC0069017E /* StatusBaseInfoModel.m */; };
 		6C511C161F3037DC0069017E /* StatusGpsInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C031F3037DC0069017E /* StatusGpsInfoModel.m */; };
 		6C511C171F3037DC0069017E /* StatusOpticalFlowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C511C051F3037DC0069017E /* StatusOpticalFlowModel.m */; };
@@ -366,7 +367,6 @@
 		F8AE94171DF6824C005A736F /* UICollectionView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE94161DF6824C005A736F /* UICollectionView+Convenience.m */; };
 		F8AE941A1DF6A4DB005A736F /* ZWHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AE94191DF6A4DB005A736F /* ZWHPlayerViewController.m */; };
 		F8B20E241E03E1F10042AFEE /* ZWHCaptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8B20E261E03E1F10042AFEE /* ZWHCaptionView.xib */; };
-		F8BA73021DBE2D3C00513E46 /* RtspConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = F8BA72FF1DBE2D3C00513E46 /* RtspConnection.mm */; };
 		F8CD210C1DF940F00037B9FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8CD210A1DF940F00037B9FE /* Localizable.strings */; };
 		F8D038E01DE6B4D400270237 /* ZWHCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D038DE1DE6B4D400270237 /* ZWHCaptionView.m */; };
 		F8D4A7291DF175C900548C35 /* ZWHNewGuardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D4A7281DF175C900548C35 /* ZWHNewGuardViewController.m */; };
@@ -536,11 +536,12 @@
 /* Begin PBXFileReference section */
 		3254A17A79C01DEA8FDEF445 /* Pods-MR100AerialPhotography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MR100AerialPhotography.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MR100AerialPhotography/Pods-MR100AerialPhotography.debug.xcconfig"; sourceTree = "<group>"; };
 		5D5F8FB35E8D2C2BD027CD77 /* Pods_MR100AerialPhotography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MR100AerialPhotography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C1D0C461F99E4C8004AE0D7 /* bs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bs.h; sourceTree = "<group>"; };
-		6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_sei.cpp; sourceTree = "<group>"; };
-		6C1D0C481F99E4C8004AE0D7 /* h264_sei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_sei.h; sourceTree = "<group>"; };
-		6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_stream.cpp; sourceTree = "<group>"; };
-		6C1D0C4A1F99E4C8004AE0D7 /* h264_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_stream.h; sourceTree = "<group>"; };
+		6C1D14711F9A02EB004AE0D7 /* bs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bs.h; sourceTree = "<group>"; };
+		6C1D14721F9A02EB004AE0D7 /* h264_sei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_sei.cpp; sourceTree = "<group>"; };
+		6C1D14731F9A02EB004AE0D7 /* h264_sei.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_sei.h; sourceTree = "<group>"; };
+		6C1D14741F9A02EB004AE0D7 /* h264_stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = h264_stream.cpp; sourceTree = "<group>"; };
+		6C1D14751F9A02EB004AE0D7 /* h264_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = h264_stream.h; sourceTree = "<group>"; };
+		6C1D14781F9A033F004AE0D7 /* RtspConnection.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RtspConnection.mm; sourceTree = "<group>"; };
 		6C511BCD1F3019B60069017E /* AWLinkConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWLinkConstant.h; path = ../Utils/FlyControl/AWLinkConstant.h; sourceTree = "<group>"; };
 		6C511C001F3037DC0069017E /* StatusBaseInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBaseInfoModel.h; sourceTree = "<group>"; };
 		6C511C011F3037DC0069017E /* StatusBaseInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBaseInfoModel.m; sourceTree = "<group>"; };
@@ -1263,7 +1264,6 @@
 		F8B20E3A1E03E1F90042AFEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZWHCaptionView.strings; sourceTree = "<group>"; };
 		F8B20E3C1E03E1FB0042AFEE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZWHCaptionView.strings"; sourceTree = "<group>"; };
 		F8BA72FE1DBE2D3C00513E46 /* RtspConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtspConnection.h; sourceTree = "<group>"; };
-		F8BA72FF1DBE2D3C00513E46 /* RtspConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RtspConnection.mm; sourceTree = "<group>"; };
 		F8CD210B1DF940F00037B9FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8CD210D1DF9413C0037B9FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8CD210E1DF941400037B9FE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -1339,14 +1339,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C1D0C451F99E4C8004AE0D7 /* H264 */ = {
+		6C1D14701F9A02EB004AE0D7 /* H264 */ = {
 			isa = PBXGroup;
 			children = (
-				6C1D0C461F99E4C8004AE0D7 /* bs.h */,
-				6C1D0C471F99E4C8004AE0D7 /* h264_sei.cpp */,
-				6C1D0C481F99E4C8004AE0D7 /* h264_sei.h */,
-				6C1D0C491F99E4C8004AE0D7 /* h264_stream.cpp */,
-				6C1D0C4A1F99E4C8004AE0D7 /* h264_stream.h */,
+				6C1D14711F9A02EB004AE0D7 /* bs.h */,
+				6C1D14721F9A02EB004AE0D7 /* h264_sei.cpp */,
+				6C1D14731F9A02EB004AE0D7 /* h264_sei.h */,
+				6C1D14741F9A02EB004AE0D7 /* h264_stream.cpp */,
+				6C1D14751F9A02EB004AE0D7 /* h264_stream.h */,
 			);
 			path = H264;
 			sourceTree = "<group>";
@@ -2620,9 +2620,9 @@
 		F8BA72FD1DBE2D3C00513E46 /* RTSP */ = {
 			isa = PBXGroup;
 			children = (
-				6C1D0C451F99E4C8004AE0D7 /* H264 */,
+				6C1D14701F9A02EB004AE0D7 /* H264 */,
 				F8BA72FE1DBE2D3C00513E46 /* RtspConnection.h */,
-				F8BA72FF1DBE2D3C00513E46 /* RtspConnection.mm */,
+				6C1D14781F9A033F004AE0D7 /* RtspConnection.mm */,
 			);
 			path = RTSP;
 			sourceTree = "<group>";
@@ -3112,7 +3112,7 @@
 				7CBF57D91D7EBA350086E61E /* MP3Transcoder.cpp in Sources */,
 				7CBF57911D7EBA350086E61E /* Base64.cpp in Sources */,
 				F80F07581DEFC73E0048B529 /* GTMSessionFetcher.m in Sources */,
-				6C1D0C5D1F99E4C9004AE0D7 /* h264_sei.cpp in Sources */,
+				6C1D14761F9A02EB004AE0D7 /* h264_sei.cpp in Sources */,
 				F80F07551DEFC73E0048B529 /* GTMMIMEDocument.m in Sources */,
 				F84715E51D926D4C00F367CF /* ZWHLockButton.m in Sources */,
 				6C511C1B1F3037DC0069017E /* SystemAWPilotVersion.m in Sources */,
@@ -3123,7 +3123,7 @@
 				F80F074D1DEFC73E0048B529 /* OIDScopeUtilities.m in Sources */,
 				DAC57F081DD9B19000FDB6C4 /* PGQCAEAGLLayer.m in Sources */,
 				6C7C7FC21F50135D00DB7F39 /* LogUtil.m in Sources */,
-				6C1D0C5E1F99E4C9004AE0D7 /* h264_stream.cpp in Sources */,
+				6C1D14771F9A02EB004AE0D7 /* h264_stream.cpp in Sources */,
 				7CBF578E1D7EBA350086E61E /* AudioInputDevice.cpp in Sources */,
 				7CBF579B1D7EBA350086E61E /* DVVideoRTPSink.cpp in Sources */,
 				7CBF579C1D7EBA350086E61E /* DVVideoRTPSource.cpp in Sources */,
@@ -3325,6 +3325,7 @@
 				7CBF57C31D7EBA350086E61E /* MatroskaDemuxedTrack.cpp in Sources */,
 				F84715E41D926D4C00F367CF /* ZWHFlashLedButton.m in Sources */,
 				7CBF579A1D7EBA350086E61E /* DVVideoFileServerMediaSubsession.cpp in Sources */,
+				6C1D14791F9A033F004AE0D7 /* RtspConnection.mm in Sources */,
 				6CA0CF691F4AB75900AFDE4D /* AWTools.m in Sources */,
 				DA6421711DE5CF9F0000D245 /* (null) in Sources */,
 				7CBF57CE1D7EBA350086E61E /* MP3ADUinterleaving.cpp in Sources */,
@@ -3344,7 +3345,6 @@
 				7CBF581D1D7EBA350086E61E /* TextRTPSink.cpp in Sources */,
 				7CBF581C1D7EBA350086E61E /* TCPStreamSink.cpp in Sources */,
 				7CBF582D1D7EBA350086E61E /* strDup.cpp in Sources */,
-				F8BA73021DBE2D3C00513E46 /* RtspConnection.mm in Sources */,
 				7CBF57961D7EBA350086E61E /* ByteStreamMemoryBufferSource.cpp in Sources */,
 				7CBF58151D7EBA350086E61E /* SimpleRTPSink.cpp in Sources */,
 				F80F07471DEFC73E0048B529 /* OIDError.m in Sources */,
