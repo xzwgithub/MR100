@@ -294,7 +294,7 @@ singleton_implementation(ViewController)
     [self wifiImageView];
     [self getStates:NO];
     
-    [RtspConnection sharedRtspConnection].delegate = self;
+    [RtspConnection shareStore].delegate = self;
     
     //decoder
     _h264Decoder = [[Decoder alloc] init];
@@ -791,9 +791,9 @@ singleton_implementation(ViewController)
     //  关闭所有的下拉视图，相应的计时器关闭
     [self tapGesClickAction];
     
-    if ([[RtspConnection sharedRtspConnection] isConnecting])
+    if ([[RtspConnection shareStore] isConnecting])
     {
-        [[RtspConnection sharedRtspConnection] close_rtsp_client];
+        [[RtspConnection shareStore] close_rtsp_client];
     }
     [tcpManager disConnectTcp];
     
@@ -836,7 +836,7 @@ singleton_implementation(ViewController)
     if (_mp4Helper) {
         [_mp4Helper startRecord:[[self dateFormat] UTF8String] Width:1280 Height:720];
     }
-    if ([[RtspConnection sharedRtspConnection] isConnecting])
+    if ([[RtspConnection shareStore] isConnecting])
     {
         //飞机录制
         SEQ_CMD cmd = CMD_REQ_VID_ENC_START;
