@@ -29,6 +29,7 @@
 		6C7C7FC11F50135D00DB7F39 /* LogConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7C7FBD1F50135D00DB7F39 /* LogConfig.m */; };
 		6C7C7FC21F50135D00DB7F39 /* LogUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7C7FBF1F50135D00DB7F39 /* LogUtil.m */; };
 		6C8586E21F3858A3003C8CA0 /* AWProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8586E11F3858A3003C8CA0 /* AWProgressView.m */; };
+		6C9577771F9C9052008D0BD5 /* libAWLive555.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9577641F9C9051008D0BD5 /* libAWLive555.a */; };
 		6CA0CF4F1F4A888C00AFDE4D /* ZWDebugInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0CF4E1F4A888C00AFDE4D /* ZWDebugInfoView.m */; };
 		6CA0CF631F4A88A200AFDE4D /* ZWDebugInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA0CF621F4A88A200AFDE4D /* ZWDebugInfoView.xib */; };
 		6CA0CF661F4A8D7900AFDE4D /* DebugInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA0CF651F4A8D7900AFDE4D /* DebugInfoModel.m */; };
@@ -390,6 +391,7 @@
 		6C7C7FBF1F50135D00DB7F39 /* LogUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogUtil.m; sourceTree = "<group>"; };
 		6C8586E01F3858A3003C8CA0 /* AWProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWProgressView.h; sourceTree = "<group>"; };
 		6C8586E11F3858A3003C8CA0 /* AWProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWProgressView.m; sourceTree = "<group>"; };
+		6C9577641F9C9051008D0BD5 /* libAWLive555.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAWLive555.a; path = ../Desktop/libAWLive555.a; sourceTree = "<group>"; };
 		6CA0CF4D1F4A888C00AFDE4D /* ZWDebugInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDebugInfoView.h; sourceTree = "<group>"; };
 		6CA0CF4E1F4A888C00AFDE4D /* ZWDebugInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWDebugInfoView.m; sourceTree = "<group>"; };
 		6CA0CF621F4A88A200AFDE4D /* ZWDebugInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWDebugInfoView.xib; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9577771F9C9052008D0BD5 /* libAWLive555.a in Frameworks */,
 				F85641581DFE918400B9C9E9 /* Foundation.framework in Frameworks */,
 				F85641441DFE917900B9C9E9 /* UIKit.framework in Frameworks */,
 				DAC57F0B1DD9B1F400FDB6C4 /* VideoToolbox.framework in Frameworks */,
@@ -1172,6 +1175,7 @@
 		DAC57F091DD9B1F400FDB6C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C9577641F9C9051008D0BD5 /* libAWLive555.a */,
 				F85641571DFE918400B9C9E9 /* Foundation.framework */,
 				F85641431DFE917900B9C9E9 /* UIKit.framework */,
 				F801B4FC1DEE681600097D4B /* Bolts.framework */,
@@ -2306,6 +2310,7 @@
 					"$(PROJECT_DIR)/MR100AerialPhotography",
 					"$(PROJECT_DIR)/MR100AerialPhotography/Utils/rtmp-wrapper/Rtmp/lib",
 					"$(PROJECT_DIR)/MR100AerialPhotography/Libs/mp4v2/lib",
+					"\"$(SRCROOT)/MR100AerialPhotography/Utils/RTSP/\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -2346,6 +2351,7 @@
 					"$(PROJECT_DIR)/MR100AerialPhotography",
 					"$(PROJECT_DIR)/MR100AerialPhotography/Utils/rtmp-wrapper/Rtmp/lib",
 					"$(PROJECT_DIR)/MR100AerialPhotography/Libs/mp4v2/lib",
+					"\"$(SRCROOT)/MR100AerialPhotography/Utils/RTSP/\"",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzw.sdfsdf;
